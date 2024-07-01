@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+
+
+
+{% block body_index %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Example<i></i></h3>
+                <h6 style="text-align: justify;">&nbsp&nbsp  HMMER is a tool based on Hidden Markov Models used to create probability models for protein and DNA sequence domain families, as well as to annotate new sequences using these tools.
+               Upload HMM model comparison file, and sequence database file. The default parameter e-value is set to 1e-5.</h6>
+
+                <div > <hr style="border: 1px dashed #000; width: 100%;height: 1px; margin: 8px"/></div>
+
+                <h6>Example : <a href="../../static/example/hmmer/PF02458.hmm">hmm</a>&nbsp&nbsp<a href="../../static/example/hmmer/globins45.fa">fasta</a></h6>
+				<!-- <h6>Input file 1 : <a href="../../static/example/AOS.hmm" target="_blank">hmm</a> </h6> -->
+                <!-- <img style="width: 100%" src="../../static/image/example_hmm.png" alt=""> -->
+                <!-- <h6>Input file 2 : <a href="../../static/example/AOS.pep" target="_blank">pep</a> </h6> -->
+                <!-- <img style="width: 100%" src="../../static/image/example_aos_pep.png" alt=""> -->
+
+                <!-- <p style="text-align: left;"></p> -->
+                <!-- <div > <hr style="border: 1px dashed #000; width: 100%;height: 1px; margin: 8px"/></div> -->
+            </div>
+
+            <div class="col-lg-8">
+                <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Hmmer<i></i>
+                </h3>
+
+                <form action="hmmer_run" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+                    {% csrf_token %}
+                    <div class="row g-3">
+
+                        <div class="col-sm-6">
+                            <label for="formFile" class="form-label">Build HMM model comparison file</label>
+                            <input class="form-control" type="file" id="formFile" name="hmm_model" required>
+                            <div class="invalid-feedback">
+                                File not uploaded
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="formFile" class="form-label">Sequence database file</label>
+                            <input class="form-control" type="file" id="formFile" name="hmm_fa" required>
+                            <div class="invalid-feedback">
+                                File not uploaded
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12">
+                            <label for="lastName" class="form-label">Enter e value</label>
+                            <input type="text" class="form-control" id="lastName" name="e_value" value="1e-5" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr class="my-4">
+                    <input class="w-100 btn btn-primary btn-lg" type="submit" value="submit">
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+

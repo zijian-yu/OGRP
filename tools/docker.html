@@ -1,0 +1,118 @@
+{% extends 'index.html' %}
+
+
+{% block head_link %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Oleaceae platform</title>
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../../static/image/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../static/vendor/css/home.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/slick-theme.css"/>
+    <!-- font awesome style -->
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/style.css" rel="stylesheet"/>
+    <!-- responsive style -->
+    <link href="../../static/css/responsive.css" rel="stylesheet"/>
+    <link href="../../static/vendor/css/style.css" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block body_index %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Docker<i></i>
+                </h3>
+
+                <p><b>Purpose of using docker technology</b></p>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using docker technology we can create the analysis process of the tools we build to be used locally. And this is system independent and can be run on many platforms. Whether it's a physical machine, a virtual machine, a public cloud, a private cloud, or a laptop, the results are all consistent.
+                </p>
+                <p>
+                    <b>How to install docker on different systems</b>
+                </p>
+                <pre>
+1.# Ubuntu Docker Installation
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
+2.# Debian Docker Installation
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
+3.# CentOS Docker Installation
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
+4.# MacOS Docker Installation
+# For macOS, we can use Homebrew to install Docker.
+# Homebrew's Cask already supports Docker for Mac, so it is easy to install it using Homebrew Cask.
+$ brew install --cask --appdir=/Applications docker
+==> Creating Caskroom at /usr/local/Caskroom
+==> We'll set permissions properly so we won't need sudo in the future
+Password:          # Enter macOS password
+==> Satisfying dependencies
+==> Downloading https://download.docker.com/mac/stable/21090/Docker.dmg
+######################################################################## 100.0%
+==> Verifying checksum for Cask docker
+==> Installing Cask docker
+==> Moving App 'Docker.app' to '/Applications/Docker.app'.
+&#x1f37a;  docker was successfully installed!
+
+5.# Windows Docker Installation
+# Install Hyper-V
+# Turn on Hyper-V
+# Install Docker Desktop for Windows
+# Click <a href="https://hub.docker.com/?overlay=onboarding">Get started with Docker Desktop</a> and download the version for Windows, if you are not already logged in, you will be asked to register for a login at
+# Run the installation file
+# Double-click the downloaded Docker for Windows Installer installation file, go all the way to Next, and click Finish to complete the installation.
+# When the installation is complete, Docker will start automatically. A small whale icon will appear on the notification bar, which indicates that Docker is running.
+# Three icons will also appear on the desktop, as shown in the following image.
+# We can execute docker version at the command line to see the version number and docker run hello-world to load a test image for testing.
+# If it doesn't start, you can start it by searching for Docker in Windows at
+# Once installed, you can open PowerShell and run the following command to check if it ran successfully.
+docker run hello-world
+# After a successful run, the following message should appear.
+
+</pre>
+				<p>
+                    <b>How to directly deploy the generated Docker image</b>
+                </p>
+                <p>
+                    Use the Docker save/load command:
+                </p>
+<pre>
+# save image to tar locally
+docker save -o ./image.tar $IMAGEID
+# copy to target host
+scp ./image.tar user@host:~/
+# load into target docker repo
+ssh user@host "docker load -i ~/image.tar"
+# tag the loaded target image
+ssh user@host "docker tag $LOADED_IMAGE_ID myimage:latest"
+</pre>
+                <p>
+                    PS: LOADED_IMAGE_ID can be retrieved in following way:
+                </p>
+<pre>
+REMOTE_IMAGE_ID=`ssh user@host"docker load -i ~/image.tar" | grep -o "sha256:.*"`
+</pre>
+                <p>
+                    Update: You can gzip output to make it smaller.
+                </p>
+<pre>
+docker save $IMAGEID | gzip > image.tar.gz
+</pre>
+                <p>
+                    Tools Docker link: <a href="../../static/docker/image.tar">image.tar</a>
+                </p>
+				</div>
+		</div>
+</div>
+{% endblock %}
+
+
+

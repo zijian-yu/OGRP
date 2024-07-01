@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+            <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Pipeline<i></i></h3>
+
+            <!--多倍化鉴定-->
+
+            <div class="col-md-12">
+                <img style="width:100%" src="../static/image/pipeline.png" usemap="#pipeline_1"  alt="">
+                <map name="pipeline_1">
+                    <area shape="circle" coords="120,100,60" href="{% url "case_genome_url" %}">
+                    <area shape="circle" coords="420,100,60" href="{% url "case_blast_url" %}">
+                    <area shape="circle" coords="720,100,60" href="{% url "case_block_url" %}">
+                    <area shape="circle" coords="1020,100,60" href="{% url "case_ks_url" %}">
+
+                    <area shape="circle" coords="120,260,60" href="{% url "case_ESR_url" %}">
+                    <area shape="circle" coords="420,260,60" href="{% url "case_dating_url" %}">
+                    <area shape="circle" coords="720,260,60" href="{% url "case_phylogeny_url" %}">
+                    <area shape="circle" coords="1020,260,60" href="{% url "case_wgd_event_url" %}">
+	    
+                    <area shape="circle" coords="140,450,60" href="{% url "case_ESR_url" %}">
+                    <area shape="circle" coords="560,450,60" href="{% url "case_CSR_url" %}">
+                    <area shape="circle" coords="950,450,60" href="{% url "case_MCR_url" %}">
+                    <area shape="circle" coords="120,580,60" href="{% url "case_VCP_url" %}">
+                    <area shape="circle" coords="560,580,60" href="{% url "case_AK_url" %}">
+                    <area shape="circle" coords="950,580,60" href="{% url "case_karyotype_url" %}">
+
+                    <area shape="circle" coords="560,780,40" href="{% url "case_hmmer_url" %}">
+
+                    <area shape="circle" coords="150,900,60" href="{% url "case_evolution_event_url" %}">
+                    <area shape="circle" coords="400,900,60" href="{% url "case_tree_url" %}">
+                    <area shape="circle" coords="580,900,60" href="{% url "case_circos_url" %}">
+                    <area shape="circle" coords="780,900,50" href="{% url "case_structure_url" %}">
+                    <area shape="circle" coords="1000,900,40" href="{% url "case_expression_url" %}">
+
+                    <area shape="circle" coords="550,1050,60" href="{% url "case_family_url" %}">
+<!--                        <area shape="circle" coords="1020,1030,50" href="{% url "gsds_url" %}">-->
+                </map>
+            </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

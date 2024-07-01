@@ -1,0 +1,114 @@
+{% extends 'index.html' %}
+
+
+
+{% block body_index %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Example<i></i></h3>
+				<h6 style="text-align: justify;">&nbsp&nbsp  Paleo-gene_identifer is a gene composition identification tool for polyploidization generated subgenomes. Upload BLAST file, block file, correspondence file, species lens file and species gff file.</h6>
+                <div > <hr style="border: 1px dashed #000; width: 100%;height: 1px; margin: 8px"/></div>
+                <h6>Example :
+                <br><a href="../../static/example/mc_run/Nda_Aco.new.blast">blast</a>&nbsp&nbsp<a href="../../static/example/mc_run/Nda_Aco.block.rr.txt">block</a>
+                    &nbsp&nbsp<a href="../../static/example/mc_run/Nda_Aco.corr.txt">correspondence</a>
+                <br><a href="../../static/example/mc_run/Nda.lens">lens1</a>&nbsp&nbsp<a href="../../static/example/mc_run/Aco.lens">lens2</a>
+                <br><a href="../../static/example/mc_run/Nda.new.gff">gff1</a>&nbsp&nbsp<a href="../../static/example/mc_run/Aco.new.gff">gff2</a></h6>
+                <!-- <h6>Input file 1 : <a href="../../static/example/Jsa_Sob.blast" target="_blank">blast</a> </h6> -->
+                <!-- <img style="width: 100%" src="../../static/image/example_blast_jsasob.png" alt=""> -->
+                <!-- <h6>Input file 2 : <a href="../../static/example/Jsa_Oeu.block.rr.txt" target="_blank">block</a> </h6> -->
+                <!-- <img style="width: 100%" src="../../static/image/example_block_rr.png" alt=""> -->
+                <!-- <h6>Input file 3 : <a href="../../static/example/Chu_Jsa.corrospondence.txt" target="_blank">Correspondence</a> </h6> -->
+                <!-- <img style="width: 100%" src="../../static/image/example_corrospondence.png" alt=""> -->
+                <!-- <h6>Input file 4 : <a href="../../static/example/Jsa.new.gff" target="_blank">gff</a> </h6> -->
+                <!-- <img style="width: 100%" src="../../static/image/example_gff_jsa.png" alt=""> -->
+                <!-- <h6>Input file 5 : <a href="../../static/example/Jsa.lens" target="_blank">lens</a> </h6> -->
+                <!-- <img style="width: 100%" src="../../static/image/example_lens_jsa.png" alt=""> -->
+            </div>
+
+            <div class="col-lg-8">
+                <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Paleo-gene_identifer<i></i>
+                </h3>
+
+                <form action="zu_correspondence_mc_run" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="exampleInputFile">Upload BLAST file:</label>
+                            <input class="form-control" type="file" id="formFile" name="blast" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="exampleInputFile">Upload block file:</label>
+                            <input class="form-control" type="file" id="formFile" name="block" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="exampleInputFile">Upload Correspondence file:</label>
+                            <input class="form-control" type="file" id="formFile" name="correspondence" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Species 1 lens file:</label>
+                            <input class="form-control" type="file" id="formFile" name="shu_len" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Species 2 lens file:</label>
+                            <input class="form-control" type="file" id="formFile" name="heng_len" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Species 1 gff file:</label>
+                            <input class="form-control" type="file" id="formFile" name="shu_gff" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Species 2 gff file:</label>
+                            <input class="form-control" type="file" id="formFile" name="heng_gff" required>
+                        </div>
+
+{#                        <div class="col-md-6">#}
+{#                            <label>Species 1 Name:</label>#}
+{#                            <input type="text" class="form-control" name="heng_species" value="" required>#}
+{#                        </div>#}
+{##}
+{#                        <div class="col-md-6">#}
+{#                            <label>Species 2 Name:</label>#}
+{#                            <input type="text" class="form-control" name="shu_species" value="" required>#}
+{#                        </div>#}
+
+{#                        <div class="col-md-12">#}
+{#                            <label for="email" class="form-label">Email <span class="text-muted"></span></label>#}
+{#                            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>#}
+{#                            <div class="invalid-feedback">#}
+{#                                Please enter a valid email address.#}
+{#                            </div>#}
+{#                        </div>#}
+
+                        <div class="col-lg-12">
+                            <input class="w-100 btn btn-primary btn-lg" type="submit" value="submit" onclick="go()">
+                            <center>
+                                <span id="wait1" class="spinner-border spinner-border-sm" style="display:none"></span>
+                                <span id="wait2" style="display:none;padding-top: 30px">&nbsp;&nbsp;It is running, please wait a moment!</span>
+                            </center>
+                            <script>
+                                function go() {
+                                    var hh1 = document.getElementById("wait1");
+                                    var hh2 = document.getElementById("wait2");
+                                    if (hh1.style.display === "none" && hh2.style.display === "none") {
+                                        hh1.style.display = "inline-block";
+                                        hh2.style.display = "inline-block"
+                                    }
+                                    document.getElementById('go').submit()
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
