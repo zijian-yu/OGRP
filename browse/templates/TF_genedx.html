@@ -1,0 +1,137 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Oleaceae platform</title>
+    <link href="../../static/vendor/css/style.css" rel="stylesheet">
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../../static/image/ico.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../static/vendor/css/home.css" type="text/css">
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/vendor/css/modern-business.css" rel="stylesheet">
+    <script src="../../static/js/jquery-3.5.1.js"></script>
+    <script src="../../static/js/jquery.dataTables.min.js"></script>
+    <link href="../../static/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/slick-theme.css"/>
+
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../../static/css/style.css" rel="stylesheet"/>
+    <link href="../../static/css/responsive.css" rel="stylesheet"/>
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+{% endblock %}
+
+
+{% block body_index %}
+<h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;"><b>Transcription factor</b><i></i>
+    </h3>
+    <div class="row" style="">
+        <h6 class="col-md-12" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+            &emsp;&emsp;Transcription factor (TF), also known as trans-acting factor, is a DNA-binding protein that specifically interacts with cis-acting elements of eukaryotic genes and has an activating or inhibiting effect on gene transcription. The functional study of TF and its interacting factors is essential to understand their roles in the signaling cascade, providing a theoretical basis for basic research and production applications.
+        <br>
+    &emsp;&emsp;We used <b>PlantTFDB</b> (Tian et al., 2020) to predict 58 transcription factor gene families in 4 Oleaceae and obtained detailed information of the corresponding sequences by pfam, and a total of <b>12664</b> TF-related genes were obtained. More details can be viewed by clicking into.
+        </h6>
+        <!--<div class="col-md-3">
+            <a href="../../static/image/TF_genes_logo1.png" target="_blank">
+            <img style="width: 100%" src="../../static/image/TF_genes_logo1.png" alt="">
+            </a>
+        </div>-->
+        <hr width="100%" style="border: dotted 2px">
+    </div>
+
+
+    <!-- choose module -->
+
+    <table class="table table-striped" style="text-align: center">
+        <tbody>
+            <tr>
+                <td><a  style="color: green;" href="{% url "TF_genes" "AP2" %}"><b>AP2</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "ARF" %}"><b>ARF</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "ARR-B" %}"><b>ARR-B</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "B3" %}"><b>B3</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "BBR-BPC" %}"><b>BBR-BPC</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "BES1" %}"><b>BES1</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "TF_genes" "bHLH" %}"><b>bHLH</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "bZIP" %}"><b>bZIP</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "C2H2" %}"><b>C2H2</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "C3H" %}"><b>C3H</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "CAMTA" %}"><b>CAMTA</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "CO-like" %}"><b>CO-like</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "TF_genes" "CPP" %}"><b>CPP</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "DBB" %}"><b>DBB</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "Dof" %}"><b>Dof</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "E2F_DP" %}"><b>E2F/DP</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "EIL" %}"><b>EIL</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "ERF" %}"><b>ERF</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "TF_genes" "FAR1" %}"><b>FAR1</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "G2-like" %}"><b>G2-like</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "GATA" %}"><b>GATA</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "GeBP" %}"><b>GeBP</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "GRAS" %}"><b>GRAS</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "GRF" %}"><b>GRF</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "TF_genes" "HB-other" %}"><b>HB-other</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "HB-PHD" %}"><b>HB-PHD</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "HD-ZIP" %}"><b>HD-ZIP</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "HRT-like" %}"><b>HRT-like</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "HSF" %}"><b>HSF</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "LBD" %}"><b>LBD</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "TF_genes" "LFY" %}"><b>LFY</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "LSD" %}"><b>LSD</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "MIKC_MADS" %}"><b>MIKC_MADS</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "M-type_MADS" %}"><b>M-type_MADS</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "MYB" %}"><b>MYB</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "MYB_related" %}"><b>MYB_related</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "TF_genes" "NAC" %}"><b>NAC</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "NF-X1" %}"><b>NF-X1</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "NF-YA" %}"><b>NF-YA</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "NF-YB" %}"><b>NF-YB</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "NF-YC" %}"><b>NF-YC</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "Nin-like" %}"><b>Nin-like</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "TF_genes" "NZZ_SPL" %}"><b>NZZ/SPL</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "RAV" %}"><b>RAV</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "S1Fa-like" %}"><b>S1Fa-like</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "SAP" %}"><b>SAP</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "SBP" %}"><b>SBP</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "SRS" %}"><b>SRS</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "TF_genes" "STAT" %}"><b>STAT</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "TALE" %}"><b>TALE</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "TCP" %}"><b>TCP</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "Trihelix" %}"><b>Trihelix</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "VOZ" %}"><b>VOZ</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "Whirly" %}"><b>Whirly</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "TF_genes" "WOX" %}"><b>WOX</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "WRKY" %}"><b>WRKY</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "YABBY" %}"><b>YABBY</b></a></td>
+                <td><a  style="color: green;" href="{% url "TF_genes" "ZF-HD" %}"><b>ZF-HD</b></a></td>
+<td>---</td>
+<td>---</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

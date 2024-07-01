@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;"><b>Expansion pattern analysis</b><i></i>
+        </h3>
+    </div>
+
+    <h6 class="col-md-8" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+          To analyze the chromosomal localization and expansion patterns of family genes, we can use the <a href="/commands#Excircle">GF_circos</a> tool to draw genomic circles. Through whole genome visualization of the similarity among family genes, it can be found that genes are tandem duplicated into several clusters in the genome. 
+
+
+    </h6>
+        <div class="col-md-4">
+            <img style="width: 100%" src="../../static/image/example_gene_circle.png" alt="">
+        </div>
+    <hr width="100%" style="border: dotted 2px">
+</div>
+
+
+
+{% endblock %}

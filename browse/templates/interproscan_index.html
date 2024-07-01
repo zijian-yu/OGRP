@@ -1,0 +1,112 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+
+    <div class="row">
+        <div class="col-12">
+            <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Gene functional annotation<i></i>
+            </h3>
+        </div>
+
+        <h6 class="col-md-12" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+            &emsp;&emsp;Interproscan (Jones et al., 2014) is a gene annotation tool that allows the annotation of multiple databases in a single run.
+            <br>&emsp;&emsp;We analyzed genes from 4 Oleaceae for annotation and obtained a total of 1,785,987 annotations. We have piggybacked on the platform so that researchers can not only easily access but also search to find annotation information of gene id, sequence length, analysis software, gene annotation information, start and stop positions, IPR number and Go number. In addition, we performed statistics on the structural domains of each of the 4 Oleaceae and outgroup grape species.
+            <br>&emsp;&emsp;Select a Oleaceae specie and click Submit to see the results of the gene annotation for the changed species. The relevant gene ids can be obtained from the Oleaceae blast and match under the Tools module.
+        </h6>
+        <!--<div class="col-md-5">
+            <img style="width: 100%" src="../../static/image/interproscan_img.png" alt="">
+        </div>-->
+        <hr width="100%" style="
+        border: dotted 2px">
+
+
+        <form action="interproscan_index_run" method="post" class="col-12" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="state" class="form-label">Species</label>
+                    <select class="form-control" id="initials" name="sp_data_1" onchange="Change_second_selectwords();" style="font-style: italic;">
+                        <option value="Sob">Syringa oblata</option>
+                        <option value="Fpe">Fraxinus pennsylvanica</option>
+                        <option value="Jsa">Jasminum sambac</option>
+                        <option value="Oeu">Olea europaea</option>
+                        <option value="Chu">Coffea humblotiana</option>
+                        <option value="Vvi">Vitis vinifera</option>
+                    </select>
+                    <div class="invalid-feedback">
+                    Please provide a valid state.
+                </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="state" class="form-label">Database</label>
+                    <select class="form-control" id="top_domains" name="sp_data_2" required>
+                        
+                        <option value="CDD">CDD</option>
+                        <option value="FunFam">FunFam</option>
+                        <option value="Gene3D">Gene3D</option>
+                        <option value="Hamap">Hamap</option>   
+                        <option value="NCBIfam">NCBIfam</option>
+                        <option value="PANTHER">PANTHER</option>
+                        <option value="Pfam">Pfam</option>
+                        <option value="PIRSF">PIRSF</option>
+                        <option value="PRINTS">PRINTS</option>
+                        <option value="ProSitePatterns">ProSitePatterns</option>
+                        <option value="ProSiteProfiles">ProSiteProfiles</option>
+                        <option value="SFLD">SFLD</option>
+                        <option value="SMART">SMART</option>
+                        <option value="SUPERFAMILY">SUPERFAMILY</option>
+						<option value="AntiFam">AntiFam</option>
+						<option value="Coils">Coils</option>
+						<option value="MobiDBLite">MobiDBLite</option>
+						
+                    </select>
+                    <div class="invalid-feedback">
+                        Please provide a valid state.
+                    </div>
+                </div>
+
+                <script>
+                    var first_keywords = {};
+                    //定义每个字母对应的第二个下拉框
+                    first_keywords['Sob'] = ["CDD","FunFam","Gene3D","Hamap","NCBIfam","PANTHER","Pfam","PIRSF","PRINTS","ProSitePatterns","ProSiteProfiles","SFLD","SMART","SUPERFAMILY","AntiFam","Coils","MobiDBLite"];
+                    first_keywords['Fpe'] = ["CDD","FunFam","Gene3D","Hamap","NCBIfam","PANTHER","Pfam","PIRSF","PRINTS","ProSitePatterns","ProSiteProfiles","SFLD","SMART","SUPERFAMILY","AntiFam","Coils","MobiDBLite"];
+                    first_keywords['Jsa'] = ["CDD","FunFam","Gene3D","Hamap","NCBIfam","PANTHER","Pfam","PIRSF","PRINTS","ProSitePatterns","ProSiteProfiles","SFLD","SMART","SUPERFAMILY","Coils","MobiDBLite"];
+                    first_keywords['Oeu'] = ["CDD","FunFam","Gene3D","Hamap","NCBIfam","PANTHER","Pfam","PIRSF","PRINTS","ProSitePatterns","ProSiteProfiles","SFLD","SMART","SUPERFAMILY","Coils","MobiDBLite"];
+                    first_keywords['Chu'] = ["CDD","FunFam","Gene3D","Hamap","NCBIfam","PANTHER","Pfam","PIRSF","PRINTS","ProSitePatterns","ProSiteProfiles","SFLD","SMART","SUPERFAMILY","AntiFam","Coils","MobiDBLite"];
+                    first_keywords['Vvi'] = ["CDD","FunFam","Gene3D","Hamap","NCBIfam","PANTHER","Pfam","PIRSF","PRINTS","ProSitePatterns","ProSiteProfiles","SFLD","SMART","SUPERFAMILY","AntiFam","Coils","MobiDBLite"];
+
+                    function Change_second_selectwords() {
+                        //根据id找到两个下拉框对象
+                        var target1 = document.getElementById("initials");
+                        var target2 = document.getElementById("top_domains");
+                        //得到第一个下拉框的内容
+                        var selected_initial = target1.options[target1.selectedIndex].value;
+
+                        //清空第二个下拉框
+                        while (target2.options.length) {
+                            target2.remove(0);
+                        }
+                        //根据第一个下拉框的内容找到对应的列表
+                        var initial_list = first_keywords[selected_initial];
+                        var value;
+                        if (initial_list) {
+                            for (var i = 0; i < initial_list.length; i++) {
+                                var item = new Option(initial_list[i], value=initial_list[i]);
+                                //将列表中的内容加入到第二个下拉框
+                                target2.options.add(item);
+                            }
+                        }
+                    }
+                </script>
+
+                <input class="w-100 btn btn-primary btn-lg" style="margin-top: 40px" type="submit" value="submit">
+            </div>
+        </form>
+    </div>
+
+
+{#    <iframe src="http://47.92.161.27:8523/#/dashboard/bn" style="height: 1400px;width: 100%"></iframe>#}
+
+{% endblock %}

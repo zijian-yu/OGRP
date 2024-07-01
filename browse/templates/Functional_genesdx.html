@@ -1,0 +1,290 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Oleaceae platform</title>
+    <link href="../../static/vendor/css/style.css" rel="stylesheet">
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../../static/image/ico.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../static/vendor/css/home.css" type="text/css">
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/vendor/css/modern-business.css" rel="stylesheet">
+    <script src="../../static/js/jquery-3.5.1.js"></script>
+    <script src="../../static/js/jquery.dataTables.min.js"></script>
+    <link href="../../static/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/slick-theme.css"/>
+
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../../static/css/style.css" rel="stylesheet"/>
+    <link href="../../static/css/responsive.css" rel="stylesheet"/>
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+{% endblock %}
+
+
+{% block body_index %}
+<h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;"><b>Functional genes</b><i></i>
+    </h3>
+    <div class="row" style="">
+        <h6 class="col-md-12" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+            &emsp;&emsp;Functional genes include: biological functions, such as phosphorylation modification of specific proteins as protein kinases; Cytological functions, such as involvement in intercellular and intracellular signaling pathways; Developmental functions, such as participating in morphogenesis. The methods used include classical subtractive hybridization, differential screening, cDNA representative differential analysis, and mRNA differential display.
+        </h6>
+        <!--<div class="col-md-3">
+            <a href="../../static/image/TF_genes_logo1.png" target="_blank">
+            <img style="width: 100%" src="../../static/image/TF_genes_logo1.png" alt="">
+            </a>
+        </div>-->
+        <hr width="100%" style="border: dotted 2px">
+    </div>
+
+
+    <!-- Oleuropein biosynthesis related genes-->
+
+    <table class="table table-striped" style="text-align: center">
+        <tbody>
+            <h5><b style="color: #b7ab25">Oleuropein biosynthesis</b></h5>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "6-HGO" %}"><b>6-HGO</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "7-DLGT" %}"><b>7-DLGT</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "7-DLH" %}"><b>7-DLH</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "ALDH" %}"><b>ALDH</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CuAO" %}"><b>CuAO</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "TDC-G" %}"><b>TDC-G</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "G8H" %}"><b>G8H</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "GES" %}"><b>GES</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "IO" %}"><b>IO</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "ISY" %}"><b>ISY</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "LAMT" %}"><b>LAMT</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "PAR-G" %}"><b>PAR-G</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "PPO" %}"><b>PPO</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "SLS-G" %}"><b>SLS-G</b></a></td>
+                <td>---</td>
+                <td>---</td>
+                <td>---</td>
+                <td>---</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Terpene and phenylpropanoid/benzenoid biosynthesis genes -->
+
+    <table class="table table-striped" style="text-align: center">
+        <tbody>
+            <h5><b style="color: #b7ab25">Terpene and phenylpropanoid/benzenoid biosynthesis</b></h5>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "DXS" %}"><b>DXS</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "GPPS" %}"><b>GPPS</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "HMGR" %}"><b>HMGR</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "PAL" %}"><b>PAL</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "TPS" %}"><b>TPS</b></a></td>
+                <td>---</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!-- Jasmonic acid synthesis -->
+
+    <table class="table table-striped" style="text-align: center">
+        <tbody>
+            <h5><b style="color: #b7ab25">Jasmonic acid biosynthesis</b></h5>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AOS" %}"><b>AOS</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "JAR1" %}"><b>JAR1</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "KAT" %}"><b>KAT</b></a></td>
+                <td>---</td>
+                <td>---</td>
+                <td>---</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Growth and development genes -->
+
+    <table class="table table-striped" style="text-align: center">
+        <tbody>
+            <h5><b style="color: #b7ab25">Growth and development</b></h5>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "14-3-3" %}"><b>14-3-3</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "ABI3VP1" %}"><b>ABI3VP1</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "ALDH" %}"><b>ALDH</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "ARR-B" %}"><b>ARR-B</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "ARF" %}"><b>ARF</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AAAP" %}"><b>AAAP</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AS2" %}"><b>AS2</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AP2EREBP" %}"><b>AP2EREBP</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "BBR" %}"><b>BBR</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "bHLH" %}"><b>bHLH</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "bZIP" %}"><b>bZIP</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "BZR" %}"><b>BZR</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "B3" %}"><b>B3</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AHL" %}"><b>AHL</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "C2H2" %}"><b>C2H2</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "COBRA" %}"><b>COBRA</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CPP" %}"><b>CPP</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CDPK" %}"><b>CDPK</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "DOF" %}"><b>DOF</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "EXO70" %}"><b>EXO70</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CDPK" %}"><b>CDPK</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CAMTA" %}"><b>CAMTA</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CIPK" %}"><b>CIPK</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "EIL" %}"><b>EIL</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "Expansin" %}"><b>Expansin</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "F-box" %}"><b>F-box</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "TIFY" %}"><b>TIFY</b></a></td>
+                <td>---</td>
+                <td>---</td>
+                <td>---</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Salt-tolerant genes -->
+
+    <table class="table table-striped" style="text-align: center">
+        <tbody>
+            <h5><b style="color: #b7ab25">Salt-tolerance</b></h5>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AL" %}"><b>AL</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CDPK" %}"><b>CDPK</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "EIL" %}"><b>EIL</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "EIF" %}"><b>EIF</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "F-box" %}"><b>F-box</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "TIFY" %}"><b>TIFY</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "B3" %}"><b>B3</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AHL" %}"><b>AHL</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AP2EREBP" %}"><b>AP2EREBP</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AAAP" %}"><b>AAAP</b></a></td>
+                <td>---</td>
+                <td>---</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Heat and cold resistance genes -->
+
+    <table class="table table-striped" style="text-align: center">
+        <tbody>
+            <h5><b style="color: #b7ab25">Heat and cold resistance</b></h5>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AHL" %}"><b>AHL</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "B3" %}"><b>B3</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "TIFY" %}"><b>TIFY</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "F-box" %}"><b>F-box</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "HSF" %}"><b>HSF</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "Expansin" %}"><b>Expansin</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CIPK" %}"><b>CIPK</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CAMTA" %}"><b>CAMTA</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "EIL" %}"><b>EIL</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CDPK" %}"><b>CDPK</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AL" %}"><b>AL</b></a></td>
+                <td>---</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Drought resistance genes -->
+
+    <table class="table table-striped" style="text-align: center">
+        <tbody>
+            <h5><b style="color: #b7ab25">Drought resistance</b></h5>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CIPK" %}"><b>CIPK</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CPP" %}"><b>CPP</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "BZR" %}"><b>BZR</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "Expansin" %}"><b>Expansin</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "F-box" %}"><b>F-box</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "TIFY" %}"><b>TIFY</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "B3" %}"><b>B3</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AHL" %}"><b>AHL</b></a></td>
+                <td>---</td>
+                <td>---</td>
+                <td>---</td>
+                <td>---</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- CBF抗寒 -->
+
+    <table class="table table-striped" style="text-align: center">
+        <tbody>
+            <h5><b style="color: #b7ab25">Cold tolerance</b></h5>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CBF" %}"><b>CBF</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "PDAT1" %}"><b>PDAT1</b></a></td>
+                <td>---</td>
+                <td>---</td>
+                <td>---</td>
+                <td>---</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- protein kinase -->
+
+    <table class="table table-striped" style="text-align: center">
+        <tbody>
+            <h5><b style="color: #b7ab25">Protein kinase</b></h5>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AGC" %}"><b>AGC</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "AGC-Pl" %}"><b>AGC-Pl</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "Aur" %}"><b>Aur</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "BUB" %}"><b>BUB</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CAMK" %}"><b>CAMK</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CK1" %}"><b>CK1</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "CMGC" %}"><b>CMGC</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "Group-Pl" %}"><b>Group-Pl</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "IRE1" %}"><b>IRE1</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "NAK" %}"><b>NAK</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "NEK" %}"><b>NEK</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "PEK" %}"><b>PEK</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "RLK-Pelle" %}"><b>RLK-Pelle</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "SCY1" %}"><b>SCY1</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "STE" %}"><b>STE</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "TKL" %}"><b>TKL</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "TKL-Pl" %}"><b>TKL-Pl</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "TLK" %}"><b>TLK</b></a></td>
+            </tr>
+            <tr>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "TTK" %}"><b>TTK</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "ULK" %}"><b>ULK</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "WEE" %}"><b>WEE</b></a></td>
+                <td><a  style="color: green;" href="{% url "Functional_genes" "WNK" %}"><b>WNK</b></a></td>
+                <td>---</td>
+                <td>---</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+{% endblock %}

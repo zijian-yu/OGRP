@@ -1,0 +1,84 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oleaceae platform</title>
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../../static/image/ico.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../static/vendor/css/home.css" type="text/css">
+
+    <script src="../../static/js/jquery-3.5.1.js"></script>
+    <script src="../../static/js/jquery.dataTables.min.js"></script>
+    <link href="../../static/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/slick-theme.css"/>
+    <!-- font awesome style -->
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/style.css" rel="stylesheet"/>
+    <!-- responsive style -->
+    <link href="../../static/css/responsive.css" rel="stylesheet"/>
+    <link href="../../static/vendor/css/style.css" rel="stylesheet">
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "ajax": "../../static/dotplot/colinearscan_kaks.json",
+                "deferRender": true,
+                // "scrollX": true
+                "columnDefs": [
+                {
+                    "targets": [0,1],
+                    "render": function (data, type, row, meta) {
+                        return '<em>' + data + '</em>';
+                    },
+                },
+                ],
+            });
+        });
+    </script>
+{% endblock %}
+
+
+{% block body_index %}
+<h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;"><b>Blocks</b><i></i>
+    </h3>
+        <div class="row" style>
+            <h6 class="col-md-12" style="font-family:'Arial',sans-serif;color: black;text-align: justify">
+                &nbsp&nbsp&nbsp&nbsp    Blocks stored synteny results from 72 pair-wised genome comparisons generated from CollinearScan (X. Wang et al., 2006) and McScanX (Y. Wang et al., 2012), including 124,361 blocks and 1,952,225 gene pairs. The nonsynonymous substitution rate (<em>Ka</em>) and synonymous substitution rate (<em>Ks</em>) were calculated for each pair of syntenic genes. Through this data source, research can easily obtain genomic synteny and nucleotide variation information at the single gene, multiple genes, and whole genome scales. </h6>
+            <!--<div class="col-md-4">
+                <img style="width:100%" src="../../static/image/coliniear_kaks.png">
+            </div>-->
+        </div>
+    <hr width="100%" style="border: dotted 2px">
+
+    <div class="container" style="padding-top: 40px; padding-bottom: 40px; padding-top: 0">
+        <div id="example_wrapper" class="dataTables_wrapper no-footer">
+            <table id="example" class="display dataTable no-footer" aria-describedby="example_info" style="text-align: center">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Species1</th>
+                        <th rowspan="2">Species2</th>
+                        <th colspan="1" style="text-align: right">MCScanX</th>
+                        <th></th>
+                        <th colspan="2">ColinearScan</th>
+                    </tr>
+                    <tr>
+                        <th>Blocks</th>
+                        <th><em>KaKs</em></th>
+                        <th>Blocks</th>
+                        <th><em>KaKs</em></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+{% block list_js %}
+    <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+
+    <div class="row">
+        <div class="col-12">
+            <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/shuye.png); font-family:'Arial',sans-serif;color:black;">Genome Synteny Viewer<i></i>
+            </h3>
+        </div>
+        <form action="pfam_index_run" method="post" class="col-12" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="state" class="form-label">species database</label>
+                    <select class="form-control" id="state" name="sp_data_1" required>
+                        <option value="Aev">Aeschynomene evenia</option>
+                        <option value="Adu">Arachis duranensis</option>
+                        <option value="Ahy">Arachis hypogaea</option>
+                        <option value="Aip">Arachis ipaensis</option>
+                        <option value="Amo">Arachis monticola</option>
+                        <option value="Aed">Amphicarpaea edgeworthii</option>
+                        <option value="Apr">Abrus precatorius</option>
+                        <option value="Bva">Bauhinia variegata</option>
+                        <option value="Car">Cicer arietinum</option>
+                        <option value="Cca">Cajanus cajan</option>
+                        <option value="Dod">Dalbergia odorifera</option>
+                        <option value="Gma">Glycine max</option>
+                        <option value="Gso">Glycine soja</option>
+                        <option value="Lal">Lupinus albus</option>
+                        <option value="Lan">Lupinus angustifolius</option>
+                        <option value="Lja">Lotus japonicus</option>
+                        <option value="Mal">Melilotus albus</option>
+                        <option value="Mtr">Medicago truncatula</option>
+                        <option value="Psa">Pisum sativum</option>
+                        <option value="Pvu">Phaseolus vulgaris</option>
+                        <option value="Ssu">Spatholobus suberectus</option>
+                        <option value="Sto">Senna tora</option>
+                        <option value="Tsu">Trifolium subterranum</option>
+                        <option value="Tpr">Trifolium pratense</option>
+                        <option value="Vra">Vigna radiata</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please provide a valid state.
+                    </div>
+                </div>
+
+                <input class="w-100 btn btn-primary btn-lg" style="margin-top: 40px" type="submit" value="submit">
+            </div>
+        </form>
+    </div>
+
+
+{#    <iframe src="http://47.92.161.27:8523/#/dashboard/bn" style="height: 1400px;width: 100%"></iframe>#}
+
+{% endblock %}

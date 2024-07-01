@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+
+    <div class="row">
+        <div class="col-12">
+            <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">KEGG annotations <i></i>
+            </h3>
+        </div>
+        <h6 class="col-md-8" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+              KEGG PATHWAY (Minoru Kanehisa et al., 2017) is a collection of manually drawn pathway maps representing our knowledge of the molecular interaction, reaction and relation networks for:
+            1. <a href="https://www.genome.jp/kegg/pathway.html#metabolism" target="_blank">Metabolism</a>
+            2. <a href="https://www.genome.jp/kegg/pathway.html#genetic" target="_blank">Genetic Information Processing</a>
+            3. <a href="https://www.genome.jp/kegg/pathway.html#environmental" target="_blank">Environmental Information Processing</a>
+            4. <a href="https://www.genome.jp/kegg/pathway.html#cellular" target="_blank">Cellular Processes</a>
+            5. <a href="https://www.genome.jp/kegg/pathway.html#organismal" target="_blank">Organismal Systems</a>
+            6. <a href="https://www.genome.jp/kegg/pathway.html#disease" target="_blank">Human Diseases</a>
+            7. <a href="https://www.genome.jp/kegg/pathway.html#drug" target="_blank">Drug Development</a>.
+            <br>   Pathway annotation of 4 Oleaceae genomes were performed using <a href="https://www.kegg.jp/ghostkoala/" target="_blank"><b>GhostKoala</b></a> (Minoru Kanehisa et al., 2015), respectively, it is being a tool provided by the Kyoto Encyclopedia of Genes and Genomes (<a href="http://www.genome.jp/kegg/" target="_blank"><b>http://www.genome.jp/kegg</b></a>).
+            <br>  Select a species of the Oleaceae family and click Submit to see the results of the gene annotation for the changed species. The relevant gene ids can be obtained from the Oleaceae blast and match under the Tools module.
+        </h6>
+        <div class="col-md-4">
+            <a href="../../static/image/map03040.png" target="_blank">
+            <img style="width: 70%" src="../../static/image/map03040.png" alt="">
+            </a>
+
+        </div>
+        <form action="kegg_index_run" method="post" class="col-12" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="state" class="form-label">species database</label>
+                    <select style="font-style: italic;" class="form-control" id="state" name="sp_data_1" required>
+                        <option value="Fpe">Fraxinus pennsylvanica</option>
+                        <option value="Jsa">Jasminum sambac</option>
+                        <option value="Oeu">Olea europaea</option>
+                        <option value="Sob">Syringa oblata</option>
+                        <option value="Chu">Coffea humblotiana</option>
+                        <option value="Vvi">Vitis vinifera</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please provide a valid state.
+                    </div>
+                </div>
+
+                <input class="w-100 btn btn-primary btn-lg" style="margin-top: 40px" type="submit" value="submit">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

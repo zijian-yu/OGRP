@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head_link %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Oleaceae platform</title>
+        <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../static/vendor/css/modern-business.css" rel="stylesheet">
+        <link rel="icon" href="../../static/image/ico.jpg" type="image/x-icon"/>
+        <link rel="stylesheet" href="../../static/vendor/css/home.css" type="text/css">
+        <link rel="stylesheet" href="../../static/css/slick-theme.css"/>
+        <!-- font awesome style -->
+        <link href="../../static/css/font-awesome.min.css" rel="stylesheet"/>
+        <!-- Custom styles for this template -->
+        <link href="../../static/css/style.css" rel="stylesheet"/>
+        <!-- responsive style -->
+        <link href="../../static/css/responsive.css" rel="stylesheet"/>
+        <link href="../../static/vendor/css/style.css" rel="stylesheet">
+    {% endblock %}
+</head>
+
+
+<body style="padding-top: 0">
+<!-- Navigation -->
+{% block header_index %}
+    <img class="banner-image" src="../../static/image/logo1.png" alt="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info" >
+        <div class="container">
+            <li class="nav-item navbar-brand">
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Home -->
+                        <li class="nav-item" style="padding-right: 20px">
+                            <a class="nav-link" href="{% url "index_url" %}" id="navbarDropdownPages"
+                               aria-haspopup="true" aria-expanded="false">
+                                Home
+                            </a>
+                        </li>
+
+                        <!-- Tools -->
+                        <li class="nav-item dropdown" style="padding-right: 20px">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Tools <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <!-- Blast -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">ldentification of polyploidization</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "f_blast_url" %}">Run blast</a></li>
+                                            <li><a class="dropdown-item" href="{% url "diamond_url" %}">Run diamond</a></li>
+                                            <li><a class="dropdown-item" href="{% url "blast_match_url" %}">Blast match</a></li>
+                                            <li><a class="dropdown-item" href="{% url "sequenceserver_url" %}">Blast visualization</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Syntenic -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Syntenic</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "mcscanx_url" %}">MCScanX</a></li>
+                                            <li><a class="dropdown-item" href="{% url "colinearscan_url" %}">ColinearScan</a></li>
+                                            <li><a class="dropdown-item" href="{% url "dupgen_finder_url" %}">Dupgen finder</a></li>
+                                            <li><a class="dropdown-item" href="{% url "synvisio_url" %}">synvisio</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Phylogenetics -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:;">Phylogenetics</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "sequence_alignment_url" %}">Sequence Alignment</a></li>
+                                            <li><a class="dropdown-item" href="{% url "iq_tree_url" %}">IQ-Tree</a></li>
+                                            <li><a class="dropdown-item" href="{% url "fasttree_url" %}">FastTree</a></li>
+                                            <li><a class="dropdown-item" href="{% url "phyml_url" %}">Phyml</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Gene family -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:;">Gene family</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "hmmer_run_url" %}">Hmmer</a></li>
+                                            <li><a class="dropdown-item" href="{% url "pfam_run_url" %}">Pfam</a></li>
+                                            <li><a class="dropdown-item" href="{% url "meme_suit_url" %}">MEME Suite</a></li>
+                                            <li><a class="dropdown-item" href="{% url "cpgfinder_url" %}">Cpgfinder</a></li>
+                                            <li><a class="dropdown-item" href="{% url "codonw_url" %}">Codonw</a></li>
+                                            <li><a class="dropdown-item" href="{% url "gsds_url" %}">GSDS</a></li>
+                                            <li><a class="dropdown-item" href="{% url "paraat_url" %}">ParaAT</a></li>
+                                            <li><a class="dropdown-item" href="{% url "kaks_calculator_url" %}">KaKs_Calculator</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Other -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Other</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "sequence_screening_url" %}">Sequence_screening</a></li>
+                                            <li><a class="dropdown-item" href="{% url "formatTofasta_url" %}">Format_conversion</a></li>
+                                            <li><a class="dropdown-item" href="{% url "quchong_url" %}">Find_alternative</a></li>
+                                            <li><a class="dropdown-item" href="{% url "extract_row_url" %}">Duplicate_removal</a></li>
+                                            <li><a class="dropdown-item" href="{% url "extract_row_url" %}">Extract_column</a></li>
+                                            <li><a class="dropdown-item" href="{% url "file_merge_url" %}">Files_merge</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Jbrowse -->
+                                    <a class="dropdown-item" href="{% url "jbrowse_url" %}">Jbrowse</a>
+                                    <!-- Draw_Circos -->
+                                    <a class="dropdown-item" href="{% url "circos_url" %}">Draw_Circos</a>
+                                    <!-- WGDI -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">WGDI</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "wgdi_dotplot_url" %}">Dotplot</a></li>
+                                            <li><a class="dropdown-item" href="{% url "wgdimcs_url" %}">Run_block</a></li>
+                                            <li><a class="dropdown-item" href="{% url "wgdikaks_url" %}">Run_kaks</a></li>
+                                            <li><a class="dropdown-item" href="{% url "wgdikaks_dot_url" %}">ks_distribution</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- 最后--Tools -->
+
+                        <!-- Browse -->
+                        <li class="nav-item dropdown" style="padding-right: 20px">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Browse<span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <!-- Blast -->
+                                    <a class="dropdown-item" href="{% url "dotplot_url" %}">Pair-wise dotplots</a>
+                                    <!-- Collinear and KaKs -->
+                                    <a class="dropdown-item" href="{% url "colinear_kaks_url" %}">Collinear and KaKs</a>
+                                    <!-- Syntenic -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Hierarchical alignments</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "vvi_syntenic_url" %}">Vvi_syntenic</a></li>
+                                            <li><a class="dropdown-item" href="{% url "exp_vvi_syntenic_url" %}">Exp_Vvi_syntenic</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Event-related gene -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Event-related genes</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "ECH_event_url" %}">ECH</a></li>
+                                            <li><a class="dropdown-item" href="{% url "CCT_event_url" %}">CCT</a></li>
+                                            <li><a class="dropdown-item" href="{% url "BCT_event_url" %}">BCT</a></li>
+                                            <li><a class="dropdown-item" href="{% url "CST_event_url" %}">CST</a></li>
+                                        </ul>
+                                    </li>
+
+
+                                    <!-- Karyotype -->
+                                    <a class="dropdown-item" href="{% url "karyotype_url" %}">Karyotype</a>
+                                    <!-- Transcription factors -->
+                                    <a class="dropdown-item" href="{% url "transcription_url" %}">Transcription factors</a>
+                                    <!-- Orthologous Gene Search -->
+                                    <a class="dropdown-item" href="{% url "gene_family_url" %}">Orthologous Gene</a>
+                                    <!-- Gene Function Search -->
+                                    <a class="dropdown-item" href="{% url "interproscan_index_url" %}">Gene Function</a>
+                                    <!-- KEGG Orthology Annotation & Pathway Map -->
+                                    <a class="dropdown-item" href="{% url "kegg_index_url" %}">Pathway</a>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- 最后--Browse -->
+
+                        <!-- Resource-页面 -->
+                        <li class="nav-item dropdown" style="padding-right: 20px">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Resource<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Species</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "sp_introduce_url" %}">Genome</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Bda_url" %}">Begonia darthvaderiana</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Bhi_url" %}">Benincasa hispida</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Blo_url" %}">Begonia loranthoides</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Bma_url" %}">Begonia masoniana</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Bpe_url" %}">Begonia peltatifolia</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Car_url" %}">Cucurbita argyrosperma</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Chy_url" %}">Cucumis hystrix</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Cla_url" %}">Citrullus lanatus</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Cma_url" %}">Cucurbita maxima</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Cme_url" %}">Cucumis melo</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Cmo_url" %}">Cucurbita moschata</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Cpe_url" %}">Cucurbita pepo </a></li>
+                                            <li><a class="dropdown-item" href="{% url "Csa_url" %}">Cucumis sativus</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Lsi_url" %}">Lagenaria siceraria</a></li>
+                                            <li><a class="dropdown-item" href="{% url "Vvi_url" %}">Vitis vinifera</a></li>
+                                        </ul>
+                                    </li>
+                                    <a class="dropdown-item" href="{% url "species_data_url" %}">Genome_Data</a>
+
+                                    <a class="dropdown-item" href="{% url "database_url" %}">Database link</a>
+
+                                    <a class="dropdown-item" href="{% url "article_url" %}">Article</a>
+                                </ul>
+                            <!-- Syntenic -->
+
+                            </div>
+                        </li>
+                        <!-- Chart -->
+                        <li class="nav-item dropdown" style="padding-right: 20px">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">Diagram
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                                <a class="dropdown-item" href="{% url "sp_tree_chart_url" %}">Species tree</a>
+                                <a class="dropdown-item" href="{% url "gene_replication_type_url" %}">Gene duplication type</a>
+                                 <a class="dropdown-item" href="{% url "p_index_url" %}">Polyploidy index</a>
+
+                                <a class="dropdown-item" href="{% url "cucpathway_url" %}">Cucurbitacin synthesis pathway</a>
+                                <a class="dropdown-item" href="Heatmap.html">Heatmap</a>
+                                <a class="dropdown-item" href="Gene_family_number.html">Gene family number</a>
+                            </div>
+                        </li>
+
+                        <!-- Documentation -->
+                        <li class="nav-item dropdown" style="padding-right: 5px">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentation<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{% url "documentation_url" %}">Platform introduction</a>
+                                    <a class="dropdown-item" href="{% url "commands_url" %}">Software usage commands</a>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Submit -->
+                        <li class="nav-item" style="padding-right: 20px">
+                            <a class="nav-link" href="{% url "submit_url" %}" id="navbarDropdownPages" aria-haspopup="true"
+                               aria-expanded="false">
+                                Submit
+                            </a>
+                        </li>
+
+                        <!-- encyclopedia -->
+                        <li class="nav-item dropdown" style="padding-right: 5px">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Encyclopedia<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{% url "references_url" %}">Cucurbitales references</a>
+                                    <a class="dropdown-item" href="{% url "diseases_url" %}">Diseases</a>
+                                    <a class="dropdown-item" href="{% url "economic_url" %}">economic value</a>
+                                    <a class="dropdown-item" href="{% url "pests_url" %}">Common pests</a>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- About -->
+                        <li class="nav-item" style="padding-right: 20px">
+                            <a class="nav-link" href="{% url "contact_url" %}" id="navbarDropdownPages" aria-haspopup="true"
+                               aria-expanded="false">
+                                Contant
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+    </nav>
+{% endblock %}
+
+<div class="ALL" style="padding-top: 0">
+    <div class="all_box" style="width: 1170px">
+{% block body_index %}
+    <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/shuye.png); font-family:'Arial',sans-serif;color:black;"><b>Transcription Factors Browse By Family</b><i></i>
+    </h3>
+
+    <div class="row" style="">
+        <h6 class="col-md-7" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+              We used <a style="color: green;" href="http://planttfdb.gao-lab.org/index.php" target="_blank"><b>PlantTFDB</b></a> to predict 58 transcription factor gene families in 15 Cucurbitales and obtained detailed information of the corresponding sequences by pfam, and a total of <b>50,056</b> TF-related genes were obtained. More details can be viewed by clicking into.
+            <br>  Transcription factor (TF), also known as trans-acting factor, is a DNA-binding protein that specifically interacts with cis-acting elements of eukaryotic genes and has an activating or inhibiting effect on gene transcription. The functional study of TF and its interacting factors is essential to understand their roles in the signaling cascade, providing a theoretical basis for basic research and production applications.
+            <br>  The relevant gene ids can be obtained from the Cucurbitales blast and match under the Tools module.This link is <a href="/tools/blast_match"><b>Cucurbitales blast and match.</b></a>
+        </h6>
+        <div class="col-md-5">
+            <img style="width: 100%" src="../../static/image/TF_gene_famliy.png" alt="">
+        </div>
+        <hr width="100%" style="border: dotted 2px">
+    </div>
+
+    <!-- choose module -->
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+<td><a target="_blank" style="color: green;" href="AP2.html"><b>AP2</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/ARF/"><b>ARF</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/ARR-B/"><b>ARR-B</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/B3/"><b>B3</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/BBR-BPC/"><b>BBR-BPC</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/BES1/"><b>BES1</b></a></td>
+            </tr>
+            <tr>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/bHLH/"><b>bHLH</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/bZIP/"><b>bZIP</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/C2H2/"><b>C2H2</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/C3H/"><b>C3H</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/CAMTA/"><b>CAMTA</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/CO-like/"><b>CO-like</b></a></td>
+            </tr>
+            <tr>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/CPP/"><b>CPP</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/DBB/"><b>DBB</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/Dof/"><b>Dof</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/E2F_DP/"><b>E2F/DP</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/EIL/"><b>EIL</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/ERF/"><b>ERF</b></a></td>
+            </tr>
+            <tr>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/FAR1/"><b>FAR1</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/G2-like/"><b>G2-like</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/GATA/"><b>GATA</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/GeBP/"><b>GeBP</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/GRAS/"><b>GRAS</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/GRF/"><b>GRF</b></a></td>
+            </tr>
+            <tr>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/HB-other/"><b>HB-other</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/HB-PHD/"><b>HB-PHD</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/HD-ZIP/"><b>HD-ZIP</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/HRT-like/"><b>HRT-like</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/HSF/"><b>HSF</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/LBD/"><b>LBD</b></a></td>
+            </tr>
+            <tr>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/LFY/"><b>LFY</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/LSD/"><b>LSD</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/MIKC_MADS/"><b>MIKC_MADS</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/M-type_MADS/"><b>M-type_MADS</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/MYB/"><b>MYB</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/MYB_related/"><b>MYB_related</b></a></td>
+            </tr>
+            <tr>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/NAC/"><b>NAC</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/NF-X1/"><b>NF-X1</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/NF-YA/"><b>NF-YA</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/NF-YB/"><b>NF-YB</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/NF-YC/"><b>NF-YC</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/Nin-like/"><b>Nin-like</b></a></td>
+            </tr>
+            <tr>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/NZZ_SPL/"><b>NZZ/SPL</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/RAV/"><b>RAV</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/S1Fa-like/"><b>S1Fa-like</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/SAP/"><b>SAP</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/SBP/"><b>SBP</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/SRS/"><b>SRS</b></a></td>
+            </tr>
+            <tr>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/STAT/"><b>STAT</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/TALE/"><b>TALE</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/TCP/"><b>TCP</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/Trihelix/"><b>Trihelix</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/VOZ/"><b>VOZ</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/Whirly/"><b>Whirly</b></a></td>
+            </tr>
+            <tr>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/WOX/"><b>WOX</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/WRKY/"><b>WRKY</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/YABBY/"><b>YABBY</b></a></td>
+<td><a target="_blank" style="color: green;" href="/browse/transcription/ZF-HD/"><b>ZF-HD</b></a></td>
+<td>---</td>
+<td>---</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    </div>
+</div>
+{% endblock %}
+
+<!-- Footer -->
+<footer class="py-5 bg-success">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="widget">
+                    <h5 class="widgetheading" style="color: #fff;">Our Contact</h5>
+                    <address style="color: #fff;">
+                        School of Life Sciences / Center for Genomics and Computational Biology, North China University
+                        of Science and Technology,
+                    </address>
+                    <p style="color: #fff;">
+                        <i class="icon-envelope-alt" style="color: #fff;"></i> Address info 21 Bohai Road,Caofeidian,
+                        Tangshan 063210, Hebei, China
+                    </p>
+                    <a href="https://beian.miit.gov.cn/#/Integrated/index" style="color: #fff; font-size: 12px" target="_blank">冀ICP备2021011948号</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="widget">
+                    <h5 class="widgetheading" style="color: #fff;">Quick Links</h5>
+                    <ul class="link-list" style="padding-left: 0">
+                        <li><a href="https://www.ncbi.nlm.nih.gov/" target="_blank" style="color: #fff;">National Center
+                            for Biotechnology Information</a></li>
+                        <li><a href="http://pfam.xfam.org/" target="_blank" style="color: #fff;">Protein families
+                            database</a></li>
+                        <li><a href="https://swissmodel.expasy.org/" style="color: #fff;">SWISS-MODEL</a></li>
+                        <li><a href="https://www.embl.org/" target="_blank" style="color: #fff;">EuropeanMolecular
+                            Biology Laboratory</a></li>
+                        <li><a href="https://www.ddbj.nig.ac.jp/index-e.html" target="_blank" style="color: #fff;">DNA
+                            Data Bank of Japan</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <script type="text/javascript"
+                        src="//rf.revolvermaps.com/0/0/8.js?i=561cj3aw7q6&amp;m=1&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+                        async="async">
+                </script>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap core JavaScript -->
+
+{% block list_js %}
+<script src="../../static/vendor/jquery/jquery.min.js"></script>
+<script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

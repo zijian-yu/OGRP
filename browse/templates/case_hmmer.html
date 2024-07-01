@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;"><b>Search for gene family members</b><i></i>
+        </h3>
+    </div>
+
+    <h6 class="col-md-8" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+          We obtain sequence similarity and conserved structural domains by using <a href="/tools/f_blast">Blastp</a> or <a href="/tools/pfam_run">Pfam</a>  and search for gene family members across the entire genome.
+
+    </h6>
+        <div class="col-md-4">
+            <img style="width: 100%" src="../../static/image/3-1hmmer.png" alt="">
+        </div>
+    <hr width="100%" style="border: dotted 2px">
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;"><b>Gene expression analysis</b><i></i>
+        </h3>
+    </div>
+
+    <h6 class="col-md-8" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+          To comparison of expression differences of syntenic genes in family, we used <a href="/commands#Transcriptome">transcriptome analysis</a> methods to investigate the cellular gene expression patterns under the influence of transcriptional regulatory elements. Visualizing the expression data of family genes with synteny information can provide convenient support for discovering subfunctionalization or new functionalization of duplicated genes.
+
+    </h6>
+        <div class="col-md-4">
+            <img style="width: 300px;height:350px;" src="../../static/image/expression_patterns.png" alt="">
+        </div>
+    <hr width="100%" style="border: dotted 2px">
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oleaceae platform</title>
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../../static/image/ico.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../static/vendor/css/home.css" type="text/css">
+
+    <script src="../../static/js/jquery-3.5.1.js"></script>
+    <script src="../../static/js/jquery.dataTables.min.js"></script>
+    <link href="../../static/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/slick-theme.css"/>
+    <!-- font awesome style -->
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/style.css" rel="stylesheet"/>
+    <!-- responsive style -->
+    <link href="../../static/css/responsive.css" rel="stylesheet"/>
+    <link href="../../static/vendor/css/style.css" rel="stylesheet">
+
+    <script>
+        $(document).ready(function () {
+            $('#orthofinder').DataTable({
+                "ajax": "../../static/orthofinder_json/Orthogroups.GeneCount_2.json",
+                "deferRender": true,
+                "scrollX": true
+            });
+        });
+    </script>
+
+{% endblock %}
+
+
+{% block body_index %}
+    <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;"><b>Orthologous genes</b><i></i>
+    </h3>
+    <div class="row" style="">
+        <h6 class="col-md-8" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+              Genes that are duplicated as concomitant events of species formation and continue to have the same function are called orthologous genes. New gene functions can be caused by duplications that occur within the genome of a single species. Duplications within a genome result in paralogous gene.
+            <br>  Orthogroups, orthologs and paralogs genes were identified using OrthoFinder (v2.5.1) (Emms and Kelly, 2019). First, the similarity relationship between protein sequences of all species was based on the Blastp similarity score (E-value 51e-5). The sequence alignment program was blast_gz and the conformational tree method was FastTree. MCL graph clustering algorithm (Inflation value &gt;1.5) was used for cluster analysis to obtain single-copy and multi-copy gene families.
+            </a>
+        </h6>
+        <div class="col-md-4">
+            <a href="../../static/image/orthologous.png" target="_blank">
+            <img style="width: 80%" src="../../static/image/orthologous.png" alt="">
+            </a>
+        </div>
+        <hr width="100%" style="border: dotted 2px">
+    </div>
+    <div>
+        <table id="orthofinder" class="display container" style="text-align: center">
+            <thead>
+                <tr>
+                    <th>Orthogroup</th>
+                    <th>Total</th>
+                    <th>tree</th>
+                    <th>Coffea humblotiana</th>
+                    <th>Fraxinus pennsylvanica</th>
+                    <th>Jasminum sambac</th>
+                    <th>Olea europaea</th>
+                    <th>Syringa oblata</th>
+                    <th>Vitis vinifera</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+
+{% endblock %}
+
+{% block list_js %}
+    <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+

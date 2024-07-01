@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="h3_1 h3_7" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;"><b>Identification of syntenic relationships</b><i></i>
+        </h3>
+    </div>
+
+    <h6 class="col-8" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+          According to the <a href="/tools/zu_blast_dotplot">B_Dotter</a> and <a href="/tools/zu_ks_dotplot">BBK_Dotter</a> produced synteny dotplots,  we identified the orthologous and paralogous relationships among family genes and analyzed cross species synteny, and presented the fractionation scenarios of each gene in considered genomes.
+
+
+    </h6>
+
+    <div class="col-4">
+            <img style="width: 100%" src="../../static/image/syntenic_relationships.png" alt="">
+    </div>
+
+    <hr width="100%" style="border: dotted 2px">
+
+</div>
+
+
+
+{% endblock %}

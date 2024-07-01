@@ -1,0 +1,97 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+
+    <div class="row">
+        <div class="col-12">
+            <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;"><b>Duplication type</b><i></i>
+            </h3>
+        </div>
+
+        <h6 class="col-md-8" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+              Gene duplication type classification analysis, using DupGen_finder (X. Qiao et al., 2019a), can divide all genes into 5 categories according to the replication type, namely WGD: whole genome duplication, TD: tandem duplication (two adjacent duplication genes), PD: Proximal duplications (repeated genes within 10 genes apart), TRD: transposed duplications (duplicated genes consisting of ancestral and new loci), DSD: scattered duplications (duplicated genes that are neither adjacent nor collinear)
+            mong them, <em>Glycine max</em> was the species with the most WGD genes, and <em>Medicago truncatula</em> was the species with the most PD gene replication type, while TD TRD DSD was the species with the most <em>Arachis maconticola</em> Gene replication type, which might be because <em>Arachis Maconticola</em> is polyploid.
+        </h6>
+            <div class="col-md-4">
+                <a href="../../static/image/dupTypelogo.png" target="_blank">
+                <img style="width: 100%" src="../../static/image/dupTypelogo.png" alt="">
+                </a>
+            </div>
+        <hr width="100%" style="border: dotted 2px">
+    </div>
+
+
+        <form action="genetype_run" method="post" class="col-12" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="state" class="form-label">Species database</label>
+                    <select class="form-control" id="initials" name="sp_data_1" onchange="Change_second_selectwords();" style="font-style: italic;">
+                        <option value="Sob">Syringa oblata</option>
+                        <option value="Fpe">Fraxinus pennsylvanica</option>
+                        <option value="Jsa">Jasminum sambac</option>
+                        <option value="Oeu">Olea europaea</option>
+                        <option value="Chu">Coffea humblotiana</option>
+						<option value="Vvi">Vitis vinifera</option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="state" class="form-label">Type</label>
+                    <select class="form-control" id="top_domains" name="sp_data_2" required>
+                        <option value="dispersed">dispersed</option>
+                        <option value="proximal">proximal</option>
+                        <option value="tandem">tandem</option>
+                        <option value="transposed">transposed</option>
+                        <option value="wgd">wgd</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please provide a valid state.
+                    </div>
+                </div>
+
+                <script>
+                    var first_keywords = {};
+                    //定义每个字母对应的第二个下拉框
+                    first_keywords['Sob'] = ["dispersed","proximal","tandem","transposed","wgd"];
+                    first_keywords['Fpe'] = ["dispersed","proximal","tandem","transposed","wgd"];
+                    first_keywords['Jsa'] = ["dispersed","proximal","tandem","transposed","wgd"];
+                    first_keywords['Oeu'] = ["dispersed","proximal","tandem","transposed","wgd"];
+                    first_keywords['Chu'] = ["dispersed","proximal","tandem","transposed","wgd"];
+					first_keywords['Vvi'] = ["dispersed","proximal","tandem","transposed","wgd"];
+
+
+                    function Change_second_selectwords() {
+                        //根据id找到两个下拉框对象
+                        var target1 = document.getElementById("initials");
+                        var target2 = document.getElementById("top_domains");
+                        //得到第一个下拉框的内容
+                        var selected_initial = target1.options[target1.selectedIndex].value;
+
+                        //清空第二个下拉框
+                        while (target2.options.length) {
+                            target2.remove(0);
+                        }
+                        //根据第一个下拉框的内容找到对应的列表
+                        var initial_list = first_keywords[selected_initial];
+                        var value;
+                        if (initial_list) {
+                            for (var i = 0; i < initial_list.length; i++) {
+                                var item = new Option(initial_list[i], value=initial_list[i]);
+                                //将列表中的内容加入到第二个下拉框
+                                target2.options.add(item);
+                            }
+                        }
+                    }
+                </script>
+
+                <input class="w-100 btn btn-primary btn-lg" style="margin-top: 40px" type="submit" value="submit">
+            </div>
+        </form>
+    </div>
+
+
+
+{% endblock %}
