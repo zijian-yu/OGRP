@@ -1,0 +1,166 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Leguminosae platform</title>
+    <link href="../../../static/vendor/css/style.css" rel="stylesheet">
+    <link href="../../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../../../static/image/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../../static/vendor/css/home.css" type="text/css">
+    <link href="../../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../static/vendor/css/modern-business.css" rel="stylesheet">
+    <script src="../../../static/js/jquery-3.5.1.js"></script>
+    <script src="../../../static/js/jquery.dataTables.min.js"></script>
+    <link href="../../../static/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../static/css/slick-theme.css"/>
+    <link href="../../../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../../../static/css/style.css" rel="stylesheet"/>
+    <link href="../../../static/css/responsive.css" rel="stylesheet"/>
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+{% endblock %}
+
+
+{% block body_index %}
+    <h3 class="h3_1 h3_6" style="background-image:url(../../../static/image/shuye.png); font-family:'Arial',sans-serif;color:black;">Transposable elements<i></i>
+    </h3>
+    <div class="row" style="">
+        <h5 class="col-md-8" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+            &emsp;&emsp;Transposable elements (TEs): also known as jumping genes, are DNA sequences that can change their position in a cell. There are two types of transposons: type I transposons (Retrotransposon) and type II transposons (DNA transposons).
+        <br>
+    &emsp;&emsp;Type I transposons: DNA is used as a template and is transcribed into mRNA, which is then reverse transcribed into cDNA and inserted into a new position in the genome by the action of integrase. Type II transposon: The mechanism of transposition of type II transposon is called "cut-and-paste". The transposase cuts the TE from its original position in the genome and pastes it into other regions of the genome. The gaps formed by the cut are repaired by DNA.
+        </h5>
+        <div class="col-md-4">
+            <img style="width: 100%" src="../../../static/image/TE_img.png" alt="">
+        </div>
+        <hr width="100%" style="border: dotted 2px">
+    </div>
+
+
+    <!-- choose module -->
+    <div id="choose_module">
+        <!-- 1-3 -->
+        <div id="module_1">
+            <div style="height: 380px">
+                <p id='text_in_image'><i>Cicer arietinum</i></p>
+                <a href="{% url "TE" "Car" %}"><img src="../../../static/image/Car.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black"> Total : 1,181,683</p>
+                <a href="{% url "TE" "Car" %}" style="color:#00cd66; font-size: 20px"><b>more information</b></a><br>
+                <a href="../../../static/TE_out_file/Car.fasta.out" style="color:#b7ab25; font-size: 20px" target="_blank"><b>Repeat download</b></a>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 380px">
+                <p id='text_in_image'><i>Dalbergia odorifera</i></p>
+                <a href="{% url "TE" "Dod" %}"><img src="../../../static/image/Dod.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black"> Total : 1,133,558</p>
+                <a href="{% url "TE" "Dod" %}" style="color:#00cd66; font-size: 20px"><b>more information</b></a><br>
+                <a href="../../../static/TE_out_file/Dod.fasta.out" style="color:#b7ab25; font-size: 20px" target="_blank"><b>Repeat download</b></a>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 380px">
+                <p id='text_in_image'><i>Glycine max</i></p>
+                <a href="{% url "TE" "Gma" %}"><img src="../../../static/image/Gma.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black"> Total : 1,276,224
+ </p>
+                <a href="{% url "TE" "Gma" %}" style="color:#00cd66; font-size: 20px"><b>more information</b></a><br>
+                <a href="../../../static/TE_out_file/Gma.fasta.out" style="color:#b7ab25; font-size: 20px" target="_blank"><b>Repeat download</b></a>
+            </div>
+        </div>
+
+
+        <!-- 4-6 -->
+        <div id="module_1">
+            <div style="height: 380px">
+                <p id='text_in_image'><i>Glycine soja</i></p>
+                <a href="{% url "TE" "Gso" %}"><img src="../../../static/image/Gso.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black"> Total : 1,305,204
+ </p>
+                <a href="{% url "TE" "Gso" %}" style="color:#00cd66; font-size: 20px"><b>more information</b></a><br>
+                <a href="../../../static/TE_out_file/Gso.fasta.out" style="color:#b7ab25; font-size: 20px" target="_blank"><b>Repeat download</b></a>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 380px">
+                <p id='text_in_image'><i>Lotus japonicus</i></p>
+                <a href="{% url "TE" "Lja" %}"><img src="../../../static/image/Lja.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black"> Total : 471,233
+ </p>
+                <a href="{% url "TE" "Lja" %}" style="color:#00cd66; font-size: 20px"><b>more information</b></a><br>
+                <a href="../../../static/TE_out_file/Lja.fasta.out" style="color:#b7ab25; font-size: 20px" target="_blank"><b>Repeat download</b></a>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 380px">
+                <p id='text_in_image'><i>Lupinus albus</i></p>
+                <a href="{% url "TE" "Lal" %}"><img src="../../../static/image/Lal.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black"> Total : 867,648
+ </p>
+                <a href="{% url "TE" "Lal" %}" style="color:#00cd66; font-size: 20px"><b>more information</b></a><br>
+                <a href="../../../static/TE_out_file/Lal.fasta.out" style="color:#b7ab25; font-size: 20px" target="_blank"><b>Repeat download</b></a>
+            </div>
+        </div>
+
+        <!-- 7-9 需要进行更改-->
+        <div id="module_1">
+            <div style="height: 380px">
+                <p id='text_in_image'><i>Lupinus angustifolius</i></p>
+                <a href="{% url "TE" "Lan" %}"><img src="../../../static/image/Lan.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black"> Total : 1,108,131
+ </p>
+                <a href="{% url "TE" "Lan" %}" style="color:#00cd66; font-size: 20px"><b>more information</b></a><br>
+                <a href="../../../static/TE_out_file/Lan.fasta.out" style="color:#b7ab25; font-size: 20px" target="_blank"><b>Repeat download</b></a>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 380px">
+                <p id='text_in_image'><i>Medicago truncatula</i></p>
+                <a href="{% url "TE" "Mtr" %}"><img src="../../../static/image/Mtr.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black"> Total : 895,182
+ </p>
+                <a href="{% url "TE" "Mtr" %}" style="color:#00cd66; font-size: 20px"><b>more information</b></a><br>
+                <a href="../../../static/TE_out_file/Mtr.fasta.out" style="color:#b7ab25; font-size: 20px" target="_blank"><b>Repeat download</b></a>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 380px">
+                <p id='text_in_image'><i>Melilotus albus</i></p>
+                <a href="{% url "TE" "Mal" %}"><img src="../../../static/image/Mal.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black"> Total : 2,082,333
+ </p>
+                <a href="{% url "TE" "Mal" %}" style="color:#00cd66; font-size: 20px"><b>more information</b></a><br>
+                <a href="../../../static/TE_out_file/Mal.fasta.out" style="color:#b7ab25; font-size: 20px" target="_blank"><b>Repeat download</b></a>
+            </div>
+        </div>
+    </div>
+
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="{% url "TE_index_url1" %}">1</a></li>
+            <li class="page-item"><a class="page-link" href="{% url "TE_index_url2" %}">2</a></li>
+            <li class="page-item"><a class="page-link" href="{% url "TE_index_url3" %}">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="{% url "TE_index_url3" %}">Next</a>
+            </li>
+        </ul>
+    </nav>
+
+{% endblock %}
