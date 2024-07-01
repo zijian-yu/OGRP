@@ -1,0 +1,157 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Oleaceae platform</title>
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../static/image/ico.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/vendor/css/home.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/slick-theme.css"/>
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../static/css/style.css" rel="stylesheet"/>
+    <link href="../static/css/responsive.css" rel="stylesheet"/>
+    <link href="../static/vendor/css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/vendor/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../static/vendor/css/searchPanes.dataTables.min.css">
+    <link rel="stylesheet" href="../static/vendor/css/select.dataTables.min.css">
+    <script type="text/javascript" src="../static/vendor/js/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="../static/vendor/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../static/vendor/js/dataTables.searchPanes.min.js"></script>
+    <script type="text/javascript" src="../static/vendor/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="../static/vendor/js/highcharts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "ajax": "../static/syn_data/zhuan.json",
+                "scrollX": true,
+                "deferRender": true,
+            });
+        });
+    </script>
+{% endblock %}
+
+
+{% block body_index %}
+    <h3 class="h3_1 h3_6" style="background-image:url(../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Transcriptome<i></i>
+    </h3>
+    <div class="row" style="">
+        <h6 class="col-md-8" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+            &emsp;&emsp;Transcriptome broadly refers to the collection of all transcription products in a cell under a certain physiological condition. By gene expression, we mean the whole process of transforming the genetic information carried by genes into a recognizable phenotype.
+            <br>&emsp;&emsp;All transcriptomic data of Oleaceae were obtained from the SRA database by using a script covering a total of <b>366</b> RNA-seq messages for <b>18</b> plant tissues. For detailed information on the <b>18</b> plant tissues.
+        </h6>
+        <div class="col-md-4">
+            <img style="width: 70%" src="../static/image/tran.png" alt="">
+        </div>
+        <hr width="100%" style="border: dotted 2px">
+    </div>
+
+    <form action="transcriptome_run" method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                <label for="state" class="form-label">Species</label>
+                <select style="font-style: italic;" class="form-control" id="initials" name="sp_data_1" onchange="Change_second_selectwords();">
+                    <option value="Fsu">Forsythia suspensa</option>
+                    <option value="Fex">Fraxinus excelsior</option>
+                    <option value="Fpe">Fraxinus pennsylvanica</option>
+                    <option value="Jsa">Jasminum sambac</option>
+                    <option value="Oeu">Olea europaea</option>
+                    <option value="Ofr">Osmanthus fragrans</option>
+                    <option value="Sob">Syringa oblata</option>
+
+                </select>
+                <div class="invalid-feedback">
+                    Please provide a valid state.
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="state" class="form-label">Tissues</label>
+                <select class="form-control" id="top_domains" name="sp_data_2" required>
+                    <option value="fruit">fruit</option>
+                    <!--<option value="petiole">petiole</option>
+                    <option value="root">root</option>
+                    <option value="seed">seed</option>
+                    <option value="flower">flower</option>
+                    <option value="leaves">leaves</option>
+                    <option value="bud">bud</option>
+                    <option value="meristem">meristem</option>
+                    <option value="pistil">pistil</option>
+                    <option value="stem">stem</option>-->
+                </select>
+                <div class="invalid-feedback">
+                    Please provide a valid state.
+                </div>
+            </div>
+
+            <script>
+                var first_keywords = {};
+                //定义每个字母对应的第二个下拉框
+                first_keywords['Fsu'] = ["fruit"];
+                first_keywords['Fex'] = ["petiole"];
+                first_keywords['Fpe'] = ["petiole","root","seed"];
+                first_keywords['Jsa'] = ["flower","leaves"];
+                first_keywords['Oeu'] = ["bud","flower","fruit","leaves","meristem","pistil","root","stem"];
+                first_keywords['Ofr'] = ["bud","leaves"];
+                first_keywords['Sob'] = ["root"];
+
+                function Change_second_selectwords() {
+                    //根据id找到两个下拉框对象
+                    var target1 = document.getElementById("initials");
+                    var target2 = document.getElementById("top_domains");
+                    //得到第一个下拉框的内容
+                    var selected_initial = target1.options[target1.selectedIndex].value;
+
+                    //清空第二个下拉框
+                    while (target2.options.length) {
+                        target2.remove(0);
+                    }
+                    //根据第一个下拉框的内容找到对应的列表
+                    var initial_list = first_keywords[selected_initial];
+                    var value;
+                    if (initial_list) {
+                        for (var i = 0; i < initial_list.length; i++) {
+                            var item = new Option(initial_list[i], value=initial_list[i]);
+                            //将列表中的内容加入到第二个下拉框
+                            target2.options.add(item);
+                        }
+                    }
+                }
+            </script>
+
+            <input class="w-100 btn btn-primary btn-lg" style="margin-top: 40px" type="submit" value="submit">
+        </div>
+    </form>
+
+
+{#    <div class="container" style="padding-top: 40px;">#}
+{#        <table id="example" class="display" style="width:100%">#}
+{#            <thead>#}
+{#                <tr>#}
+{#                    <th>Title</th>#}
+{#                    <th>Experiment</th>#}
+{#                    <th>BioProject</th>#}
+{#                    <th>BioSample</th>#}
+{#                    <th>Run</th>#}
+{#                    <th># of Spots</th>#}
+{#                    <th># of Bases	</th>#}
+{#                    <th>Size</th>#}
+{#                    <th>Published</th>#}
+{#                </tr>#}
+{#            </thead>#}
+{#        </table>#}
+{#		<div style="padding-top: 20px">#}
+{#            <h6 style="text-align: center"><b>It may take a while to load.</b></h6>#}
+{#        </div>#}
+{#    </div>#}
+{% endblock %}
+
+
+{% block list_js %}
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

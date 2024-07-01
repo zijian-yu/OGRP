@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+    <h3 class="h3_1" style="background-image:url(../static/image/ico.png)"><b>Oleaceae genome research platform (OGRP)</b><i></i></h3>
+    <div>
+
+
+        <p style="margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;background:white;font-variant-ligatures: normal;font-variant-caps: normal;orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;word-spacing:0px">
+            <strong><span style="font-size:20px;font-family: &#39;Arial&#39;,sans-serif;color:black">I. Introduction</span></strong>
+        </p>
+        <p style="margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;background:white"><strong><span
+                style="font-family:&#39;Arial&#39;,sans-serif;color:black">What is OGRP?</span></strong>
+        </p>
+        <p style="text-align: justify;margin-bottom:10px"><strong><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">OGRP</span></strong><span
+                style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif"> is a plant genome research and analysis platform. The Oleaceae genome research platform provides data resources for 8 species for use by other researchers. By using comparative genomics methods, polyploidization events and event related genes in the Oleaceae family have been identified. The platform collects genome and transcriptome of 8 Oleaceae species, and makes appropriate analysis. The platform provides good technical support for the classification of important trait genes and gene family of Oleaceae. The Oleaceae genome research platform features tools and pipelines for in-depth data mining and experimental practices that facilitate the transition from data acquisition to a full-featured knowledge base. In addition, the Oleaceae genome research platform forum has been established to share resources, share new discoveries, exchange research and make announcements. We are confident that the Oleaceae genome research platform will continue to provide new insights into Oleaceae research.</span>
+        </p>
+        <p style="margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">&nbsp;</span>
+        </p>
+        <p style="margin-bottom:10px"><strong><span
+                style="font-size:20px;font-family:&#39;Arial&#39;,sans-serif;color:black;background:white">II. Datasets and Workflow</span></strong>
+        </p>
+        <p style="margin-bottom:10px"><strong><span
+                style="font-size:16px;font-family:&#39;Arial&#39;,sans-serif;color:black">Data sources</span></strong>
+        </p>
+        <p style="text-align: justify;margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">Oleaceae genome research platform contains CDS, PEP, GFF3 for 54 plant species. All data resources come from reliable public databases, such as NCBI (https://www.ncbi.nlm.nih.gov/), Phytozome v12.1 (https://phytozome.jgi.doe.gov/), and CNCB (https://ngdc.cncb.ac.cn/). We collected detailed transcriptome information, including design, study, sample, and runs, from the SRA database (https://www.ncbi.nlm.nih.gov/sra/). Species information and images come from public database of related plants. We collected research references related to the Oleaceae family from PubMed (https://pubmed.ncbi.nlm.nih.gov/).</span></p>
+        <p style="margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">&nbsp;</span>
+        </p>
+        <p style="margin-bottom:10px"><strong><span
+                style="font-size:16px;font-family:&#39;Arial&#39;,sans-serif;color:black">Data analysis pipelines</span></strong>
+        </p>
+        <p style="text-align: justify;margin-bottom:10px"><strong><em><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">Ancient polyploidization identification (API):</span></em></strong><span
+                style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif"> In OGRP, we constructed the golden-standard pipeline API that is consisted eight steps: 1) select the reference genome for investigating genomes. 2) identify anchored genes among compared genomes. 3) inference of genomic synteny blocks. 4) calculate Ks and distributions of syntenic gene pairs generated from polyploidization and speciation events. 5) construct genomic synteny dotplots, with the similarity Ks and Blast matches of syntenic gene pairs. 6) identification of the genomic synteny ratios. 7) phylogenetic analysis of the synteny-based orthogroups. 8) determine the frequency, timing, ploidy levels, and possible nature of polyploidizations in considered genome(s). Conveniently, API can be easily executed employ bio-software built in OGRP.</span>
+        </p>
+
+        <p style="text-align: justify;margin-bottom:10px"><strong><em><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">Ancestral karyotype reconstruction (AKR):</span></em></strong><span
+                style="font-size:13px;font-family: &#39;Arial&#39;,sans-serif"> In OGRP, we constructed the AKR pipeline that is consisted eight steps: 1-5) Determine the event-related regions, which can be facilitated with the help of the API pipeline. 6) Inter- and intra genomic homologous strcture comparisons. 7) Inference of ancestral karyotype. 8) Inference of karyotype evolutionary trajectories in modern genome.</span>
+        </p>
+
+        <p style="text-align: justify;margin-bottom:10px"><strong><em><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">Gene family evolution (GFE):</span></em></strong><span
+                style="font-size:13px;font-family: &#39;Arial&#39;,sans-serif"> In OGRP, we constructed a systematic and reliable pipeline  AGI to explore effect of the polyploidizations and paleogenome evolution on gene family evolution. AGI supports six main works: 1) Gene family identification: Ues sequence alignment to search candidate family gene proteins from the genomes and then filter proteins containing family conserved structural domains. 2) Phylogenetic analysis: Though multiple sequence alignments to obtain family proteins sequence similarity, and then construct phylogenetic tree. 3) Exploring evolutionary event-related genes: Obtain the syntenic relationship between family genes and find the genes related to polyploidization events. 4) Exploring tandem duplication: Obtain the tandem duplication generated at time of different polyploidization events based on the Ks range. 5) Analyzing the genetic structure of gene (comparing genomic organization, conserved regions, and evolutionary relationships between genes). 6) Use transcriptome analysis methods to exploring the gene expression plasticity of different tissues and organs in species. Combining with the comparison of WGD amplification and tandem repeat amplification can further explore the biosynthetic ability and diversity.</span>
+        </p>
+
+        <p style="margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">&nbsp;</span>
+        </p>
+        <p style="margin-bottom:10px"><strong><span
+                style="font-size:20px;font-family:&#39;Arial&#39;,sans-serif;color:black;background:white">III. Policy</span></strong>
+        </p>
+        <p style="margin-bottom:10px"><strong><span style="font-size:16px;font-family:&#39;Arial&#39;,sans-serif">OGRP Data Policy</span></strong>
+        </p>
+        <p style="text-align: justify;margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">The data produced and published by OGRP is governed by the following data policy. Our mission is to support open data and information sharing. We also recognize the need for limited and time-sensitive protection of certain types of data to support the use of such data by those who generate it.For sequencing projects: Data are subject to a one-year embargo. For each data or analytical product (raw or processed), the embargo begins upon completion of the standard deliverables as described in the catalog. At the end of the embargo period, the data will be publicly available on the relevant OGRP portal and will not be subject to use restrictions.</span>
+        </p>
+
+        <p style="margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">&nbsp;</span>
+        </p>
+        <p style="margin-bottom:10px"><strong><span style="font-size:16px;font-family:&#39;Arial&#39;,sans-serif">OGRP Publication Policy</span></strong>
+        </p>
+        <p style="text-align: justify;margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">OGRP is keen to see the data generated by the facility lead to scientific publications. OGRP users and collaborators have the right to produce publication manuscripts and the responsibility to lead this effort, and OGRP would like to receive confirmation (see sponsorship statement below) of the sequence data generated as well as any other contributions such as assembly, analysis, annotation, validation, creation of genome browsers, etc.Users, collaborators, and OGRP are jointly committed to publishing the first analysis of data generated by this facility, provided it is done in a timely manner. Publications resulting from these efforts should specify the collaborative nature of the project, and it is expected that authorship should include all those who have contributed significantly to the work.</span></p>
+
+        <p style="margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">&nbsp;</span>
+        </p>
+
+        <p style="margin-bottom:10px"><span
+                style="font-size: 13px; font-family: arial, helvetica, sans-serif;">&nbsp;</span>
+
+        </p>
+        <p style="margin-bottom:10px"><strong><span
+                style="font-size:20px;font-family:&#39;Arial&#39;,sans-serif;color:black;background:white">IV. FAQ</span></strong>
+        </p>
+        <p style="margin-bottom:10px"><strong><span style="font-size:16px;font-family:&#39;Arial&#39;,sans-serif">A. What information does Oleaceae genome research platform provide for plant Karyotype evolution?</span></strong>
+        </p>
+        <p style="text-align: justify;margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">On the basis of polyploidization identification in the Oleaceae family, we further inferred the karyotype evolution of Oleaceae species. The platform provided inference on the evolutionary trajectory of the ancestral genome karyotype of plants in the Oleaceae family in "Karyotype animation". Assuming that there were 7 chromosomes in the karyotype of ancestral eudicots, and 21 chromosomes were amplified after ECH. After the OCH event, the post OCH chromosomes had 33 chromosomes that increased threefold. For the convenience of users, we provide karyotype animations of important nodes the latest common ancestor of the Oleaceae family (MRCAO), the common ancestor of <em>S. oblata</em>, <em>O. europaea</em>, and <em>F. pennsylvanica</em> (CASOF), and species of the Oleaceae family, as well as local dotplots and chromosome trajectories.</span>
+        </p>
+
+        <p style="margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">&nbsp;</span>
+        </p>
+        <p style="margin-bottom:10px"><strong><span style="font-size:16px;font-family:&#39;Arial&#39;,sans-serif">B. How to download the data in Oleaceae genome research platform?</span></strong>
+        </p>
+        <p style="text-align: justify;margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">All data in Oleaceae genome research platform are access to download in <a
+                href="/species_data" target="_blank"><span style="color:#4472C4">Download Page</span></a>. </span></p>
+
+        <p style="margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">&nbsp;</span>
+        </p>
+        <p style="margin-bottom:10px"><strong><span style="font-size:20px;font-family:等线;color:black;background:white">C. Citation</span></strong>
+        </p>
+        <p style="text-align: justify;margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">Data files contained in the Oleaceae genome research platform are free of all copyright restrictions and made fully and freely available for non-commercial use. </span>
+        </p>
+        <p style="margin-bottom:8px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif"></span></p>
+        <!-- <p style="margin-bottom:8px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">Zhonglong Guo, Zheng Kuang, Ying Wang, Yongxin Zhao, Yihan Tao, Chen Cheng, Jing Yang, Xiayang Lu, Chen Hao, Tianxin Wang, Xiaoyan Cao, Jianhua Wei, Lei Li, Xiaozeng Yang, PmiREN: a comprehensive encyclopedia of plant miRNAs, <em>Nucleic Acids Research</em>, Volume 48, Issue D1, 08 January 2020, Pages D1114–D1121, <a href="javascript:;" target="_blank">https://doi.org/10.1093/nar/gkz894</a></span></p> -->
+
+
+        <!-- <p style="margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">&nbsp;</span></p>
+        <p style="margin-bottom:10px"><strong><span style="font-size:20px;font-family:等线;color:black;background:white">VIII. Miscellaneous</span></strong></p>
+        <p style="margin-bottom:10px"><strong><span style="font-size:16px;font-family:&#39;Arial&#39;,sans-serif">Figures of Species</span></strong></p>
+        <p style="margin-bottom:10px"><span style="font-size:13px;font-family:&#39;Arial&#39;,sans-serif">All hand drawing figures of organisms are downloaded from <a href="javascript:;" target="_blank"><span style="color:#4472C4">Plantillustrations.org</span></a>.</span></p>
+        <p><br></p> -->
+    </div>
+
+{% endblock %}

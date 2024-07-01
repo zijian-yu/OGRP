@@ -1,0 +1,1151 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Oleaceae platform</title>
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../../static/image/ico.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../static/vendor/css/home.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/slick-theme.css"/>
+    <!-- font awesome style -->
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/style.css" rel="stylesheet"/>
+    <!-- responsive style -->
+    <link href="../../static/css/responsive.css" rel="stylesheet"/>
+    <link href="../../static/vendor/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/vendor/index.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <style>
+        .btn-custom {
+            background-color: #ffffff; /* 白色背景 */
+            border-color: #8cc63f; /* 浅绿色边框 */
+            color: #8cc63f; /* 浅绿色文字 */
+        }
+
+        .btn-custom:hover {
+            background-color: #8cc63f; /* 鼠标悬停时的背景色 */
+            color: #ffffff; /* 鼠标悬停时的文字颜色 */
+        }
+
+        .btn-custom:focus {
+            box-shadow: none; /* 去除聚焦时的阴影效果 */
+        }
+    </style>
+    <script type="text/javascript">
+        const proData = {
+            "Fpe": ["Chromosome 1", "Chromosome 2", "Chromosome 3", "Chromosome 4", "Chromosome 5", "Chromosome 6", "Chromosome 7", "Chromosome 8", "Chromosome 9", "Chromosome 10", "Chromosome 11", "Chromosome 12", "Chromosome 13", "Chromosome 14", "Chromosome 15", "Chromosome 16", "Chromosome 17", "Chromosome 18", "Chromosome 19", "Chromosome 20", "Chromosome 21", "Chromosome 22", "Chromosome 23"],
+            "Jsa": ["Chromosome 01", "Chromosome 02", "Chromosome 03", "Chromosome 04", "Chromosome 05", "Chromosome 06", "Chromosome 07", "Chromosome 08", "Chromosome 09", "Chromosome 10", "Chromosome 11", "Chromosome 12", "Chromosome 13"],
+            "Oeu": ["Chromosome 01", "Chromosome 02", "Chromosome 03", "Chromosome 04", "Chromosome 05", "Chromosome 06", "Chromosome 07", "Chromosome 08", "Chromosome 09", "Chromosome 10", "Chromosome 11", "Chromosome 12", "Chromosome 13", "Chromosome 14", "Chromosome 15", "Chromosome 16", "Chromosome 17", "Chromosome 18", "Chromosome 19", "Chromosome 20", "Chromosome 21", "Chromosome 22", "Chromosome 23"],
+            "Sob": ["Chromosome 01", "Chromosome 02", "Chromosome 03", "Chromosome 04", "Chromosome 05", "Chromosome 06", "Chromosome 07", "Chromosome 08", "Chromosome 09", "Chromosome 10", "Chromosome 11", "Chromosome 12", "Chromosome 13", "Chromosome 14", "Chromosome 15", "Chromosome 16", "Chromosome 17", "Chromosome 18", "Chromosome 19", "Chromosome 20", "Chromosome 21", "Chromosome 22", "Chromosome 23"],
+            "Chu": ["Chromosome 01", "Chromosome 02", "Chromosome 03", "Chromosome 04", "Chromosome 05", "Chromosome 06", "Chromosome 07", "Chromosome 08", "Chromosome 09", "Chromosome 10", "Chromosome 11"],
+            "Vvi": ["Chromosome 1", "Chromosome 2", "Chromosome 3", "Chromosome 4", "Chromosome 5", "Chromosome 6", "Chromosome 7", "Chromosome 8", "Chromosome 9", "Chromosome 10", "Chromosome 11", "Chromosome 12", "Chromosome 13", "Chromosome 14", "Chromosome 15", "Chromosome 16", "Chromosome 17", "Chromosome 18", "Chromosome 19"]
+        };
+        window.onload = function () {
+            const oSelectPro = document.getElementById('model');
+            const oSelectCity = document.getElementById('list');
+            oSelectPro.onchange = function () {
+                const aRrayCity = proData[this.value];
+                oSelectCity.options.length=0;
+                for (let i=0; i<aRrayCity.length; i++){
+                    const oOption = document.createElement('option');
+                    oOption.innerHTML = aRrayCity[i];
+                    oOption.value = aRrayCity[i];
+                    oSelectCity.appendChild(oOption)
+                }
+            }
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#speciesTable').DataTable({
+                "ordering": false
+            });
+        });
+    </script>
+
+{% endblock %}
+
+
+{% block body_index %}
+
+<div class="row">
+    <div class="col-lg-3">
+        <form action="species_data" method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12" style="padding-top: 40px">
+                    <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Gene download<i></i></h3>
+                    <label for="state" class="form-label">species database</label>
+                    <select style="font-style: italic;" class="btn-default choice form-control" id="model" name="sp_name" required>
+                        <option value="Fpe">Fraxinus pennsylvanica</option>
+                        <option value="Jsa">Jasminum sambac</option>
+                        <option value="Oeu">Olea europaea</option>
+                        <option value="Sob">Syringa oblata</option>
+                        <option value="Chu">Coffea humblotiana</option>
+                        <option value="Vvi">Vitis vinifera</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please provide a valid state.
+                    </div>
+                </div>
+
+                <div class="col-md-12" style="padding-top: 40px">
+                    <label for="state" class="form-label">Chromosome</label>
+{#                    <select class="form-control" id="state" name="chromosome_number" required>#}
+                    <select class="col-md-12 btn-default form-control" name="chromosome_number" id="list">
+                        <option value="Chromosome 1">Chromosome 1</option>
+                        <option value="Chromosome 2">Chromosome 2</option>
+                        <option value="Chromosome 3">Chromosome 3</option>
+                        <option value="Chromosome 4">Chromosome 4</option>
+                        <option value="Chromosome 5">Chromosome 5</option>
+                        <option value="Chromosome 6">Chromosome 6</option>
+                        <option value="Chromosome 7">Chromosome 7</option>
+                        <option value="Chromosome 8">Chromosome 8</option>
+                        <option value="Chromosome 9">Chromosome 9</option>
+                        <option value="Chromosome 10">Chromosome 10</option>
+                        <option value="Chromosome 11">Chromosome 11</option>
+                        <option value="Chromosome 12">Chromosome 12</option>
+                        <option value="Chromosome 13">Chromosome 13</option>
+                        <option value="Chromosome 14">Chromosome 14</option>
+                        <option value="Chromosome 15">Chromosome 15</option>
+                        <option value="Chromosome 16">Chromosome 16</option>
+                        <option value="Chromosome 17">Chromosome 17</option>
+                        <option value="Chromosome 18">Chromosome 18</option>
+                        <option value="Chromosome 19">Chromosome 19</option>
+                        <option value="Chromosome 20">Chromosome 20</option>
+                        <option value="Chromosome 21">Chromosome 21</option>
+                        <option value="Chromosome 22">Chromosome 22</option>
+                        <option value="Chromosome 23">Chromosome 23</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-12" style="padding-top: 40px">
+                    <label for="firstName" class="form-label">Enter Start</label>
+                    <input type="text" class="form-control" id="firstName" name="start" value="1000" required="">
+                </div>
+
+                <div class="col-lg-12" style="padding-top: 40px">
+                    <label for="firstName" class="form-label">Enter End</label>
+                    <input type="text" class="form-control" id="firstName" name="end" value="200000" required="">
+                </div>
+
+                <div style="width: 100%; height: 40px; background-color: #FFFFFF"></div>
+
+                <input class="w-100 btn btn-primary btn-lg" type="submit" value="submit" onclick="go()">
+                <center>
+                    <span id="wait1" class="spinner-border spinner-border-sm" style="display:none"></span>
+                    <span id="wait2" style="display:none;padding-top: 30px">&nbsp;&nbsp;It is running, please wait a moment!</span>
+                </center>
+                <script>
+                    function go() {
+                        var hh1 = document.getElementById("wait1");
+                        var hh2 = document.getElementById("wait2");
+                        if (hh1.style.display === "none" && hh2.style.display === "none") {
+                            hh1.style.display = "inline-block";
+                            hh2.style.display = "inline-block"
+                        }
+                        document.getElementById('go').submit()
+                    }
+                </script>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-9">
+
+        <table id="speciesTable" class="display" style="text-align: center">
+            <thead>
+                <tr style="background-color:#0b613e; text-align:center; color:white">
+                    <th>Species name</th>
+                    <th>Abbr</th>
+                    <th>Common name</th>
+                    <th>Genes number</th>
+                    <th>Data link</th>
+                    <th>CDS</th>
+                    <th>PEP</th>
+                    <th>GFF3</th>
+                    <th>Provenance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Fraxinus pennsylvanica</td>
+                    <td>Fpe</td>
+                    <td>Green ash</td>
+                    <td>35,470</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_912172775.1/"
+                           target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Fpe.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Fpe.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Fpe.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13545" target="_blank">(Huff, et al. 2021)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Fraxinus pennsylvanica</td>
+                    <td>Fpe</td>
+                    <td>Green ash</td>
+                    <td>...</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_912172775.2/" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13545" target="_blank">(Huff, et al. 2021)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Fraxinus pennsylvanica</td>
+                    <td>Fpe</td>
+                    <td>Green ash</td>
+                    <td>...</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_903798245.1/" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://www.nature.com/articles/s41559-020-1209-3" target="_blank">(Kelly, et al. 2020)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Fraxinus pennsylvanica</td>
+                    <td>Fpe</td>
+                    <td>Green ash</td>
+                    <td>...</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_902829185.1/" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13545" target="_blank">(Huff, et al. 2021)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Jasminum sambac</td>
+                    <td>Jsa</td>
+                    <td>Arabian jasmine</td>
+                    <td>22,137</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/22882/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Jsa.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Jsa.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Jsa.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13497" target="_blank">(Xu, et al. 2022)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Jasminum sambac</td>
+                    <td>Jsa</td>
+                    <td>Arabian jasmine</td>
+                    <td>...</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_018223645.1/" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-022-01297-0" target="_blank">(Dong, et al. 2022)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Jasminum sambac</td>
+                    <td>Jsa</td>
+                    <td>Arabian jasmine</td>
+                    <td>...</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/22882/show" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/pbi.13820" target="_blank">(Wang, et al. 2022)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Jasminum sambac</td>
+                    <td>Jsa</td>
+                    <td>Arabian jasmine</td>
+                    <td>...</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/22881/show" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/pbi.13820" target="_blank">(Wang, et al. 2022)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Jasminum sambac</td>
+                    <td>Jsa</td>
+                    <td>Arabian jasmine</td>
+                    <td>...</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/17542/show" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://www.sciencedirect.com/science/article/pii/S1672022922001711" target="_blank">(Chen, et al. 2023)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Jasminum sambac</td>
+                    <td>Jsa</td>
+                    <td>Arabian jasmine</td>
+                    <td>...</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/25213/show" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="" target="_blank">(Zhou, et al. 2022)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Olea europaea</td>
+                    <td>Oeu</td>
+                    <td>Olive tree</td>
+                    <td>48,772</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/10300/show" target="_blank">&#10144</a>
+                    </td>
+                    <td><a href="../static/species_data/Oeu.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Oeu.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Oeu.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/hr/article/doi/10.1038/s41438-021-00498-y/6446608?login=false" target="_blank">(Rao, et al. 2021)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Olea europaea</td>
+                    <td>Oeu</td>
+                    <td>Olive tree</td>
+                    <td>...</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_002742605.1/" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://www.pnas.org/doi/full/10.1073/pnas.1708621114" target="_blank">(Unver, et al. 2017)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Olea europaea</td>
+                    <td>Oeu</td>
+                    <td>Olive tree</td>
+                    <td>...</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_902713445.1/" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://www.mdpi.com/2223-7747/10/11/2514" target="_blank">(Friel, et al. 2021)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Olea europaea</td>
+                    <td>Oeu</td>
+                    <td>Olive tree</td>
+                    <td>...</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023089605.1/" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2022.868540/full" target="_blank">(Wu, et al. 2022)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Syringa oblata</td>
+                    <td>Sob</td>
+                    <td>Broadleaf lilac</td>
+                    <td>53,699</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Genome/1712/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Sob.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Sob.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Sob.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/tpj.15858" target="_blank">(Wang, et al. 2022)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Forsythia suspensa</td>
+                    <td>Fsu</td>
+                    <td>Weeping forsythia</td>
+                    <td>33,062</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023638005.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Fsu.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Fsu.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Fsu.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/hr/article/doi/10.1038/s41438-020-00352-7/6445590" target="_blank">(Li, et al. 2020)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Forsythia suspensa</td>
+                    <td>Fsu</td>
+                    <td>Weeping forsythia</td>
+                    <td>...</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_013103335.1/" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://academic.oup.com/hr/article/doi/10.1038/s41438-020-00352-7/6445590" target="_blank">(Li, et al. 2020)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Forsythia suspensa</td>
+                    <td>Fsu</td>
+                    <td>Weeping forsythia</td>
+                    <td>...</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_020510225.1/" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-022-01297-0" target="_blank">(Dong, et al. 2022)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Fraxinus americana</td>
+                    <td>Fam</td>
+                    <td>white ash</td>
+                    <td>...</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_903798225.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Fam.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Fam.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Fam.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.sciencedirect.com/science/article/pii/S0141813023040291?via%3Dihub" target="_blank">(Zhang, et al. 2023)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Fraxinus excelsior</td>
+                    <td>Fex</td>
+                    <td>European ash</td>
+                    <td>38,852</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_019097785.1/" target="_blank">&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://www.nature.com/articles/nature20786" target="_blank">(Sollars et al. 2017)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Fraxinus excelsior</td>
+                    <td>Fex</td>
+                    <td>European ash</td>
+                    <td>...</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_900149125.1/" >&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://academic.oup.com/g3journal/article/10/10/3565/6053554" target="_blank">(Wang et al. 2020)</a></td>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Osmanthus fragrans</td>
+                    <td>Ofr</td>
+                    <td>Sweet osmanthus</td>
+                    <td>45,542 </td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_019395295.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Ofr.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Ofr.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Ofr.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/hr/article/doi/10.1038/s41438-021-00531-0/6446669" target="_blank">(Chen H et al. 2021)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Nyctanthes arbor-tristis</td>
+                    <td>Nar</td>
+                    <td>Coral jasmine</td>
+                    <td>... </td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_963692815.1/" target="_blank">&#10144</a></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/ppl.14119" target="_blank">(Patil et al. 2023)</a></td>
+                </tr>
+
+                <tr style="background-color:#F2D2BD;">
+                    <td style="font-style: italic;">Fraxinus nigra</td>
+                    <td>Fni</td>
+                    <td>Black ash</td>
+                    <td>... </td>
+                    <td><a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.7sqv9s4xh" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Fni.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Fni.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Fni.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s42003-023-05748-4" target="_blank">(Fleck et al. 2024)</a></td>
+                </tr>
+
+
+
+                <tr>
+                    <td style="font-style: italic;">Coffea humblotiana</td>
+                    <td>Chu</td>
+                    <td>---</td>
+                    <td>31092</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023065735.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Chu.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Chu.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Chu.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://doi.org/10.1093/database/baaa069" target="_blank">(Guyot, et al. 2020)</a></td>
+                </tr>
+
+                <tr>
+                    <td style="font-style: italic;">Vitis vinifera</td>
+                    <td>Vvi</td>
+                    <td>Grape</td>
+                    <td>23,647</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030704535.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Vvi.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Vvi.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Vvi.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/nature06148" target="_blank">(Jaillon, et al. 2007)</a></td>
+                </tr>
+
+                <tr>
+                    <td style="font-style: italic;">Antirrhinum majus</td>
+                    <td>Anma</td>
+                    <td>Snapdragon</td>
+                    <td>51,724</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/25982/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Anma.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Anma.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Anma.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/nature06148" target="_blank">(Zhu S et al. 2023)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Scutellaria baicalensis </td>
+                    <td>Scba</td>
+                    <td>Baikal skullcap</td>
+                    <td>29,551</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/10411/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Scba.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Scba.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Scba.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.frontiersin.org/articles/10.3389/fpls.2022.1000469/full" target="_blank">(Hu S et al. 2023)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Perilla citriodora</td>
+                    <td>Peci</td>
+                    <td>---</td>
+                    <td>38,840</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/ncbi_assembly/56803/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Peci.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Peci.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Peci.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s41467-021-25681-6" target="_blank">(Hu S et al. 2023)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Sesamum indicum</td>
+                    <td>Sein</td>
+                    <td>Sesame</td>
+                    <td>33,490</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000512975.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Sein.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Sein.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Sein.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s41467-021-25681-6" target="_blank">(Wang X et al. 2022)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Jacaranda mimosifolia</td>
+                    <td>Jami</td>
+                    <td>Blue jacaranda</td>
+                    <td>30,256</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_018894105.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Jami.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Jami.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Jami.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/gbe/article/13/6/evab094/6263831" target="_blank">(Wang M et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Ilex polyneura</td>
+                    <td>Ilpo</td>
+                    <td>---</td>
+                    <td>31,990</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/21460/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Ilpo.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Ilpo.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Ilpo.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/hr/article/doi/10.1093/hr/uhab049/6497789" target="_blank">(Yao X et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Melilotus albus</td>
+                    <td>Meal</td>
+                    <td>White sweetclover</td>
+                    <td>41,853</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/21234/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Meal.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Meal.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Meal.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/pbi.13742" target="_blank">(Wu F et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Dalbergia odorifera</td>
+                    <td>Daod</td>
+                    <td>Fragrant rosewood</td>
+                    <td>29,344</td>
+                    <td><a href="http://gigadb.org/dataset/100760" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Daod.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Daod.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Daod.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/gigascience/article/9/8/giaa084/5893771" target="_blank">(Yao X et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Aeschynomene evenia</td>
+                    <td>Aeev</td>
+                    <td>Shrubby jointvetch</td>
+                    <td>30,827</td>
+                    <td><a href="http://aeschynomenebase.fr/download" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Aeev.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Aeev.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Aeev.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s41467-021-21094-7" target="_blank">(Quilbe J et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Aegiceras corniculatum</td>
+                    <td>Aeco</td>
+                    <td>Black mangrove</td>
+                    <td>39,066</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/20677/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Aeco.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Aeco.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Aeco.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s41559-022-01744-9" target="_blank">(He Z et al. 2022)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Rhododendron griersonianum</td>
+                    <td>Rhgr</td>
+                    <td>---</td>
+                    <td>51,363</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_018127125.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Rhgr.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Rhgr.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Rhgr.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/tpj.15399" target="_blank">(Ma H et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Vaccinium darrowii</td>
+                    <td>Vada</td>
+                    <td>Darrow's blueberry</td>
+                    <td>34,223</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_020921065.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Vada.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Vada.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Vada.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.sciencedirect.com/science/article/pii/S2590346222000542?via%3Dihub" target="_blank">(Cui F et al. 2022)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Camellia sinensis</td>
+                    <td>Casi</td>
+                    <td>Tea tree</td>
+                    <td>32,241</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_004153795.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Casi.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Casi.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Casi.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s41597-019-0127-1" target="_blank">(Xia E et al. 2019)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Lagenaria siceraria</td>
+                    <td>Lasi</td>
+                    <td>Bottle gourd</td>
+                    <td>22,234</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_002890555.2/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Lasi.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Lasi.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Lasi.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/tpj.15358" target="_blank">(Xu P et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Begonia darthvaderiana</td>
+                    <td>Beda</td>
+                    <td>Darth Vader begonia</td>
+                    <td>22,773</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_022432945.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Beda.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Beda.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Beda.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.17949" target="_blank">(Li L et al. 2022)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Juglans regia </td>
+                    <td>Jure</td>
+                    <td>Common walnut</td>
+                    <td>40,723</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_001411555.2/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Jure.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Jure.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Jure.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/gigascience/article/9/5/giaa050/5841058" target="_blank">(Marrano A et al. 2020)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Kandelia obovata</td>
+                    <td>Kaob</td>
+                    <td>---</td>
+                    <td>18,071</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_021464305.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Kaob.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Kaob.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Kaob.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/hr/article/doi/10.1038/s41438-020-0300-x/6445445" target="_blank">(Hu MJ et al. 2020)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Populus trichocarpa</td>
+                    <td>Potr</td>
+                    <td>Black cottonwood</td>
+                    <td>34,488</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000002775.5/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Potr.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Potr.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Potr.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02162-5" target="_blank">(Hofmeister BT et al. 2020)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Helianthus annuus</td>
+                    <td>Hean</td>
+                    <td>Common sunflower</td>
+                    <td>83,063</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_002127325.2/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Hean.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Hean.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Hean.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/nature22380" target="_blank">(Badouin H et al. 2017)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Erigeron breviscapus</td>
+                    <td>Erbr</td>
+                    <td>Chinese fleabane</td>
+                    <td>42,616</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_034093135.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Erbr.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Erbr.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Erbr.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13257" target="_blank">(He S et al. 2020)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Carthamus tinctorius</td>
+                    <td>Cati</td>
+                    <td>Safflower</td>
+                    <td>45,331</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001633085.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Cati.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Cati.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Cati.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/pbi.13586" target="_blank">(Wu Z et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Stevia rebaudiana</td>
+                    <td>Stre</td>
+                    <td>Candyleaf</td>
+                    <td>40,335</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_009936405.2/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Stre.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Stre.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Stre.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/hr/article/doi/10.1038/s41438-021-00565-4/6446712" target="_blank">(Xu X et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Cynara cardunculus</td>
+                    <td>Cyca</td>
+                    <td>Artichoke</td>
+                    <td>23,562</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_001531365.2/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Cyca.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Cyca.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Cyca.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/srep19427" target="_blank">(Scaglione D et al. 2016)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Erigeron canadensis</td>
+                    <td>Erca</td>
+                    <td>---</td>
+                    <td>34,258</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_010389155.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Erca.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Erca.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Erca.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1002/ps.5753" target="_blank">(Laforest M, et al. 2020)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Arctium lappa</td>
+                    <td>Arla</td>
+                    <td>Greater burdock</td>
+                    <td>31,446</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023525745.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Arla.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Arla.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Arla.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13675" target="_blank">(Fan W et al. 2022)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Fragaria mandschurica </td>
+                    <td>Frma</td>
+                    <td>---</td>
+                    <td>24,082</td>
+                    <td><a href="https://www.rosaceae.org/Analysis/12137893" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Frma.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Frma.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Frma.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.pnas.org/doi/full/10.1073/pnas.2105431118" target="_blank">(Qiao Q et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Prunus mume</td>
+                    <td>Prmu</td>
+                    <td>Chinese plum</td>
+                    <td>26,697</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000346735.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Prmu.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Prmu.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Prmu.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.17894" target="_blank">(Zheng T et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Solanum lycopersicum</td>
+                    <td>Soly</td>
+                    <td>Tomato</td>
+                    <td>29,723</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000188115.5/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Soly.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Soly.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Soly.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-021-08212-x" target="_blank">(Su X et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Nyssa sinensis</td>
+                    <td>Nysi</td>
+                    <td>Chinese tupelo</td>
+                    <td>36,241</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_008638375.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Nysi.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Nysi.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Nysi.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s41597-019-0296-y" target="_blank">(Yang X et al. 2019)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Davidia involucrata</td>
+                    <td>Dain</td>
+                    <td>Dove tree</td>
+                    <td>38,930</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/12571/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Dain.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Dain.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Dain.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13138" target="_blank">(Chen Y et al. 2019)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Camptotheca acuminata</td>
+                    <td>Caac</td>
+                    <td>Happy tree</td>
+                    <td>26,669</td>
+                    <td><a href="https://figshare.com/articles/dataset/The_chromosome-scale_genome_assembly_of_Camptotheca_acuminata/12570599" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Caac.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Caac.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Caac.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s41467-021-23872-9" target="_blank">(Kang M et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Carica papaya</td>
+                    <td>Capa</td>
+                    <td>Papaya</td>
+                    <td>24,308</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/ncbi_assembly/54925/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Capa.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Capa.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Capa.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s41588-022-01068-1" target="_blank">(Yue J et al. 2022)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Arabidopsis thaliana</td>
+                    <td>Arth</td>
+                    <td>Thale cress</td>
+                    <td>27,172</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001735.4/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Arth.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Arth.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Arth.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s41467-018-03016-2" target="_blank">(Michael TP et al. 2018)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Portulaca amilis</td>
+                    <td>Poam</td>
+                    <td>Paraguayan purslane</td>
+                    <td>56,816</td>
+                    <td><a href="https://phytozome-next.jgi.doe.gov/info/Pamilis_v1_0" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Poam.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Poam.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Poam.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/plphys/article/189/2/735/6548170" target="_blank">(Gilman IS et al. 2022)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Selenicereus undatus</td>
+                    <td>Seun</td>
+                    <td>White-fleshed dragon fruit</td>
+                    <td>27,490</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_017589665.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Seun.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Seun.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Seun.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/hr/article/doi/10.1038/s41438-021-00612-0/6446786" target="_blank">(Chen JY et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Beta vulgaris</td>
+                    <td>Bevu</td>
+                    <td>Sugar beet</td>
+                    <td>23,028</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_026745355.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Bevu.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Bevu.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Bevu.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/tpj.14413" target="_blank">(Del Rio AR et al. 2019)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Simmondsia chinensis</td>
+                    <td>Sich</td>
+                    <td>Jojoba</td>
+                    <td>23,325</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_018398585.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Sich.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Sich.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Sich.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/tpj.15509" target="_blank">(Al-Dossary O et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Toona sinensis</td>
+                    <td>Tosi</td>
+                    <td>Chinese mahogany</td>
+                    <td>33,693</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/17555/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Tosi.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Tosi.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Tosi.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13318" target="_blank">(Ji YT et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Acer yangbiense</td>
+                    <td>Acya</td>
+                    <td>---</td>
+                    <td>28,320</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_008009225.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Acya.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Acya.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Acya.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/gigascience/article/8/7/giz085/5532406" target="_blank">(Yang J et al. 2019)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Citrus sinensis</td>
+                    <td>Cisi</td>
+                    <td>Sweet orange</td>
+                    <td>32,713</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_022201045.2/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Cisi.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Cisi.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Cisi.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/hr/article/10/1/uhac247/6794931" target="_blank">(Wu B et al. 2022)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Averrhoa carambola</td>
+                    <td>Avca</td>
+                    <td>Star fruit</td>
+                    <td>24,531</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/946/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Avca.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Avca.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Avca.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/hr/article/doi/10.1038/s41438-020-0307-3/6445436" target="_blank">(Wu S et al. 2020)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Buxus sinica</td>
+                    <td>Busi</td>
+                    <td>Chinese boxwood</td>
+                    <td>26,971</td>
+                    <td><a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.cjsxksn6d" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Busi.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Busi.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Busi.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s41467-022-28312-w" target="_blank">(Chanderbali AS et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Papaver rhoeas</td>
+                    <td>Parh</td>
+                    <td>Common poppy</td>
+                    <td>35,781</td>
+                    <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/17874/show" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Parh.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Parh.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Parh.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://www.nature.com/articles/s41467-021-26330-8" target="_blank">(Yang X et al. 2021)</a></td>
+                    </tr>
+
+                    <tr>
+                    <td style="font-style: italic;">Nelumbo nucifera</td>
+                    <td>Nenu</td>
+                    <td>Sacred lotus</td>
+                    <td>27,603</td>
+                    <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000365185.1/" target="_blank">&#10144</a></td>
+                    <td><a href="../static/species_data/Nenu.cds" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Nenu.pep" target="_blank">&#8681</a></td>
+                    <td><a href="../static/species_data/Nenu.new.gff" target="_blank">&#8681</a></td>
+                    <td><a href="https://academic.oup.com/hr/article/doi/10.1093/hr/uhac029/6532238" target="_blank">(Zheng X et al. 2022)</a></td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% if result %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/shuye.png); font-family:'Arial',sans-serif;color:black;">Sequence Fetch<i></i></h3>
+        </div>
+
+        <div class="card col-lg-6">
+            <div class="row" style="padding-top: 10px">
+                <div class="col-lg-6" style="text-align: right;">
+                    <h4>CDS</h4>
+                </div>
+                <div class="col-lg-6" style="display: flex; align-items: center; justify-content: flex-end;">
+                    <button onclick="downloadContent_cds()" class="btn-custom btn btn-sm" style="margin-bottom: 10px;">Download</button>
+                </div>
+            </div>
+
+            {% for row in result %}
+            <div class="card">
+                <div class="card-header">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ row.0 }}" aria-expanded="true">
+                        {{ row.0 }} &nbsp;&nbsp;&nbsp; Length: {{ row.3 }} &nbsp;&nbsp;&nbsp;GC_content: {{ row.5 }}
+                    </button>
+                </div>
+                <div id="{{ row.0 }}" class="collapse" style="margin: 10px 15px 0px 15px;">
+                    <div class="d-flex justify-content-end">
+                        <input type="button" value="Copy" class="clip btn btn-secondary btn-sm" data-clipboard-target="#{{ row.0 }}_copy">
+                    </div>
+                    <p id="{{ row.0 }}_copy" class="text-monospace" style="text-align: justify;">>{{ row.0 }}<br>{{ row.1 }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="card col-lg-6">
+            <div class="row" style="padding-top: 10px">
+                <div class="col-lg-6" style="text-align: right;">
+                    <h4>PEP</h4>
+                </div>
+                <div class="col-lg-6" style="display: flex; align-items: center; justify-content: flex-end;">
+                    <button onclick="downloadContent_pep()" class="btn-custom btn btn-sm" style="margin-bottom: 10px;">Download</button>
+                </div>
+            </div>
+
+            {% for row in result %}
+                <div class="card">
+                    <div class="card-header">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ row.0 }}_pep" aria-expanded="true">
+                            {{ row.0 }} &nbsp;&nbsp;&nbsp; Length: {{ row.4 }}
+                        </button>
+                    </div>
+                    <div id="{{ row.0 }}_pep" class="collapse" style="margin: 10px 15px 0px 15px;">
+                        <div class="d-flex justify-content-end">
+                            <input type="button" value="Copy" class="clip btn btn-secondary btn-sm" data-clipboard-target="#{{ row.0 }}_copy_pep">
+                        </div>
+                        <p id="{{ row.0 }}_copy_pep" class="text-monospace" style="text-align: justify;">>{{ row.0 }}<br>{{ row.2 }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <script>
+            function downloadContent_cds() {
+                let content = "";
+                {% for row in result %}
+                content += ">{{ row.0 }}\n{{ row.1 }}\n";
+                {% endfor %}
+                var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement("a");
+                a.href = url;
+                a.download = "cds_content.txt";
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+        </script>
+
+        <script>
+            function downloadContent_pep() {
+                let content = "";
+                {% for row in result %}
+                content += ">{{ row.0 }}\n{{ row.2 }}\n";
+                {% endfor %}
+                var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement("a");
+                a.href = url;
+                a.download = "pep_content.txt";
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+        </script>
+
+        <script>
+            var clipboard = new ClipboardJS('.clip');
+        </script>
+    </div>
+
+{% endif %}
+
+
+<div style="margin-top: 50px"></div>
+
+{#<script src="../../static/js/jquery-1.11.2.js"></script>#}
+{#<script src="../../static/vendor/index.js"></script>#}
+{#<script src="../../static/js/index.js"></script>#}
+
+{% endblock %}
+
+
+
+
+{% block list_js %}
+{#<script src="../static/vendor/jquery/jquery.min.js"></script>#}
+<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+

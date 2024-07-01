@@ -1,0 +1,87 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <link rel="icon" href="../static/image/ico.png" type="image/x-icon" xmlns=""/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Oleaceae platform</title>
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link href="../static/vendor/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/slick-theme.css" />
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../static/css/style.css" rel="stylesheet" />
+    <link href="../static/css/responsive.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="../static/vendor/js/api.js"></script>
+{% endblock %}
+
+
+{% block body_index %}
+
+    <h3 class="h3_1 h3_6" style="background-image:url(../static/image/ico.png)"><b>Common diseases</b><i></i>
+    </h3>
+
+    <div class="row">
+        <div class="col-3 bg-light">
+            <!-- <div class="sticky-top"> -->
+                <ol class="flex-column">
+                    <li><a href="#downy mildew">ash dieback (ADB)</a></li>
+                    <li><a href="#2022/09/24">cycloconium oleaginum cast.</a></li>
+                    <li><a href="#2022/08/14">Pseudomonas savastanoi Stevens</a></li>
+                    <li><a href="#2022/05/04">Gloeosporium olivae</a></li>
+                    <li><a href="#2022/04/23">Colletotrichum gloeospor-ioides</a></li>
+                    <li><a href="#2022/03/23">Ascochyta oleae Scalia</a></li>
+                    <li><a href="#2022/02/18">Rosellinia necatrix</a></li>
+
+                </ol>
+            <!-- </div> -->
+        </div>
+
+
+        <div class="col-md-9">
+
+            <h4 style="margin-bottom: 20px;" id="downy mildew"><b>ash dieback (ADB)</b></h4>
+            <p style="margin-left: 10px">European ash is currently under threat from ash dieback (ADB) caused by the fungus Hymenoscyphus fraxineus which has devastated ash across mainland Europe over the past 25 years.</p>
+            <p>Reference: <a href="https://www.sciencedirect.com/science/article/pii/S004896972035316X?via%3Dihub">(Turczański et al., 2021)</a></p>
+            <img src="../static/image/ashDieback.png" alt="" style="width: 500px;height: 300px">
+
+            <h4 style="margin-bottom: 20px;" id="2022/09/24"><b>cycloconium oleaginum cast</b></h4>
+            <p style="margin-left: 10px">This disease harms leaves, fruits, and branches, with leaves and fruits being the most severely affected. At the onset of the disease, the lesion appears as brownish black dots on the leaves, gradually expanding to form a brown concentric ring with a slightly lighter central color. When the temperature and humidity are appropriate, there are light yellow halos around the lesion, resembling peacock feather spots, hence the name peacock spot disease.</p>
+            <p>Reference: <a href="https://link.springer.com/article/10.1007/BF01146204">(R Yahiaoui et al., 1993)</a></p>
+            <img src="../static/image/cycloconiumOleaginumCast.jpg" alt="" style="width: 500px;height: 300px">
+
+            <h4 style="margin-bottom: 20px;" id="2022/08/14"><b>Pseudomonas savastanoi Stevens</b></h4>
+            <p style="margin-left: 10px">It mainly harms the root, root neck, trunk and branches of Olive, and sometimes leaves and fruits. Forming flattened or irregularly shaped spongy or corky tumors in the affected area.</p>
+            <p>Reference: <a href="https://www.microbiologyresearch.org/content/journal/micro/10.1099/00221287-72-2-211">(J L Marlow et al., 1972)</a></p>
+            <img src="../static/image/PseudomonasSavastanoiStevens.jpg" alt="" style="width: 500px;height: 300px">
+
+            <h4 style="margin-bottom: 20px;" id="2022/05/04"><b>Gloeosporium olivae</b></h4>
+            <p style="margin-left: 10px">It mainly damages the Olive fruit and leaves, and at least one disease spot occurs on the damaged fruit. The initial appearance is a reddish brown circular small spot, which expands to a dark brown color and has a slightly sunken center. In the early stage, the central part of the lesion turns gray, with small granular black dots appearing, forming a meristematic disc.</p>
+            <p>Reference: <a href="https://apsjournals.apsnet.org/doi/10.1094/PDIS-04-13-0394-PDN">(S Rooney-Latham et al., 2013)</a></p>
+            <img src="../static/image/GloeosporiumOlivae.jpg" alt="" style="width: 500px;height: 300px">
+
+            <h4 style="margin-bottom: 20px;" id="2022/04/23"><b>Colletotrichum gloeospor-ioides</b></h4>
+            <p style="margin-left: 10px">Fusarium wilt is a systemic disease that infects the whole plant. The infected plants grow short, and the leaves gradually turn yellow to yellow brown wilting from bottom to top at the initial stage of infection.</p>
+            <p>Reference: <a href="https://link.springer.com/article/10.1007/s12272-019-01142-z">(Jung Wha Kim et al., 2019)</a></p>
+            <img src="../static/image/ColletotrichumGloeosporIoides.jpg" alt="" style="width: 500px;height: 300px">
+
+            <h4 style="margin-bottom: 20px;" id="2022/03/23"><b>Ascochyta oleae Scalia</b></h4>
+            <p style="margin-left: 10px">Leaf infections often produce nearly circular to irregularly shaped lesions from the middle or base of the leaf tip, ranging in size from 1-5mm, with a dark brown to grayish white center, reddish brown edges, and small black spots on top.</p>
+            <p>Reference: <a href="https://www.gbif.org/species/2615018">www.gbif.org</a></p>
+            <img src="../static/image/AscochytaOleaeScalia.jpg" alt="" style="width: 500px;height: 300px">
+
+            <h4 style="margin-bottom: 20px;" id="2022/02/18"><b>Rosellinia necatrix</b></h4>
+            <p style="margin-left: 10px">The diseased root surface is twined with white or gray silk mesh, and the soft tissue of the moldy root disappears in the later stage, and the external cork layer sheaths outside the Xylem like a sheath.</p>
+            <p>Reference: <a href="https://www.frontiersin.org/articles/10.3389/fmicb.2020.01064/full">(Paul Telengech et al., 2020)</a></p>
+            <img src="../static/image/RoselliniaNecatrix.jpg" alt="" style="width: 500px;height: 300px">
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
+

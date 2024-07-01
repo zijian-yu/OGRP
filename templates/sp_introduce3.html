@@ -1,0 +1,197 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Oleaceae platform</title>
+
+    <link href="../static/vendor/css/style.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../static/image/ico.jpg" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/vendor/css/home.css" type="text/css">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css/modern-business.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.5.1.js"></script>
+    <script src="../static/js/jquery.dataTables.min.js"></script>
+    <link href="../static/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/slick-theme.css"/>
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../static/css/style.css" rel="stylesheet"/>
+    <link href="../static/css/responsive.css" rel="stylesheet"/>
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+{% endblock %}
+
+
+{% block body_index %}
+    <h3 class="h3_1 h3_6" style="background-image:url(../static/image/shuye.png); font-family:'Arial',sans-serif;color:black;">Introduce<i></i>
+    </h3>
+
+    <!-- choose module -->
+    <div id="choose_module" style="display: flex;align-items: center;justify-content: space-between;">
+        <!-- 1-3 -->
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Gynostemma pentaphyllum</i></p>
+                <a href="{% url "Gpe_url" %}"><img src="../static/image/Gpe.jpg" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size: ** MB </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://academic.oup.com/dnaresearch/article/28/5/dsab018/6367775?login=false"
+                        style="font-size: 16px">Chromosome-level genome assembly of Gynostemma pentaphyllum provides insights into gypenoside biosynthesis</a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/020/536/105/GCA_020536105.1_JGL_1.0/" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Luffa acutangula</i></p>
+                <a href="{% url "Lac_url" %}"><img src="../static/image/Lac.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size: ** MB</p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://sci-hub.hkvisa.net/10.1111/1755-0998.13240" style="font-size: 16px">De novo assemblies of Luffa acutangula and Luffa cylindrica genomes reveal an expansion associated with substantial accumulation of transposable elements.</a><br><br></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/012/295/215/GCA_012295215.1_ASM1229521v1/" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Luffa cylindrica</i></p>
+                <a href="{% url "Lcy_url" %}"><img src="../static/image/Lcy.jpg" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size: ** MB </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="high-quality sponge gourd (Luffa cylindrica) genome | Horticulture Research | Oxford Academic (oup.com)" 
+                        style="font-size: 16px">A high-quality sponge gourd (Luffa cylindrica) genome.</a><br><br><br><br></p>
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a href="NA" style="font-size: 16px">Link</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="choose_module" style="display: flex;align-items: center;justify-content: space-between;">
+        <!-- 4-6 -->
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Momordica charantia</i></p>
+                <a href="{% url "Mch_url" %}"><img src="../static/image/Mch.jpg" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size: ** MB </p>
+                <p></p>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://academic.oup.com/dnaresearch/article/24/1/51/2709597" 
+                        style="font-size: 16px">Draft genome sequence of bitter gourd (Momordica charantia), a vegetable and medicinal plant in tropical and subtropical regions</a> <br> <br> <br></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/3673/" style="font-size: 16px">Link</a>
+                </p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Sechium edule</i></p>
+                <a href="{% url "Sed_url" %}"><img src="../static/image/Sed.jpg" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size: ** MB </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://academic.oup.com/hr/article/doi/10.1038/s41438-021-00487-1/6446629" 
+                        style="font-size: 16px">Combined genomic, transcriptomic, and metabolomic analyses provide insights into chayote (Sechium edule) evolution and fruit development</a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="NA" style="font-size: 16px">Link</a>
+                </p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Trichosanthes anguina</i></p>
+                <a href="{% url "Tan_url" %}"><img src="../static/image/Tan.jpg" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size: ** MB </p>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://academic.oup.com/hr/article/doi/10.1038/s41438-020-00423-9/6445725" 
+                        style="font-size: 16px">The genome and transcriptome analysis of snake gourd provide insights into its evolution and fruit development and ripening</a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="NA" style="font-size: 16px">Link</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="choose_module" style="display: flex;align-items: center;justify-content: space-between;">
+        <!-- 7-9 需要进行更改-->
+        <div id="module_1">
+            <div style="height: 550px">
+                <p id='text_in_image'><i>Begonia fuchsioides</i></p>
+                <a href="{% url "Bfu_url" %}"><img src="../static/image/Bfu.jpg" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size: ** MB </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://sci-hub.hkvisa.net/10.1126/science.aat1743" style="font-size: 16px">Phylogenomics reveals multiple losses of nitrogen-fixing root nodule symbiosis</a>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="NA" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 550px">
+                <p id='text_in_image'><i>Siraitia grosvenorii</i></p>
+                <a href="{% url "Sgr_url" %}"><img src="../static/image/Sgr.jpg" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Gene: 22104 </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://academic.oup.com/gigascience/article/7/6/giy067/5034949" style="font-size: 16px">Improved de novo genome assembly and analysis of the Chinese cucurbit Siraitia grosvenorii, also known as monk fruit or luo-han-guo <br></a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="NA" style="font-size: 16px">Link</a>
+                </p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 550px">
+                <p id='text_in_image'><i>Cucumis metuliferus</i></p>
+                <a href="{% url "Cmet_url" %}"><img src="../static/image/Cmet.jpg" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Gene: 24,155 </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                     href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/tpj.15279" style="font-size: 16px">High-quality chromosome-level genomes ofCucumismetuliferusandCucumis meloprovide insight intoCucumisgenome evolution<br></a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="http://cucurbitgenomics.org/v2/ftp/genome/melon/PI482460/"
+                        style="font-size: 16px">Link</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="{% url "sp_introduce2_url" %}">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="{% url "sp_introduce_url" %}">1</a></li>
+            <li class="page-item"><a class="page-link" href="{% url "sp_introduce2_url" %}">2</a></li>
+            <li class="page-item"><a class="page-link" href="{% url "sp_introduce3_url" %}">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="{% url "sp_introduce_url" %}">Next</a>
+            </li>
+        </ul>
+    </nav>
+
+{% endblock %}
+
+

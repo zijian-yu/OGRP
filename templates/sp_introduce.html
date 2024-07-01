@@ -1,0 +1,183 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Oleaceae platform</title>
+
+    <link href="../static/vendor/css/style.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../static/image/ico.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/vendor/css/home.css" type="text/css">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css/modern-business.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.5.1.js"></script>
+    <script src="../static/js/jquery.dataTables.min.js"></script>
+    <link href="../static/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/slick-theme.css"/>
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../static/css/style.css" rel="stylesheet"/>
+    <link href="../static/css/responsive.css" rel="stylesheet"/>
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+{% endblock %}
+
+
+{% block body_index %}
+    <h3 class="h3_1 h3_6" style="background-image:url(../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Species introduce<i></i>
+    </h3>
+
+    <div id="choose_module" style="display: flex;align-items: center;justify-content: space-between;">
+        <!-- 1-3 -->
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Forsythia suspensa</i></p>
+                <a href="{% url "Fsu_url" %}"><img src="../static/image/Fsu.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size:737.5Mb</p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature:
+                    <a href="https://academic.oup.com/hr/article/doi/10.1038/s41438-020-00352-7/6445590" style="font-size: 16px" target="_blank">
+                    Genome sequencing and population genomics modeling provide insights into the local adaptation of weeping forsythia<br></a></p>
+                <p id='text_in_image' style="background: white; color:black">Introduce:
+                    <a href="https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=z920" target="_blank" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Jasminum sambac</i></p>
+                <a href="{% url "Jsa_url" %}"><img src="../static/image/Jsa.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size:505.5Mb</p>
+                <br>
+                <p id='text_in_image' style="height:150px;background: white; color:black">Literature: <a
+                        href="https://www.frontiersin.org/articles/10.3389/fpls.2022.1045194/full" style="font-size: 16px" target="_blank">
+                    The genome of single-petal jasmine (Jasminum sambac) provides insights into heat stress tolerance and aroma compound biosynthesis<br></a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=b658" style="font-size: 16px" target="_blank">Link</a></p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Fraxinus excelsior</i></p>
+                <a href="{% url "Fex_url" %}"><img src="../static/image/Fex.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size:806.5Mb</p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-018-4874-8" style="font-size: 16px" target="_blank">
+                    Genome-wide epigenetic variation among ash trees differing in susceptibility to a fungal disease<br></a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="https://gobotany.nativeplanttrust.org/species/fraxinus/excelsior/" style="font-size: 16px" target="_blank">Link</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div id="choose_module" style="display: flex;align-items: center;justify-content: space-between;">
+        <!-- 4-6 -->
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Fraxinus pennsylvanica</i></p>
+                <a href="{% url "Fpe_url" %}"><img src="../static/image/Fpe.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size:756.8Mb</p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13545" target="_blank" style="font-size: 16px">
+                    A high-quality reference genome for Fraxinus pennsylvanica for ash species restoration and research<br></a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a868" target="_blank" style="font-size: 16px">Link</a>
+                </p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Osmanthus fragrans</i></p>
+                <a href="{% url "Ofr_url" %}"><img src="../static/image/Ofr.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size:733.3Mb </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://academic.oup.com/hr/article/doi/10.1038/s41438-021-00531-0/6446669" target="_blank" style="font-size: 16px">
+                    Whole-genome resequencing of Osmanthus fragrans provides insights into flower color evolution<br></a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a886" target="_blank" style="font-size: 16px">Link</a>
+                </p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Olea europaea</i></p>
+                <a href="{% url "Oeu_url" %}"><img src="../static/image/Oeu.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size: 1257.2Mb </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://academic.oup.com/hr/article/doi/10.1038/s41438-021-00498-y/6446608" target="_blank" style="font-size: 16px">
+                    De novo assembly of a new Olea europaea genome accession using nanopore sequencing<br></a></p>
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=283004" target="_blank" style="font-size: 16px">Link</a>
+                </p>
+            </div>
+        </div>
+     </div>
+    <div id="choose_module" style="display: flex;align-items: center;justify-content: space-between;">
+        <!-- 7-9 需要进行更改-->
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Syringa oblata</i></p>
+                <a href="{% url "Sob_url" %}"><img src="../static/image/Sob.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size: 1081.2Mb </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://www.frontiersin.org/articles/10.3389/fpls.2022.1078677/full" target="_blank" style="font-size: 16px">
+                    Syringa oblata genome provides new insights into molecular mechanism of flower color differences among individuals and biosynthesis of its flower volatiles</a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=283001" target="_blank" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Fraxinus americana</i></p>
+                <a href="{% url "Fam_url" %}"><img src="../static/image/Fam.jpg" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Genome size: 642.6Mb </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://www.sciencedirect.com/science/article/pii/S0141813023040291?via%3Dihub" target="_blank" style="font-size: 16px">
+                    The chromosome-level genome assembly of Fraxinus americana provides insights into the evolution of Oleaceae plants</a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=a867" target="_blank" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--<nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="{% url "sp_introduce_url" %}">1</a></li>
+            <li class="page-item"><a class="page-link" href="{% url "sp_introduce2_url" %}">2</a></li>
+            <li class="page-item"><a class="page-link" href="{% url "sp_introduce3_url" %}">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="{% url "sp_introduce2_url" %}">Next</a>
+            </li>
+        </ul>
+    </nav>
+    -->
+{% endblock %}

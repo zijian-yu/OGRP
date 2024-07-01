@@ -1,0 +1,120 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+    <h3 class="h3_1" style="background-image:url(../static/image/ico.png)"><b>Gene duplication type statistics</b><i></i></h3>
+
+    <script type="text/javascript" src="../static/js/echarts.min.js"></script>
+
+    <div id="container" style="height: 900px">
+    </div>
+
+    <script type="text/javascript">
+        var dom = document.getElementById('container');
+        var myChart = echarts.init(dom, null, {
+          renderer: 'canvas',
+          useDirtyRect: false
+        });
+        var app = {};
+
+        var option;
+
+        option = {
+        tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          // Use axis to trigger tooltip
+          type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+        }
+        },
+        legend: {},
+        grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+        },
+        xAxis: {
+        type: 'value'
+        },
+        yAxis: {
+        type: 'category',
+        data: ['V.vinifera','C.humblotiana','J.sambac','S.oblata','F.pennsylvanica','O.europaea']
+        },
+        series: [
+        {
+          name: 'WGD',
+          type: 'bar',
+          stack: 'total',
+          label: {
+            show: true
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          data: [2225,3446,2534,12907,16492,20528]
+        },
+        {
+          name: 'TD',
+          type: 'bar',
+          stack: 'total',
+          label: {
+            show: true
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          data: [2225,2213,1453,1289,1369,1185]
+        },
+        {
+          name: 'PD',
+          type: 'bar',
+          stack: 'total',
+          label: {
+            show: true
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          data: [1366,1414,720,1429,536,1386]
+        },
+        {
+          name: 'TRD',
+          type: 'bar',
+          stack: 'total',
+          label: {
+            show: true
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          data: [4636,6185,4184,16960,5994,8534]
+        },
+        {
+          name: 'DSD',
+          type: 'bar',
+          stack: 'total',
+          label: {
+            show: true
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          data: [14916,7008,4636,17880,1796,20614]
+        }
+        ]
+        };
+
+        if (option && typeof option === 'object') {
+          myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
+
+        myChart.on('click', function (params) {
+        console.log(params.name);
+        window.open(window.location.href="/gene_type");
+        });
+
+    </script>
+{% endblock %}

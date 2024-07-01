@@ -1,0 +1,181 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+    <h3 class="h3_1" style="background-image:url(../static/image/ico.png)"><b>Heat and cold resistance statistics</b><i></i></h3>
+
+    <script type="text/javascript" src="../static/js/echarts.min.js"></script>
+
+
+    <div id="container" style="height: 500px">
+    </div>
+
+
+
+
+    <script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    var option;
+
+    var xAxisData = ["AHL","B3","TIFY","F-box","HSF","Expansin","CIPK","CAMTA","EIL","CDPK","AL"];
+    var data1 = [];
+    var data2 = [];
+    var data3 = [];
+    var data4 = [];
+	var data5 = [];
+	var data6 = [];
+
+
+
+    for (var i = 0; i < 12; i++) {
+            // xAxisData.push('Class' + i);
+<!--            "AHL","B3","TIFY","F-box","HSF","Expansin","CIPK","CAMTA","EIL","CDPK","AL"-->
+            data1.push(39, 154, 30, 9, 30, 56, 49, 30, 9, 107, 8);
+            data2.push(10, 72,  13, 7, 11, 44, 33, 25, 4, 54,  6);
+            data3.push(34, 136, 44, 7, 31, 48, 51, 40, 9, 82,  24);
+            data4.push(36, 144, 42, 12,32, 38, 61, 37, 9, 112, 16);
+			data5.push(10, 80,  18, 3, 9,  28, 20, 6,  0, 19,  2);
+			data6.push(13, 63,  36, 0, 15, 46, 18, 13, 1, 22,  10);
+
+
+
+    }
+
+    var emphasisStyle = {
+            itemStyle: {
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0,0,0,0.3)'
+            }
+    };
+
+    option = {
+            legend: {
+                    data: ['Fpe', 'Jsa', 'Oeu', 'Sob', 'Chu', 'Vvi' ],
+                    left: '10%'
+            },
+            brush: {
+                    toolbox: ['rect', 'polygon', 'lineX', 'lineY', 'keep', 'clear'],
+                    xAxisIndex: 0
+            },
+
+            toolbox: {
+                    feature: {
+                            magicType: {
+                                    type: ['stack', 'tiled']
+                            },
+                            dataView: {}
+                    }
+            },
+            tooltip: {},
+
+            color: ['#E673A0','#E64D77', '#35BAE6', '#2B7E99', '#992343', '#E6DD63', "#01BFBF", "#1C8FFF", "#FD8E63", "#CC9900", "#BCB66A"],
+            xAxis: {
+                    data: xAxisData,
+                    name: 'gene family',
+                    nameRotate: 30,
+                    splitLine: {show: false},
+                    splitArea: {show: false},
+                    axisLabel: {fontStyle: 'italic'}
+            },
+            yAxis: {},
+            grid: {
+                    bottom: 100
+            },
+            series: [
+                    {
+                            name: 'Fpe',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data1
+                    },
+                    {
+                            name: 'Jsa',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data2
+                    },
+                    {
+                            name: 'Oeu',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data3
+                    },
+                    {
+                            name: 'Sob',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data4
+                    },
+					{
+                            name: 'Chu',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data5
+                    },
+					{
+                            name: 'Vvi',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data6
+                    }
+            ]
+    };
+
+        option && myChart.setOption(option);
+        myChart.on('click', function (params) {
+                var name = params.name;
+<!--                "AHL","B3","TIFY","F-box","HSF","Expansin","CIPK","CAMTA","EIL","CDPK","AL"-->
+                if (name === "AHL") {window.location.href="/browse/Functional_genes/AHL/";}
+                if (name === "B3") {window.location.href="/browse/Functional_genes/B3/";}
+                if (name === "TIFY") {window.location.href="/browse/Functional_genes/TIFY/";}
+                if (name === "F-box") {window.location.href="/browse/Functional_genes/F-box/";}
+                if (name === "HSF") {window.location.href="/browse/Functional_genes/HSF/";}
+                if (name === "Expansin") {window.location.href="/browse/Functional_genes/Expansin/";}
+                if (name === "CIPK") {window.location.href="/browse/Functional_genes/CIPK/";}
+                if (name === "CAMTA") {window.location.href="/browse/Functional_genes/CAMTA/";}
+                if (name === "EIL") {window.location.href="/browse/Functional_genes/EIL/";}
+                if (name === "CDPK") {window.location.href="/browse/Functional_genes/CDPK/";}
+                if (name === "AL") {window.location.href="/browse/Functional_genes/AL/";}
+
+            });
+
+<!--    option && myChart.setOption(option);-->
+
+<!--    myChart.on('brushSelected', renderBrushed);-->
+
+<!--    function renderBrushed(params) {-->
+<!--            var brushed = [];-->
+<!--            var brushComponent = params.batch[0];-->
+
+<!--            for (var sIdx = 0; sIdx < brushComponent.selected.length; sIdx++) {-->
+<!--                    var rawIndices = brushComponent.selected[sIdx].dataIndex;-->
+<!--                    brushed.push('[Series ' + sIdx + '] ' + rawIndices.join(', '));-->
+<!--            }-->
+
+<!--            myChart.setOption({-->
+<!--                    title: {-->
+<!--                            backgroundColor: '#333',-->
+<!--                            text: 'SELECTED DATA INDICES: \n' + brushed.join('\n'),-->
+<!--                            bottom: 0,-->
+<!--                            right:'10%',-->
+<!--                            width: 100,-->
+<!--                            textStyle: {-->
+<!--                                    fontSize: 12,-->
+<!--                                    color: '#fff'-->
+<!--                            }-->
+<!--                    }-->
+<!--            });-->
+<!--    }-->
+
+
+    </script>
+
+{% endblock %}

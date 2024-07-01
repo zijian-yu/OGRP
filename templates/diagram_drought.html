@@ -1,0 +1,152 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+    <h3 class="h3_1" style="background-image:url(../static/image/ico.png)"><b>Drought resistance statistics</b><i></i></h3>
+
+    <script type="text/javascript" src="../static/js/echarts.min.js"></script>
+
+
+    <div id="container" style="height: 500px">
+    </div>
+
+
+
+
+    <script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    var option;
+
+    var xAxisData = ["CIPK","CPP","BZR","Expansin","F-box","TIFY","B3","AHL"];
+    var data1 = [];
+    var data2 = [];
+    var data3 = [];
+    var data4 = [];
+	var data5 = [];
+	var data6 = [];
+
+
+
+
+    for (var i = 0; i < 12; i++) {
+            // xAxisData.push('Class' + i);
+<!--            "CIPK","CPP","BZR","Expansin","F-box","TIFY","B3","AHL"-->
+            data1.push(49, 10, 7, 56, 9,  30, 154, 39);
+            data2.push(33, 5,  3, 44, 7,  13, 72,  10);
+            data3.push(51, 8,  4, 48, 7,  44, 136, 34);
+            data4.push(61, 14, 9, 38, 12, 42, 144, 36);
+			data5.push(20, 4,  4, 28, 3,  18, 80,  10);
+			data6.push(18, 6,  0, 46, 0,  36, 63,  13);
+
+
+
+    }
+
+    var emphasisStyle = {
+            itemStyle: {
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0,0,0,0.3)'
+            }
+    };
+
+    option = {
+            legend: {
+                    data: ['Fpe', 'Jsa', 'Oeu', 'Sob', 'Chu', 'Vvi'],
+                    left: '10%'
+            },
+            brush: {
+                    toolbox: ['rect', 'polygon', 'lineX', 'lineY', 'keep', 'clear'],
+                    xAxisIndex: 0
+            },
+
+            toolbox: {
+                    feature: {
+                            magicType: {
+                                    type: ['stack', 'tiled']
+                            },
+                            dataView: {}
+                    }
+            },
+            tooltip: {},
+
+            color: ['#E673A0','#E64D77', '#35BAE6', '#2B7E99', '#992343', '#E6DD63', "#01BFBF", "#1C8FFF", "#FD8E63", "#CC9900", "#BCB66A"],
+            xAxis: {
+                    data: xAxisData,
+                    name: 'gene family',
+                    nameRotate: 30,
+                    splitLine: {show: false},
+                    splitArea: {show: false},
+                    axisLabel: {fontStyle: 'italic'}
+            },
+            yAxis: {},
+            grid: {
+                    bottom: 100
+            },
+            series: [
+                    {
+                            name: 'Fpe',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data1
+                    },
+                    {
+                            name: 'Jsa',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data2
+                    },
+                    {
+                            name: 'Oeu',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data3
+                    },
+                    {
+                            name: 'Sob',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data4
+                    },
+					{
+                            name: 'Chu',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data5
+                    },
+					{
+                            name: 'Vvi',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data6
+                    }
+					
+            ]
+    };
+
+    option && myChart.setOption(option);
+        myChart.on('click', function (params) {
+                var name = params.name;
+<!--                "CIPK","CPP","BZR","Expansin","F-box","TIFY","B3","AHL"-->
+                if (name === "CIPK") {window.location.href="/browse/Functional_genes/CIPK/";}
+                if (name === "CPP") {window.location.href="/browse/Functional_genes/CPP/";}
+                if (name === "BZR") {window.location.href="/browse/Functional_genes/BZR/";}
+                if (name === "Expansin") {window.location.href="/browse/Functional_genes/Expansin/";}
+                if (name === "F-box") {window.location.href="/browse/Functional_genes/F-box/";}
+                if (name === "TIFY") {window.location.href="/browse/Functional_genes/TIFY/";}
+                if (name === "B3") {window.location.href="/browse/Functional_genes/B3/";}
+                if (name === "AHL") {window.location.href="/browse/Functional_genes/AHL/";}
+
+            });
+
+
+    </script>
+
+{% endblock %}

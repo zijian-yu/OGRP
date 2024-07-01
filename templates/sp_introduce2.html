@@ -1,0 +1,140 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Oleaceae platform</title>
+
+    <link href="../static/vendor/css/style.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../static/image/ico.jpg" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/vendor/css/home.css" type="text/css">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css/modern-business.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.5.1.js"></script>
+    <script src="../static/js/jquery.dataTables.min.js"></script>
+    <link href="../static/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/slick-theme.css"/>
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../static/css/style.css" rel="stylesheet"/>
+    <link href="../static/css/responsive.css" rel="stylesheet"/>
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+{% endblock %}
+
+
+{% block body_index %}
+    <h3 class="h3_1 h3_6" style="background-image:url(../static/image/shuye.png); font-family:'Arial',sans-serif;color:black;">Introduce<i></i>
+    </h3>
+
+    <div id="choose_module" style="display: flex;align-items: center;justify-content: space-between;">
+        <!-- 1-3 -->
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Cucumis melo</i></p>
+                <a href="{% url "Cme_url" %}"><img src="../static/image/Cme.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Gene: 28298 </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://www.nature.com/articles/s41597-019-0244-x" style="font-size: 16px">Draft genome sequences of two oriental melons, Cucumis melo L. var. makuwa</a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="http://cucurbitgenomics.org/ftp/genome/melon/DHL92/v4.0/" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Cucurbita moschata</i></p>
+                <a href="{% url "Cmo_url" %}"><img src="../static/image/Cmo.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Gene: 32023 </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://www.sciencedirect.com/science/article/pii/S1674205217302666?via%3Dihub" style="font-size: 16px">Karyotype Stability and Unbiased Fractionation in the Paleo-Allotetraploid Cucurbita Genomes</a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="http://cucurbitgenomics.org/ftp/genome/Cucurbita_moschata/v1/" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Cucurbita pepo</i></p>
+                <a href="{% url "Cpe_url" %}"><img src="../static/image/Cpe.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Gene: 26232 </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://onlinelibrary.wiley.com/doi/10.1111/pbi.12860" style="font-size: 16px">De novo assembly of the zucchini genome reveals a whole-genome duplication associated with the origin of the Cucurbita genus <br></a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="http://cucurbitgenomics.org/ftp/genome/Cucurbita_pepo/" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="choose_module" style="display: flex;align-items: center;justify-content: space-between;">
+        <!-- 4-6 -->
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Cucumis sativus</i></p>
+                <a href="{% url "Csa_url" %}"><img src="../static/image/Csa.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Gene: 23,522 </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://academic.oup.com/gigascience/article/8/6/giz072/5520540?login=false" style="font-size: 16px">A chromosome-scale genome assembly of cucumber (Cucumis sativus L.)</a> <br> <br> <br></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="http://cucurbitgenomics.org/organism/20" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Lagenaria siceraria</i></p>
+                <a href="{% url "Lsi_url" %}"><img src="../static/image/Lsi.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Gene:22234 </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://onlinelibrary.wiley.com/doi/10.1111/tpj.13722" style="font-size: 16px">The bottle gourd genome provides insights into Cucurbitaceae evolution and facilitates mapping of a Papaya ring-spot virus resistance locus</a></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="http://cucurbitgenomics.org/ftp/genome/BottleGourd/USVL1VR-Ls/" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+
+        <div id="module_1">
+            <div style="height: 520px">
+                <p id='text_in_image'><i>Vitis vinifera</i></p>
+                <a href="{% url "Vvi_url" %}"><img src="../static/image/Vvi.png" alt="Homologues"></a>
+                <p id='text_in_image' style="background: white; color:black">Gene:23,647 </p>
+                <br>
+                <p id='text_in_image' style="height:150px; background: white; color:black">Literature: <a
+                        href="https://www.nature.com/articles/nature06148" style="font-size: 16px">The grapevine genome sequence suggests ancestral hexaploidization in major angiosperm phyla</a> <br> <br> <br></p>
+
+                <p id='text_in_image' style="background: white; color:black">Introduce: <a
+                        href="https://phytozome.jgi.doe.gov/pz/portal/" style="font-size: 16px">Link</a></p>
+            </div>
+        </div>
+    </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="{% url "sp_introduce_url" %}">1</a></li>
+            <li class="page-item"><a class="page-link" href="{% url "sp_introduce2_url" %}">2</a></li>
+            <li class="page-item"><a class="page-link" href="{% url "sp_introduce3_url" %}">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="{% url "sp_introduce3_url" %}">Next</a>
+            </li>
+        </ul>
+    </nav>
+
+{% endblock %}

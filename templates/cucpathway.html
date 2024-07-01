@@ -1,0 +1,124 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+    <h3 class="h3_1" style="background-image:url(../static/image/ico.png)"><b>Terpene synthesis genes</b><i></i></h3>
+
+    <script type="text/javascript" src="../static/js/echarts.min.js"></script>
+
+    <div id="container" style="height: 900px">
+    </div>
+
+    <script type="text/javascript">
+        var dom = document.getElementById('container');
+        var myChart = echarts.init(dom, null, {
+          renderer: 'canvas',
+          useDirtyRect: false
+        });
+        var app = {};
+
+        var option;
+
+        option = {
+        tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          // Use axis to trigger tooltip
+          type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+        }
+        },
+        legend: {},
+        grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+        },
+        xAxis: {
+        type: 'value'
+        },
+        yAxis: {
+        type: 'category',
+        data: ['Vvi', 'Chu', 'Jsa', 'Sob', 'Oeu', 'Fpe']
+        },
+        series: [
+        {
+          name: 'TPS',
+          type: 'bar',
+          stack: 'total',
+          label: {
+            show: true
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          data: [60,36,63,95,94,67]
+        },
+        {
+          name: 'HMGR',
+          type: 'bar',
+          stack: 'total',
+          label: {
+            show: true
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          data: [3,4,4,10,10,9]
+        },
+        {
+          name: 'DXS',
+          type: 'bar',
+          stack: 'total',
+          label: {
+            show: true
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          data: [7,5,4,10,6,5]
+        },
+        {
+          name: 'GPPS',
+          type: 'bar',
+          stack: 'total',
+          label: {
+            show: true
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          data: [4,3,5,18,12,10]
+        },
+        {
+          name: 'PAL',
+          type: 'bar',
+          stack: 'total',
+          label: {
+            show: true
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          data: [17,4,4,4,12,7]
+        }
+        ]
+        };
+
+<!--        if (option && typeof option === 'object') {-->
+<!--          myChart.setOption(option);-->
+<!--        }-->
+
+        window.addEventListener('resize', myChart.resize);
+
+        option && myChart.setOption(option);
+        myChart.on('click', function (params) {
+                var name = params.name;
+                if (name === "Fpe") {window.location.href="/browse/Functional_genes/TPS/";}
+                if (name === "JAR1") {window.location.href="/browse/Functional_genes/JAR1/";}
+                if (name === "KAT") {window.location.href="/browse/Functional_genes/KAT/";}
+
+            });
+
+    </script>
+{% endblock %}

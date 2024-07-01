@@ -1,0 +1,371 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+<div class="ALL" style="padding-top: 0">
+
+    <h3 class="h3_1 h3_6" style="background-image:url(../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Species tree<i></i>
+    </h3>
+         <div id="container_a" style="height: 700px"></div>
+
+  <script type="text/javascript" src="../static/js/echarts.min.js"></script>
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container_a');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+
+    var option;
+
+    myChart.showLoading();
+const data_a = {
+  name: 'Oleaceae',
+  children: [
+    {
+      name: 'Forsythieae',
+      children: [
+        {
+          name: 'Forsythia',
+          children: [
+            { name: 'Forsythia suspensa', value: 1 }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'Oleeae',
+      children: [
+        {
+          name: 'Osmanthus',
+          children: [
+            { name: 'Osmanthus fragrans', value: 1 },
+          ]
+        },
+        {
+          name: 'Olea',
+          children: [
+            { name: 'Olea europaea', value: 1 },
+          ]
+        },
+        {
+          name: 'Fraxinus',
+          children: [
+            { name: 'Fraxinus excelsior', value: 1 },
+            { name: 'Fraxinus pennsylvanica', value: 1 },
+			{ name: 'Fraxinus americana', value: 1 }
+          ]
+        },
+        {
+          name: 'Syringa',
+          children: [
+            { name: 'Syringa oblata', value: 1 },
+          ]
+        }
+      ]
+    },
+    {
+      name: 'Jasmineae',
+      children: [
+        {
+          name: 'Jasminum',
+          children: [
+            { name: 'Jasminum sambac', value: 1 },
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+
+myChart.hideLoading();
+myChart.setOption(
+  (option = {
+    tooltip: {
+      trigger: 'item',
+      triggerOn: 'mousemove'
+    },
+    legend: {
+      top: '2%',
+      left: '3%',
+      orient: 'vertical',
+      data: [
+        {
+          name: 'tree1',
+          icon: 'rectangle'
+        }
+      ],
+      borderColor: '#c23531'
+    },
+    series: [
+      {
+        type: 'tree',
+        name: 'tree1',
+        data: [data_a],
+        top: '5%',
+        left: '7%',
+        bottom: '2%',
+
+        symbolSize: 7,
+        label: {
+          position: 'left',
+          verticalAlign: 'middle',
+          align: 'right'
+        },
+        leaves: {
+          label: {
+            position: 'right',
+            verticalAlign: 'middle',
+            align: 'left'
+          }
+        },
+        emphasis: {
+          focus: 'descendant'
+        },
+        expandAndCollapse: true,
+        animationDuration: 550,
+        animationDurationUpdate: 750
+      }
+    ]
+  })
+);
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+
+
+    myChart.on('click', function (params) {
+                var name = params.name;
+                if (name === "Forsythia suspensa") {window.location.href="/Fsu";}
+                if (name === "Osmanthus fragrans") {window.location.href="/Ofr";}
+                if (name === "Olea europaea") {window.location.href="/Oeu";}
+                if (name === "Fraxinus excelsior") {window.location.href="/Fex";}
+                if (name === "Fraxinus pennsylvanica") {window.location.href="/Fpe";}
+                if (name === "Syringa oblata") {window.location.href="/Sob";}
+                if (name === "Jasminum sambac") {window.location.href="/Jsa";}
+				if (name === "Fraxinus americana") {window.location.href="/Fam";}
+            });
+
+  </script>
+
+
+    <div id="container" style="height: 900px">
+    </div>
+
+    <script type="text/javascript" src="../static/js/echarts.min.js"></script>
+    <script type="text/javascript">
+        var dom = document.getElementById('container');
+        var myChart = echarts.init(dom, null, {
+            renderer: 'canvas',
+            useDirtyRect: false
+        });
+        var app = {};
+
+        var option;
+
+        var data = [
+            {
+                name: 'Forsythieae',
+                itemStyle: {
+                    color: '#da0d68'
+                },
+                children: [
+                    {
+                        name: 'Forsythia',
+                        itemStyle: {
+                            color: '#e0719c'
+                        },
+                        children: [
+                            {
+                                name: 'Forsythia suspensa',
+                                value: 1,
+                                itemStyle: {
+                                    color: '#f99e1c'
+                                }
+                            }
+                        ]
+                    }
+                    ]
+            },
+            {
+                name: 'Oleeae',
+                itemStyle: {
+                    color: '#7ac141'
+                },
+                children: [
+                    {
+                        name: 'Fraxinus',
+                        itemStyle: {
+                            color: '#c94a44'
+                        },
+                        children: [
+                            {
+                                name: 'Fraxinus excelsior',
+                                value: 1,
+                                itemStyle: {
+                                    color: '#b53b54'
+                                }
+                            },
+                            {
+                                name: 'Fraxinus pennsylvanica',
+                                value: 1,
+                                itemStyle: {
+                                    color: '#d78823'
+                                }
+                            },
+							{
+                                name: 'Fraxinus americana',
+                                value: 1,
+                                itemStyle: {
+                                    color: '#5959AB'
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Olea',
+                        itemStyle: {
+                            color: '#038549'
+                        },
+                        children: [
+                            {
+                                name: 'Olea europaea',
+                                value: 1,
+                                itemStyle: {
+                                    color: '#28b44b'
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Osmanthus',
+                        itemStyle: {
+                            color: '#f7a128'
+                        },
+                        children: [
+                            {
+                                name: 'Osmanthus fragrans',
+                                value: 1,
+                                itemStyle: {
+                                    color: '#f26355'
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Syringa',
+                        itemStyle: {
+                            color: '#9ea718'
+                        },
+                        children: [
+                            {
+                                name: 'Syringa oblata',
+                                value: 1,
+                                itemStyle: {
+                                    color: '#e2631e'
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                name: 'Jasmineae',
+                itemStyle: {
+                    color: '#ebb40f'
+                },
+                children: [
+                    {
+                        name: 'Jasminum',
+                        itemStyle: {
+                            color: '#e1c315'
+                        },
+                        children: [
+                            {
+                                name: 'Jasminum sambac',
+                                value: 1,
+                                itemStyle: {
+                                    color: '#9ea718'
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ];
+        option = {
+            title: {
+                text: 'Oleaceae plants',
+                subtext: 'Subfamily - Genus - Species name',
+                textStyle: {
+                    fontSize: 14,
+                    align: 'center'
+                },
+                subtextStyle: {
+                    align: 'center'
+                },
+                sublink: 'https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi'
+            },
+            series: {
+                type: 'sunburst',
+                data: data,
+                radius: [0, '95%'],
+                sort: undefined,
+                emphasis: {
+                    focus: 'ancestor'
+                },
+                levels: [
+                    {},
+                    {
+                        r0: '15%',
+                        r: '35%',
+                        itemStyle: {
+                            borderWidth: 2
+                        },
+                        label: {
+                            rotate: 'tangential'
+                        }
+                    },
+                    {
+                        r0: '35%',
+                        r: '70%',
+                        label: {
+                            align: 'right'
+                        }
+                    },
+                    {
+                        r0: '70%',
+                        r: '72%',
+                        label: {
+                            position: 'outside',
+                            padding: 3,
+                            silent: false
+                        },
+                        itemStyle: {
+                            borderWidth: 3
+                        }
+                    }
+                ]
+            }
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
+    </script>
+    </div>
+</div>
+
+    
+
+{#  <script type="text/javascript" src="../static/js/echarts.min.js"></script>#}
+{% endblock %}
+

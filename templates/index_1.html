@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    {% block head_link %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Oleaceae platform</title>
+        <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/vendor/css/modern-business.css" rel="stylesheet">
+        <link rel="icon" href="../static/image/ico.png" type="image/x-icon"/>
+        <link rel="stylesheet" href="../static/vendor/css/home.css" type="text/css">
+        <link rel="stylesheet" href="../static/css/slick-theme.css"/>
+        <!-- font awesome style -->
+        <link href="../static/css/font-awesome.min.css" rel="stylesheet"/>
+        <!-- Custom styles for this template -->
+        <link href="../static/css/style.css" rel="stylesheet"/>
+        <!-- responsive style -->
+        <link href="../static/css/responsive.css" rel="stylesheet"/>
+        <link href="../static/vendor/css/style.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    {% endblock %}
+</head>
+
+
+<body style="padding-top: 0">
+<!-- Navigation -->
+{% block header_index %}
+    <nav class="" style="background-color: #2F4E4E; text-align: center">
+        <!--<img class="banner-image" width="1584" height="201" src="../static/image/head.png" alt="">-->
+        <img class="banner-image" src="{% static "image/head.png" %}" alt="">
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success"  style="background-color: #2F4E4E!important;">
+        <div class="container" >
+            <li class="nav-item navbar-brand">
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Home -->
+                        <li class="nav-item" style="padding-right: 40px">
+                            <a class="nav-link" href="{% url "index_url" %}" id="navbarDropdownPages"
+                               aria-haspopup="true" aria-expanded="false">
+                                Home
+                            </a>
+                        </li>
+
+                        <!-- Browse -->
+                        <li class="nav-item dropdown" style="padding-right: 40px">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Browse<span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <!-- Blast -->
+                                    <a class="dropdown-item" href="{% url "dotplot_url" %}">Dotplots</a>
+                                    <!-- Collinear and KaKs -->
+                                    <a class="dropdown-item" href="{% url "colinear_kaks_url" %}">Collinear and <em>KaKs</em></a>
+                                    <!-- Syntenic -->
+<!--                                    <li class="dropdown-submenu">-->
+<!--                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Hierarchical alignments</a>-->
+<!--                                        <ul class="dropdown-menu">-->
+<!--                                            <li><a class="dropdown-item" href="{% url "Oleaceae_syntenic_url" %}">Oleaceae syntenic</a></li>-->
+<!--                                            <li><a class="dropdown-item" href="{% url "Sob_Vvi_syntenic_url" %}">Sob_Vvi syntenic</a></li>-->
+<!--                                            <li><a class="dropdown-item" href="{% url "Jsa_Vvi_syntenic_url" %}">Jsa_Vvi syntenic</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </li>-->
+                                    <a class="dropdown-item" tabindex="-1" href="javascript:">Hierarchical alignments</a>
+                                    <a class="dropdown-item" href="{% url "Oleaceae_syntenic_url" %}">&nbsp&nbsp&nbsp&nbsp Oleaceae paralogous in synteny</a>
+                                    <a class="dropdown-item" href="{% url "Sob_Vvi_syntenic_url" %}">&nbsp&nbsp&nbsp&nbsp Sob_Vvi paralogous in synteny</a>
+                                    <a class="dropdown-item" href="{% url "Jsa_Vvi_syntenic_url" %}">&nbsp&nbsp&nbsp&nbsp Jsa_Vvi paralogous in synteny</a>
+
+                                    <!-- Event-related gene -->
+<!--                                    <li class="dropdown-submenu">-->
+<!--                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Event-related genes</a>-->
+<!--                                        <ul class="dropdown-menu">-->
+<!--                                            <li><a class="dropdown-item" href="{% url "ECH_event_url" %}">ECH</a></li>-->
+<!--                                            <li><a class="dropdown-item" href="{% url "OCH_event_url" %}">OCH</a></li>-->
+<!--                                            <li><a class="dropdown-item" href="{% url "ORT_event_url" %}">ORT</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </li>-->
+                                    <a class="dropdown-item" tabindex="-1" href="javascript:">Event-related gene set</a>
+                                    <a class="dropdown-item" href="{% url "ECH_event_url" %}">&nbsp&nbsp&nbsp&nbsp ECH event-related genes</a>
+                                    <a class="dropdown-item" href="{% url "OCH_event_url" %}">&nbsp&nbsp&nbsp&nbsp OCH event-related genes</a>
+                                    <a class="dropdown-item" href="{% url "ORT_event_url" %}">&nbsp&nbsp&nbsp&nbsp ORT event-related genes</a>
+
+                                    <!-- dupgen-finder -->
+                                    <a class="dropdown-item" href="{% url "genetype_url" %}">Duplication type</a>
+                                    <!-- Karyotype -->
+                                    <a class="dropdown-item" href="{% url "karyotype_url" %}">Karyotype animation</a>
+
+
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- 最后--Browse -->
+
+                        <!-- Scan -->
+                        <li class="nav-item dropdown" style="padding-right: 40px">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Scan <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                    <!-- Functional genes -->
+
+                                    <a class="dropdown-item" href="{% url "Functional_genesdx_url" %}">Functional genes</a>
+                                    <!-- Transcription factors -->
+                                    <a class="dropdown-item" href="{% url "TF_genesdx_url" %}">Transcription factors</a>
+                                    <!-- Transposable elements -->
+                                    <a class="dropdown-item" href="{% url "TE_index1_url" %}">Transposable elements</a>
+                                    <!-- Gene Function Search -->
+                                    <a class="dropdown-item" href="{% url "interproscan_index_url" %}">Gene function annotation</a>
+                                    <!-- Orthologous Gene Search -->
+                                    <a class="dropdown-item" href="{% url "gene_family_url" %}">Orthologous genes</a>
+                                    <!-- KEGG Orthology Annotation & Pathway Map -->
+                                    <a class="dropdown-item" href="{% url "kegg_index_url" %}">KEGG database</a>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Browse -->
+
+                        <!-- Resource-页面 -->
+
+                        <li class="nav-item dropdown" style="padding-right: 40px">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Resource<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <!-- Species -->
+                                    <a class="dropdown-item" href="{% url "Fsu_url" %}">Species information</a>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Ecological resources</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "diseases_url" %}">Diseases</a></li>
+                                            <li><a class="dropdown-item" href="{% url "economic_url" %}">Economic value</a></li>
+                                            <li><a class="dropdown-item" href="{% url "pests_url" %}">Common pests</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <a class="dropdown-item" href="{% url "species_data_url" %}">Genome data</a>
+                                    <a class="dropdown-item" href="{% url "Transcriptome_url" %}">Transcriptome</a>
+                                    <a class="dropdown-item" href="{% url "database_url" %}">Database link</a>
+                                    <a class="dropdown-item" href="{% url "references_url" %}">References</a>
+
+                                </ul>
+                            <!-- Syntenic -->
+
+                            </div>
+                        </li>
+                        <!-- Chart -->
+                        <li class="nav-item dropdown" style="padding-right: 40px">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">Diagram
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                                <a class="dropdown-item" href="{% url "sp_tree_chart_url" %}">Species tree</a>
+
+                                <a class="dropdown-item" href="{% url "diagram_Oleuropein_url" %}">Oleuropein synthesis genes</a>
+<!--                                <a class="dropdown-item" href="{% url "cucpathway_url" %}">Terpene synthesis genes</a>-->
+                                <a class="dropdown-item" href="{% url "diagram_terpene_url" %}">Terpene synthesis genes</a>
+                                <a class="dropdown-item" href="{% url "diagram_Jsa_acid_url" %}">Jasmonic acid related genes</a>
+<!--                                <a class="dropdown-item" href="{% url "diagram_salt-tolerant_url" %}">Salt-tolerant genes</a>-->
+
+                                <a class="dropdown-item" href="{% url "Transcription_factors_url" %}">Transcription Factors Browse</a>
+                                <a class="dropdown-item" href="{% url "diagram_TR_url" %}">Transcriptional Regulators</a>
+
+                                <a class="dropdown-item" href="{% url "diagram_salt_url" %}">Salt-tolerant genes</a>
+                                <a class="dropdown-item" href="{% url "diagram_heat_cold_url" %}">Heat and cold resistance genes</a>
+                                <a class="dropdown-item" href="{% url "diagram_drought_url" %}">Drought resistance genes</a>
+
+                                <a class="dropdown-item" href="{% url "gene_replication_type_url" %}">Gene duplication type</a>
+                            </div>
+                        </li>
+
+                        <!-- Tools -->
+                        <li class="nav-item dropdown" style="padding-right: 40px">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Tools <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <!-- Blast -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Polyploidy</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "f_blast_url" %}">Run blast</a></li>
+                                            <li><a class="dropdown-item" href="{% url "diamond_url" %}">Run diamond</a></li>
+                                            <li><a class="dropdown-item" href="{% url "blast_match_url" %}">Blast match</a></li>
+                                            <li><a class="dropdown-item" href="{% url "sequenceserver_url" %}">Blast visualization</a></li>
+                                            <li><a class="dropdown-item" href="{% url "zu_blast_dotplot_url" %}">Blast dotplot</a></li>
+                                            <li><a class="dropdown-item" href="{% url "zu_block_dotplot_url" %}">Block dotplot</a></li>
+                                            <li><a class="dropdown-item" href="{% url "mcscanx_url" %}">MCScanX</a></li>
+                                            <li><a class="dropdown-item" href="{% url "colinearscan_url" %}">ColinearScan</a></li>
+                                            <li><a class="dropdown-item" href="{% url "synvisio_url" %}">Synvisio</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Syntenic -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Genetic evolution</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "zu_ks_calculate_url" %}"><em>KaKs</em> calculate</a></li>
+                                            <li><a class="dropdown-item" href="{% url "zu_ks_dotplot_url" %}"><em>Ks</em> dotplot</a></li>
+                                            <li><a class="dropdown-item" href="{% url "paraat_url" %}">ParaAT</a></li>
+                                            <li><a class="dropdown-item" href="{% url "kaks_calculator_url" %}">KaKs_Calculator</a></li>
+                                            <li><a class="dropdown-item" href="{% url "zu_ks_distribution_url" %}"><em>Ks</em> distribution</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- 基因组分馏 -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Genome fractionation</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "zu_correspondence_mc_url" %}">Correspondence mc</a></li>
+                                            <li><a class="dropdown-item" href="{% url "zu_retention_url" %}">Gene retention</a></li>
+                                            <li><a class="dropdown-item" href="{% url "zu_loss_url" %}">Gene loss</a></li>
+                                            <li><a class="dropdown-item" href="{% url "zu_pindex_url" %}">P-index</a></li>
+
+                                        </ul>
+                                    </li>
+
+                                    <!-- Gene family -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:;">Gene family</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "hmmer_run_url" %}">Hmmer</a></li>
+                                            <li><a class="dropdown-item" href="{% url "pfam_run_url" %}">Pfam</a></li>
+                                            <li><a class="dropdown-item" href="{% url "meme_suit_url" %}">MEME suite</a></li>
+                                            <li><a class="dropdown-item" href="{% url "cpgfinder_url" %}">Cpgfinder</a></li>
+                                            <li><a class="dropdown-item" href="{% url "codonw_url" %}">Codonw</a></li>
+                                            <li><a class="dropdown-item" href="{% url "gsds_url" %}">GSDS</a></li>
+                                            <li><a class="dropdown-item" href="{% url "sequence_alignment_url" %}">Sequence alignment</a></li>
+                                            <li><a class="dropdown-item" href="{% url "iq_tree_url" %}">IQ-Tree</a></li>
+                                            <li><a class="dropdown-item" href="{% url "fasttree_url" %}">FastTree</a></li>
+                                            <li><a class="dropdown-item" href="{% url "phyml_url" %}">Phyml</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Other -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Auxiliary software</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "sequence_screening_url" %}">Sequence screening</a></li>
+                                            <li><a class="dropdown-item" href="{% url "formatTofasta_url" %}">Format conversion</a></li>
+                                            <li><a class="dropdown-item" href="{% url "quchong_url" %}">Find alternative</a></li>
+                                            <li><a class="dropdown-item" href="{% url "extract_row_url" %}">Duplicate removal</a></li>
+                                            <li><a class="dropdown-item" href="{% url "extract_row_url" %}">Extract column</a></li>
+                                            <li><a class="dropdown-item" href="{% url "file_merge_url" %}">Files merge</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Other -->
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" tabindex="-1" href="javascript:">Others</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url "jbrowse_url" %}">Jbrowse</a></li>
+                                            <li><a class="dropdown-item" href="{% url "circos_url" %}">Draw circos</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- 最后--Tools -->
+
+                        <!-- Help -->
+                        <li class="nav-item dropdown" style="padding-right: 40px">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{% url "documentation_url" %}">Platform introduction</a>
+                                    <a class="dropdown-item" href="{% url "commands_url" %}">Software tutorial</a>
+                                    <a class="dropdown-item" href="{% url "case_genome_url" %}">case_genome</a>
+                                    <a class="dropdown-item" href="{% url "case_blast_url" %}">case_blast</a>
+                                    <a class="dropdown-item" href="{% url "case_block_url" %}">case_block</a>
+                                    <a class="dropdown-item" href="{% url "case_ks_url" %}">case_ks</a>
+                                    <a class="dropdown-item" href="{% url "case_ESR_url" %}">event-related syntenic regions </a>
+                                    <a class="dropdown-item" href="{% url "case_dating_url" %}">gene expression </a>
+                                    <a class="dropdown-item" href="{% url "case_phylogeny_url" %}">phylogeny </a>
+                                    <a class="dropdown-item" href="{% url "case_wgd_event_url" %}">wgd_event </a>
+
+                                    <a class="dropdown-item" href="{% url "case_CSR_url" %}">Synteny regions comparisons </a>
+                                    <a class="dropdown-item" href="{% url "case_AK_url" %}">ancestral karyotype </a>
+
+                                    <a class="dropdown-item" href="{% url "case_hmmer_url" %}">hmmer </a>
+
+                                    <a class="dropdown-item" href="{% url "case_tree_url" %}">Phylogenetic analysis </a>
+                                    <a class="dropdown-item" href="{% url "case_evolution_event_url" %}">Evolutionary event-related genes </a>
+                                    <a class="dropdown-item" href="{% url "case_circos_url" %}">circos </a>
+                                    <a class="dropdown-item" href="{% url "case_structure_url" %}">gene structure </a>
+                                    <a class="dropdown-item" href="{% url "case_expression_url" %}">gene expression </a>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- About -->
+                        <li class="nav-item dropdown" style="padding-right: 40px">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{% url "submit_url" %}">Submit</a>
+                                    <a class="dropdown-item" href="{% url "contact_url" %}">Contant</a>
+                                </ul>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+        </div>
+    </nav>
+{% endblock %}
+
+<div class="ALL" style="padding-top: 0">
+    <div class="all_box" style="width: 1170px">
+        {% block body_index %}
+        <!-- Overview -->
+        <div class="row">
+            <div class="col-6">
+                <h3 class="h3_1 h3_6" style="background-image:url(../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Overview<i></i>
+                </h3>
+                <p style="font-family:'Arial',sans-serif;color:black; text-align: justify;">
+                    <b>Welcome to OGRP</b>
+                </p>
+
+                <p style="font-family:'Arial',sans-serif;color:black; text-align: justify;">
+                    <b>OGRP</b> (<b>O</b>leaceae <b>G</b>enome <b>R</b>esearch <b>P</b>latform) is a comprehensive and easy-to-use platform for studying the functional genomics of the Oleaceae. It obtained all <b>8</b> deciphered Oleaceae genomes, and integrated <b>31</b> comparative genomics tools and established three comparative genomic pipelines, involving the identification of polyploidization events, ancestral karyotype reconstruction, and identification of gene families. Significantly, researchers efficiently search for <b>1,785,987</b> functional annotations, <b>12,664</b> transcription factor related genes, <b>75</b> important functional gene families, <b>9,178,872</b> transposable elements. ORGP will continue to be open, updated, and improved, to promote Oleaceae comparative genomics research.
+                </p>
+            </div>
+
+            <div id="carouselExampleCaptions" class="carousel slide col-6" data-ride="carousel" style="padding-top:10px">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="height: 380px">
+                        <img src="../static/image/Oeu.jpg" class="d-block w-100" alt="..." height="360">
+                        <div class="carousel-caption d-none d-md-block text-secondary">
+                                <!-- <h5>First slide label</h5>
+                                    <p>Some representative placeholder content for the first slide.</p> -->
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" style="height: 380px">
+                        <img src="../static/image/HierarchicalMultigenomeAlignment.png" class="d-block w-100" alt="..." height="345">
+                        <div class="carousel-caption d-none d-md-block text-secondary">
+                        <!-- <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p> -->
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" style="height: 380px">
+                        <img src="../static/image/TFs.png" class="d-block w-100" alt="..." height="330">
+                        <div class="carousel-caption d-none d-md-block text-secondary">
+                        <!--             <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p> -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev"
+                style="padding:0; border:0; opacity: .1;">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </button>
+
+                <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next"
+                style="padding:0; border:0; opacity: .1;">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-12" style="padding-left: 0">
+                <hr style="border: 1px dashed #000000 ; width: 100%;height: 1px; margin: 8px">
+                <hr style="border: 1px dashed #000000 ; width: 100%;height: 1px; margin: 8px">
+        </div>
+
+        <!--Portals-->
+        <div class="row" style="margin-top: 3px">
+            <div class="col-12" style="padding-right: 0">
+                <h4 class="h3_1 h3_6" style="background-image:url(../static/image/ico.png); font-family:'Arial',sans-serif; margin-bottom: 0; padding-bottom: 8px">OGRP Portals</h4>
+            </div>
+
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #EEE2D0; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">54</h3></p>
+            <p style="font-size: 20px; text\-align:center; "><a href="{% url "species_data_url" %}">Genomic data</a></p>
+            </div>
+
+            <div style="width: 3%; background-color: #FFFFFF">
+            </div>
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #EEE2D0; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">366</h3></p>
+            <p style="font-size: 20px; text\-align:center;"><a href="{% url "Transcriptome_url" %}">Transcriptome</a></p>
+            </div>
+
+            <div  style="width: 3%;  background-color: #FFFFFF">
+            </div>
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #FFD39B; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">23,647</h3></p>
+            <p style="font-size: 20px; text\-align:center;"><a href="{% url "Oleaceae_syntenic_url" %}">Hierarchical alignments</a></p>
+            </div>
+
+            <div  style="width: 3%; background-color: #FFFFFF">
+            </div>
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #FFD39B; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">23,968</h3></p>
+            <p style="font-size: 20px; text\-align:center;"><a href="{% url "ECH_event_url" %}">Event-related genes</a></p>
+            </div>
+
+            <div  style="width: 3%; background-color: #FFFFFF">
+            </div>
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #E0B3CC; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">17,173</h3></p>
+            <p style="font-size: 20px; text\-align:center;"><a href="{% url "Functional_genesdx_url" %}">Functional genes</a></p>
+            </div>
+
+            <div  style="width: 3%; background-color: #FFFFFF">
+            </div>
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #E0B3CC; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">12,664</h3></p>
+            <p style="font-size: 20px; text\-align:center;"><a href="{% url "TF_genesdx_url" %}">Transcription factors</a></p>
+            </div>
+
+            <div style="width: 100%; height: 40px; background-color: #FFFFFF">
+            </div>
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #EEE2D0; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">151</h3></p>
+            <p style="font-size: 20px; text\-align:center; "><a href="{% url "Fsu_url" %}">Species information</a></p>
+            </div>
+
+            <div style="width: 3%; background-color: #FFFFFF">
+            </div>
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #EEE2D0; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">20,861</h3></p>
+            <p style="font-size: 20px; text\-align:center;"><a href="{% url "references_url" %}">References</a></p>
+            </div>
+
+            <div  style="width: 3%;  background-color: #FFFFFF">
+            </div>
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #FFD39B; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">22,584</h3></p>
+            <p style="font-size: 20px; text\-align:center;"><a href="{% url "gene_family_url" %}">Orthologous</a></p>
+            </div>
+
+            <div  style="width: 3%; background-color: #FFFFFF">
+            </div>
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #FFD39B; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">162,692</h3></p>
+            <p style="font-size: 20px; text\-align:center;"><a href="{% url "genetype_url" %}">Duplication <br> type</a></p>
+            </div>
+
+            <div  style="width: 3%; background-color: #FFFFFF">
+            </div>
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #E0B3CC; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">9,178,872</h3></p>
+            <p style="font-size: 20px; text\-align:center;"><a href="{% url "TE_index1_url" %}">Transposable elements</a></p>
+            </div>
+
+            <div  style="width: 3%; background-color: #FFFFFF">
+            </div>
+
+            <div  style="width: 14%; border-radius: 30px; background-color: #E0B3CC; box-shadow: 10px 10px 10px #888888; transform: perspective(400px) rotateX(10deg);">
+            <p><h3 style="padding-top: 30px; text\-align:center;">1,785,987</h3></p>
+            <p style="font-size: 20px; text\-align:center;"><a href="{% url "interproscan_index_url" %}">Gene annotations</a></p>
+            </div>
+
+            <div style="width: 100%; height: 40px; background-color: #FFFFFF">
+            </div>
+
+        </div>
+
+        <div class="col-12" style="padding-left: 0">
+                <hr style="border: 1px dashed #000000 ; width: 100%;height: 1px; margin: 8px">
+                <hr style="border: 1px dashed #000000 ; width: 100%;height: 1px; margin: 8px">
+        </div>
+
+        <!--pipeline-->
+        <div class="row" style="margin-top: 3px">
+            <div class="col-12" style="padding-right: 0">
+                <h4 class="h3_1 h3_6" style="background-image:url(../static/image/ico.png); font-family:'Arial',sans-serif; margin-bottom: 0; padding-bottom: 8px">Genomic analysis at two levels
+                </h4>
+            </div>
+
+
+            <!--多倍化鉴定-->
+
+                <div class="col-md-12">
+                    <img style="width:100%" src="../static/image/pipeline.png" usemap="#pipeline_1"  alt="">
+                    <map name="pipeline_1">
+                        <area shape="circle" coords="45,240,40" href="{% url "case_genome_url" %}">
+                        <area shape="circle" coords="240,150,60" href="{% url "case_blast_url" %}">
+                        <area shape="circle" coords="250,250,60" href="{% url "case_block_url" %}">
+                        <area shape="circle" coords="250,350,60" href="{% url "case_ks_url" %}">
+
+                        <area shape="circle" coords="500,250,60" href="{% url "case_ESR_url" %}">
+
+                        <area shape="circle" coords="760,100,60" href="{% url "case_dating_url" %}">
+                        <area shape="circle" coords="760,250,60" href="{% url "case_wgd_event_url" %}">
+                        <area shape="circle" coords="980,250,60" href="{% url "case_phylogeny_url" %}">
+
+                        <area shape="circle" coords="510,400,60" href="{% url "case_CSR_url" %}">
+                        <area shape="circle" coords="760,400,60" href="{% url "case_AK_url" %}">
+
+                        <area shape="circle" coords="550,650,40" href="{% url "case_hmmer_url" %}">
+
+                        <area shape="circle" coords="150,800,60" href="{% url "case_evolution_event_url" %}">
+                        <area shape="circle" coords="400,800,60" href="{% url "case_tree_url" %}">
+                        <area shape="circle" coords="600,800,60" href="{% url "case_circos_url" %}">
+                        <area shape="circle" coords="800,800,50" href="{% url "case_structure_url" %}">
+                        <area shape="circle" coords="1000,800,40" href="{% url "case_expression_url" %}">
+<!--                        <area shape="circle" coords="1020,1030,50" href="{% url "gsds_url" %}">-->
+                    </map>
+                </div>
+
+
+            <!--分割线-->
+            <div class="col-12" style="height: 20px">
+            </div>
+
+        </div>
+
+        <div class="col-12" style="padding-left: 0">
+                <hr style="border: 1px dashed #000000 ; width: 100%;height: 1px; margin: 8px">
+                <hr style="border: 1px dashed #000000 ; width: 100%;height: 1px; margin: 8px">
+        </div>
+
+        <!--tools-->
+        <div class="row" style="margin-top: 3px;  ">
+            <div class="col-12" style="padding-right: 0">
+                <h4 class="h3_1 h3_6" style="background-image:url(../static/image/ico.png); font-family:'Arial',sans-serif; margin-bottom: 0; padding-bottom: 8px">Comparative genomics tools (31)
+                </h4>
+            </div>
+
+
+            <div  style="width: 2%; background-color: #FFFFFF">
+            </div>
+
+            <div  style="width:20%; border-radius: 10px; background-color: #edf2ff;">
+                <h6 style="text-align:center"><b>Polyploidy</b></h6>
+                <i class="bi bi-chevron-right"><a href="{% url "f_blast_url" %}">Run blast</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "zu_blast_dotplot_url" %}">Blast dotplot</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "blast_match_url" %}">Blast match</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "sequenceserver_url" %}">Blast visualization</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "colinearscan_url" %}">ColinearScan</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "zu_block_dotplot_url" %}">Block dotplot</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "synvisio_url" %}">Syntenic visualization</a></i>
+            </div>
+
+            <div  style="width: 5%; background-color: #FFFFFF">
+            </div>
+
+            <div style="width:20%; border-radius: 10px; background-color: #edf2ff;">
+                <h6 style="text-align:center"><b>Genetic evolution</b></h6>
+                <i class="bi bi-chevron-right"><a href="{% url "zu_ks_calculate_url" %}">KaKs calculate</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "zu_ks_dotplot_url" %}">Ks dotplot</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "paraat_url" %}">ParaAT</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "kaks_calculator_url" %}">KaKs Calculator</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "iq_tree_url" %}">IQ-Tree</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "fasttree_url" %}">FastTree</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "phyml_url" %}">Phyml</a></i>
+            </div>
+
+            <div  style="width: 5%; background-color: #FFFFFF">
+            </div>
+
+            <div style="width:20%; border-radius: 10px; background-color: #edf2ff;">
+                <h6 style="text-align:center"><b>Gene family</b></h6>
+                <i class="bi bi-chevron-right"><a href="{% url "hmmer_run_url" %}">Hmmer</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "pfam_run_url" %}">Pfam</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "meme_suit_url" %}">MEME Suite</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "cpgfinder_url" %}">Cpgfinder</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "codonw_url" %}">Codonw</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "gsds_url" %}">GSDS</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "sequence_alignment_url" %}">Seq alignment</a></i>
+
+            </div>
+
+            <div  style="width: 5%; background-color: #FFFFFF">
+            </div>
+
+            <div style="width:20%; border-radius: 10px; background-color: #edf2ff;">
+                <h6 style="text-align:center"><b>Auxiliary Software</b></h6>
+                <i class="bi bi-chevron-right"><a href="{% url "sequence_screening_url" %}">Sequence screening</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "formatTofasta_url" %}">Format conversion</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "quchong_url" %}">Find alternative</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "extract_row_url" %}">Duplicate removal</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "extract_row_url" %}">Extract column</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "file_merge_url" %}">Files merge</a></i>
+                <i class="bi bi-chevron-right"><a href="{% url "jbrowse_url" %}">JBrowse</a></i>
+            </div>
+
+        </div>
+
+        <div class="col-12" style="padding-left: 0">
+                <hr style="border: 1px dashed #000000 ; width: 100%;height: 1px; margin: 8px">
+                <hr style="border: 1px dashed #000000 ; width: 100%;height: 1px; margin: 8px">
+        </div>
+
+        <!--specices data-->
+        <div class="row" style="margin-top: 13px">
+            <div class="col-12" style="padding-right: 0">
+                <h4 class="h3_1 h3_6" style="background-image:url(../static/image/ico.png); font-family:'Arial',sans-serif; margin-bottom: 0; padding-bottom: 8px">Oleaceae Genome Data (22)
+                </h4>
+            </div>
+
+            <div id="table_support_spec" class="col-12" style="padding-top: 0">
+                <table style="text-align: center" >
+
+                    <tr style="background-color:#0b613e; text-align:center; color:white">
+                        <th>Species Name</th>
+                        <th>Genome Version</th>
+                        <th>Genome Access</th>
+                        <th>Genome Size (Mb)</th>
+                        <th>Assembly Level</th>
+                        <th>Provenance</th>
+
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Forsythia suspensa</td>
+                        <td>Forsythia-HENAU2018</td>
+                        <td>GCA_013103335.1</td>
+                        <td>737.5</td>
+                        <td>Contig</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_013103335.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Forsythia suspensa</td>
+                        <td> JALRMA01</td>
+                        <td> GCA_020510225.1</td>
+                        <td>737.6</td>
+                        <td>Chromosome</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_020510225.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Forsythia suspensa</td>
+                        <td> JAHHPY01</td>
+                        <td> GCA_023638005.1</td>
+                        <td>737.5</td>
+                        <td>Chromosome</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023638005.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Fraxinus americana</td>
+                        <td> FRAX14-0.1</td>
+                        <td> GCA_903798225.1</td>
+                        <td>642.6</td>
+                        <td>Scaffold</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_903798225.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Fraxinus excelsior</td>
+                        <td> FRAX_001</td>
+                        <td> GCA_019097785.1</td>
+                        <td>806.5</td>
+                        <td>Chromosome</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_019097785.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Fraxinus excelsior</td>
+                        <td> BATG-0.5</td>
+                        <td> GCA_900149125.1</td>
+                        <td>867.5</td>
+                        <td> Scaffold</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_900149125.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Fraxinus pennsylvanica</td>
+                        <td> version 1.5</td>
+                        <td> GCA_912172775.2</td>
+                        <td>756.8</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_912172775.2/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Fraxinus pennsylvanica</td>
+                        <td> FRAX09-0.1</td>
+                        <td> GCA_903798245.1</td>
+                        <td>902.5</td>
+                        <td> Scaffold</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_903798245.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Fraxinus pennsylvanica</td>
+                        <td> FRAX03-0.1</td>
+                        <td> GCA_902829185.1</td>
+                        <td>700.9</td>
+                        <td> Contig</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_902829185.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Fraxinus pennsylvanica</td>
+                        <td> FRAX10-0.1</td>
+                        <td> GCA_902829155.2</td>
+                        <td> 761</td>
+                        <td> Contig</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_902829155.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Jasminum sambac</td>
+                        <td> Hutoumoli </td>
+                        <td> GCA_018223645.1</td>
+                        <td> 505.5</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_018223645.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Jasminum sambac</td>
+                        <td> Single-petal </td>
+                        <td> GWHBFHK00000000</td>
+                        <td> 502.3</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/22882/show" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Jasminum sambac</td>
+                        <td> Double-petal </td>
+                        <td> GWHBFHJ00000000</td>
+                        <td> 487</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/22881/show" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Jasminum sambac</td>
+                        <td> ... </td>
+                        <td> GWHAZHY00000000</td>
+                        <td> 550</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/17542/show" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Jasminum sambac</td>
+                        <td> JSU-FSP </td>
+                        <td> GWHBISM00000000</td>
+                        <td> 500.6</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/25213/show" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Jasminum sambac</td>
+                        <td> Hutou </td>
+                        <td> GWHDUBQ00000000</td>
+                        <td> 469.5</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://ngdc.cncb.ac.cn/gwh/Assembly/68082/show" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Olea europaea</td>
+                        <td> O_europaea_v1 </td>
+                        <td> GCA_002742605.1</td>
+                        <td> 1126.4</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_002742605.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Olea europaea</td>
+                        <td> Farga </td>
+                        <td> GCA_902713445.1</td>
+                        <td> 1331.2</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_902713445.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Olea europaea</td>
+                        <td> YAF_Ocus_V1 </td>
+                        <td> GCA_023089605.1</td>
+                        <td> 1228.8</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023089605.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Olea europaea</td>
+                        <td> OE6 </td>
+                        <td> GCA_900603015.1</td>
+                        <td> 1331.2</td>
+                        <td> Scaffold</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_900603015.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Osmanthus fragrans</td>
+                        <td> Liuyejingui </td>
+                        <td> GCA_019395295.1</td>
+                        <td> 733.3</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_019395295.1/" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-style: italic;">Syringa oblata</td>
+                        <td> IBSOV1 </td>
+                        <td> GWHBHRY00000000</td>
+                        <td> 1146.9</td>
+                        <td> Chromosome</td>
+                        <td><a href="https://ngdc.cncb.ac.cn/search/?dbId=gwh&q=Syringa%20oblata%20&page=1" >&#10144</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="{% url "species_data_url" %}" target="_blank">More</a></td>
+                        <td> ...</td>
+                        <td> ...</td>
+                        <td> ...</td>
+                        <td> ...</td>
+                        <td> ...</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="col-12" style="padding-left: 0">
+                <hr style="border: 1px dashed #000000 ; width: 100%;height: 1px; margin: 8px">
+                <hr style="border: 1px dashed #000000 ; width: 100%;height: 1px; margin: 8px">
+        </div>
+
+        <!-- Footer -->
+        <div class="row" style="margin-top: 20px">
+            <div class="col-6" style="padding-right: 0;text-align: justify;">
+                <h3 class="h3_1 h3_6" style="background-image:url(../static/image/ico.png); font-family:'Arial',sans-serif; margin-bottom: 0; padding-bottom: 8px">Citation <i></i>
+                </h3>
+                <p style="margin-bottom: 5px">
+                    If you use OGRP in your scientific research, please cite us:
+                </p>
+                <a href="#">
+                    <p style="margin-bottom: 5px">・OGRP: A comprehensive genome research platform for the Oleaceae plants</p>
+                    <!--<p style="margin-bottom: 5px">・An Overlooked Paleotetraploidization in Cucurbitaceae</p>-->
+                    <!--<p style="margin-bottom: 5px">・A common whole-genome paleotetraploidization in Cucurbitales</p>-->
+                </a>
+                <p>
+            </p>
+            </div>
+
+           <div class="col-6" style="padding-right: 0">
+                <h3 class="h3_1 h3_6" style="background-image:url(../static/image/ico.png); font-family:'Arial',sans-serif; margin-bottom: 0; padding-bottom: 8px">Update log <i></i>
+                </h3>
+                <marquee margin-top="20px" height="120px" direction="up" scrollamount="4" scrolldelay="0" onmouseover="this.stop()" onmouseout="this.start()">
+                    <div class="newsBox">
+                        <ul style="padding-left: 0">
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Nov. 10, 2023</span> &emsp; The
+                                "Karyotype animation", which can show the evolutionary trajectory of Oleaceae karyotypes, is now available </span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Nov. 10, 2023</span> &emsp; The
+                                "Gene function annotation", which is a gene annotation tool that allows the annotation of multiple databases in a single run, is now available </span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Nov. 10, 2023</span> &emsp; The
+                                "KEGG database", which can show a collection of manually drawn pathway maps representing the molecular interaction, is now available </span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Nov. 8, 2023</span> &emsp; The
+                                "Transposable elements", also known as jumping genes, is now available </span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Nov. 7, 2023</span> &emsp; The
+                                "Transcription factors", also known as trans-acting factor, is now available </span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Nov. 5, 2023</span> &emsp; The
+                                "Duplication type", which can divide all genes into 5 categories according to the replication type, is now available </span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Nov. 7, 2022</span> &emsp; The
+                                "Event-related genes", which can search multiple sets of event related genes, is now available </span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Nov. 6, 2022</span> &emsp; The
+                                "Hierarchical alignments", which can show multi genomes collinear gene table, is now available </span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Nov. 6, 2021</span> &emsp; The
+                                "Blast visualization", which can search function annotation and position, is now available</span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Dec. 27, 2020</span> &emsp; The
+                                "Circle" has been updated</span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">May. 7, 2020</span> &emsp; The
+                                "P-index", which can show collinearity in macro-region, is now available</span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Apr. 15, 2020</span> &emsp; The
+                                "specie_tree", which can show collinearity in micro-region, is now available</span></p></li>
+                            <li><p><span style="font-size: x-small; color: grey; "><span style="color:black">Nov. 6, 2020</span> &emsp; The
+                                "Dotplot", which can search function annotation and position, is now available</span></p></li>
+                        </ul>
+                    </div>
+                </marquee>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+</div>
+
+
+
+
+<!-- Footer -->
+<footer class="py-5 bg-success" style="background-color: #2b2c38!important">
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="widget">
+                    <h5 class="widgetheading" style="color: #fff;">Our Contact</h5>
+                    <address style="color: #fff;">
+                        School of Life Sciences / Center for Genomics and Computational Biology, North China University
+                        of Science and Technology,
+                    </address>
+                    <p style="color: #fff;">
+                        <i class="icon-envelope-alt" style="color: #fff;"></i> Address info 21 Bohai Road,Caofeidian,
+                        Tangshan 063210, Hebei, China
+                    </p>
+                    <a href="https://beian.miit.gov.cn/#/Integrated/index" style="color: #fff; font-size: 12px" target="_blank">冀ICP备2021011948号</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="widget">
+                    <h5 class="widgetheading" style="color: #fff;">Quick Links</h5>
+                    <ul class="link-list" style="padding-left: 0">
+                        <li><a href="https://www.ncbi.nlm.nih.gov/" target="_blank" style="color: #fff;">National Center
+                            for Biotechnology Information</a></li>
+                        <li><a href="http://pfam.xfam.org/" target="_blank" style="color: #fff;">Protein families
+                            database</a></li>
+                        <li><a href="https://swissmodel.expasy.org/" style="color: #fff;">SWISS-MODEL</a></li>
+                        <li><a href="https://www.embl.org/" target="_blank" style="color: #fff;">EuropeanMolecular
+                            Biology Laboratory</a></li>
+                        <li><a href="https://www.ddbj.nig.ac.jp/index-e.html" target="_blank" style="color: #fff;">DNA
+                            Data Bank of Japan</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <script type="text/javascript"
+                        src="//rf.revolvermaps.com/0/0/8.js?i=561cj3aw7q6&amp;m=1&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33"
+                        async="async">
+                </script>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap core JavaScript -->
+
+{% block list_js %}
+<script src="../static/vendor/jquery/jquery.min.js"></script>
+<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+
+</body>
+</html>

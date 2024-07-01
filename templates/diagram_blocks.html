@@ -1,0 +1,711 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Oleaceae platform</title>
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../../static/image/ico.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="../../static/vendor/css/home.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/slick-theme.css"/>
+    <!-- font awesome style -->
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/style.css" rel="stylesheet"/>
+    <!-- responsive style -->
+    <link href="../../static/css/responsive.css" rel="stylesheet"/>
+    <link href="../../static/vendor/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/vendor/index.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+{% endblock %}
+
+
+{% block body_index %}
+<h3 class="h3_1" style="background-image:url(../static/image/ico.png)"><b>Homologous genes and blocks</b><i></i></h3>
+
+<div id="table_support_spec" class="All" style="padding-top: 0">
+                <table style="text-align: center; border-collapse: collapse;">
+
+                    <tr style="background-color:#0b613e; text-align:center; color:white">
+                        <th>Intra/interenomic</th>
+                        <th style="white-space:nowrap;">Block_lens >4</th>
+                        <th style="white-space:nowrap;">Block_lens >10</th>
+                        <th style="white-space:nowrap;">Block_lens >20</th>
+                        <th style="white-space:nowrap;">Block_lens >50</th>
+                        <th>ACP</th>
+                        <th>LDB</th>
+                        <th>LDB on chromosomes</th>
+
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;">V. vinifera vs V. vinifera</td>
+                        <td>9,467/822a</td>
+                        <td>6,095/184</td>
+                        <td>5,224/117</td>
+                        <td>2,698/32</td>
+                        <td rowspan="2">11.52,33.12,44.65,84.31</td>
+                        <td rowspan="2">198</td>
+                        <td rowspan="2">Vvi12-Vvi12</td>
+                    </tr>
+
+                    <tr>
+                        <td>9,113b</td>
+                        <td>6,623</td>
+                        <td>5,902</td>
+                        <td>3,779</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;">C. humblotiana vs C. humblotiana</td>
+                        <td>12,648/1,309</td>
+                        <td>6,624/210</td>
+                        <td>4,876/74</td>
+                        <td>3,697/32</td>
+                        <td rowspan="2">9.66,31.54,65.89,115.53</td>
+                        <td rowspan="2">302</td>
+                        <td rowspan="2">Chu11-Chu11</td>
+                    </tr>
+
+                    <tr >
+                        <td>11,376</td>
+                        <td>7,739</td>
+                        <td>6,156</td>
+                        <td>5,033</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;">J. sambac vs J. sambac</td>
+                        <td>14,540/1,850</td>
+                        <td>6,050/267</td>
+                        <td>3,710/88</td>
+                        <td>1,641/19</td>
+                        <td rowspan="2">7.86,22.66,42.16,86.37</td>
+                        <td rowspan="2">159</td>
+                        <td rowspan="2">Jsa11-Jsa11</td>
+                    </tr>
+
+                    <tr >
+                        <td>11,232</td>
+                        <td>6,360</td>
+                        <td>4,444</td>
+                        <td>2,431</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;">S. oblata vs S. oblata</td>
+                        <td>41,227/3,808</td>
+                        <td>24,751/847</td>
+                        <td>17,692/305</td>
+                        <td>11,522/89</td>
+                        <td rowspan="2">10.83,29.22,58.01,129.46</td>
+                        <td rowspan="2">383</td>
+                        <td rowspan="2">Sob06-Sob16</td>
+                    </tr>
+
+                    <tr >
+                        <td>28,882</td>
+                        <td>20,820</td>
+                        <td>17,303</td>
+                        <td>13,214</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;">O. europaea vs O. europaea</td>
+                        <td>5,4582/4,386</td>
+                        <td>36,321/1,132</td>
+                        <td>27,291/450</td>
+                        <td>17,329/119</td>
+                        <td rowspan="2">12.44,32.09,60.65,145.62</td>
+                        <td rowspan="2">643</td>
+                        <td rowspan="2">Oeu14-Oeu07</td>
+                    </tr>
+
+                    <tr >
+                        <td>33,422</td>
+                        <td>26,593</td>
+                        <td>23,177</td>
+                        <td>18,609</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">F. pennsylvanica vs F. pennsylvanica</td>
+                        <td>45,241/3,606</td>
+                        <td>29,891/896</td>
+                        <td>22,921/369</td>
+                        <td>14,558/92</td>
+                        <td rowspan="2">12.55,33.36,62.12,158.24</td>
+                        <td rowspan="2">581</td>
+                        <td rowspan="2">Fpe15-Fpe06</td>
+                    </tr>
+
+                    <tr style="border-bottom: 2px solid black;">
+                        <td>24,925</td>
+                        <td>21,101</td>
+                        <td>18,900</td>
+                        <td>15,479</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">C. humblotiana vs F. pennsylvanica</td>
+                        <td>25,736/1,780</td>
+                        <td>18,980/588</td>
+                        <td>14,748/275</td>
+                        <td>9,217/97</td>
+                        <td rowspan="2">14.46,32.28,53.63,95.02</td>
+                        <td rowspan="2">286</td>
+                        <td rowspan="2">Chu11-Fpe21</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">12,803 vs 19,587</td>
+                        <td style="white-space:nowrap;">10,530 vs 16,703</td>
+                        <td style="white-space:nowrap;">8,937 vs 13,981</td>
+                        <td style="white-space:nowrap;">6,139 vs 9,171</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">C. humblotiana vs J. sambac</td>
+                        <td>18,596/1,503</td>
+                        <td>12,372/373</td>
+                        <td>9,797/182</td>
+                        <td>6,232/62</td>
+                        <td rowspan="2">12.37,33.17,53.83,100.52</td>
+                        <td rowspan="2">353</td>
+                        <td rowspan="2">Chu07-Jsa08</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">12,103 vs 12,951</td>
+                        <td style="white-space:nowrap;">9,494 vs 10,675</td>
+                        <td style="white-space:nowrap;">8,001 vs 9,059</td>
+                        <td style="white-space:nowrap;">5,484 vs 6,181</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">C. humblotiana vs O. europaea</td>
+                        <td>28,184/1,768</td>
+                        <td>21,606/644</td>
+                        <td>17,053/306</td>
+                        <td>10,848/106</td>
+                        <td rowspan="2">15.94,33.55,55.73,102.34</td>
+                        <td rowspan="2">342</td>
+                        <td rowspan="2">Chu11-Oeu06</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">13,788 vs 22,177</td>
+                        <td style="white-space:nowrap;">11,615 vs 19,125</td>
+                        <td style="white-space:nowrap;">10,097 vs 16,151</td>
+                        <td style="white-space:nowrap;">7,207 vs 10,824</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">C. humblotiana vs S. oblata</td>
+                        <td>24,503/1,676</td>
+                        <td>18,136/572</td>
+                        <td>14,088/266</td>
+                        <td>9,087/100</td>
+                        <td rowspan="2">14.62,31.71,52.96,90.87</td>
+                        <td rowspan="2">305</td>
+                        <td rowspan="2">Chu07-Sob09</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">13,081 vs 19,325</td>
+                        <td style="white-space:nowrap;">10,806 vs 16,236</td>
+                        <td style="white-space:nowrap;">9,166 vs 13,521</td>
+                        <td style="white-space:nowrap;">6,362 vs 9,073</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">C. humblotiana vs V. vinifera</td>
+                        <td>16,698/957</td>
+                        <td>13,205/279</td>
+                        <td>11,824/175</td>
+                        <td>8,588/74</td>
+                        <td rowspan="2">17.45,47.33,67.57,116.05</td>
+                        <td rowspan="2">379</td>
+                        <td rowspan="2">Chu06-Vvi11</td>
+                    </tr>
+
+                    <tr style="border-bottom: 2px solid black;">
+                        <td style="white-space:nowrap;">12,116 vs 1,1854</td>
+                        <td style="white-space:nowrap;">10,505 vs 10,579</td>
+                        <td style="white-space:nowrap;">9,710 vs 9,733</td>
+                        <td style="white-space:nowrap;">7,833 vs 7,818</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">F. pennsylvanica vs C. humblotiana</td>
+                        <td>29,128/2,403</td>
+                        <td>19,286/607</td>
+                        <td>14,895/278</td>
+                        <td>9,354/98</td>
+                        <td rowspan="2">12.12,31.77,53.58,95.45</td>
+                        <td rowspan="2">286</td>
+                        <td rowspan="2">Fpe21-Chu11</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">20,925 vs 12,827</td>
+                        <td style="white-space:nowrap;">16,951 vs 10,420</td>
+                        <td style="white-space:nowrap;">14,079 vs 8,839</td>
+                        <td style="white-space:nowrap;">9,307 vs 6,100</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">F. pennsylvanica vs J. sambac</td>
+                        <td>39,595/3,179</td>
+                        <td>26,027/681</td>
+                        <td>21,106/302</td>
+                        <td>15,391/116</td>
+                        <td rowspan="2">12.46,38.22,69.89,132.68</td>
+                        <td rowspan="2">526</td>
+                        <td rowspan="2">Fpe13-Jsa02</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">23,257 vs 15,383</td>
+                        <td style="white-space:nowrap;">20,118 vs 13,875</td>
+                        <td style="white-space:nowrap;">18,400 vs 13,091</td>
+                        <td style="white-space:nowrap;">15,082 vs 11,088</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">F. pennsylvanica vs O. europaea</td>
+                        <td>65,734/3,404</td>
+                        <td>51,938/976</td>
+                        <td>44,479/414</td>
+                        <td>36,186/138</td>
+                        <td rowspan="2">19.31,53.22,107.44,262.22</td>
+                        <td rowspan="2">1,288</td>
+                        <td rowspan="2">Fpe05-Oeu11</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">28,272 vs 29,513</td>
+                        <td style="white-space:nowrap;">27,017 vs 27,946</td>
+                        <td style="white-space:nowrap;">26,423 vs 27,063</td>
+                        <td style="white-space:nowrap;">25,410 vs 25,683</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">F. pennsylvanica vs S. oblata</td>
+                        <td>57,005/3,056</td>
+                        <td>44,468/845</td>
+                        <td>38,178/361</td>
+                        <td>31,294/127</td>
+                        <td rowspan="2">18.65,52.62,105.76,246.41</td>
+                        <td rowspan="2">1,214</td>
+                        <td rowspan="2">Fpe05-Sob04</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">27,004 vs 25,413</td>
+                        <td style="white-space:nowrap;">25,507 vs 24,048</td>
+                        <td style="white-space:nowrap;">24,692 vs 23,234</td>
+                        <td style="white-space:nowrap;">23,324 vs 22,151</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">F. pennsylvanica vs V. vinifera</td>
+                        <td>30,400/2,893</td>
+                        <td>18,947/830</td>
+                        <td>12,320/324</td>
+                        <td>4,545/64</td>
+                        <td rowspan="2">10.51,22.83,38.02,71.02</td>
+                        <td rowspan="2">136</td>
+                        <td rowspan="2">Fpe06-Vvi18</td>
+                    </tr>
+
+                    <tr style="border-bottom: 2px solid black;">
+                        <td style="white-space:nowrap;">20,128 vs 12,463</td>
+                        <td style="white-space:nowrap;">15,514 vs 9,879</td>
+                        <td style="white-space:nowrap;">11,340 vs 7,421</td>
+                        <td style="white-space:nowrap;">4,539 vs 3,268</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">J. sambac vs C. humblotiana</td>
+                        <td>18,434/1,507</td>
+                        <td>12,310/379</td>
+                        <td>9,670/179</td>
+                        <td>6,173/61</td>
+                        <td rowspan="2">12.23,32.48,54.02,101.2</td>
+                        <td rowspan="2">350</td>
+                        <td rowspan="2">Jsa08-Chu07</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">13,112 vs 11,479</td>
+                        <td style="white-space:nowrap;">10,679 vs 9,398</td>
+                        <td style="white-space:nowrap;">8,956 vs 7,847</td>
+                        <td style="white-space:nowrap;">6,120 vs 5,421</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">J. sambac vs F. pennsylvanica</td>
+                        <td>34,088/2,220</td>
+                        <td>25,135/629</td>
+                        <td>20,738/294</td>
+                        <td>15,305/117</td>
+                        <td rowspan="2">15.35,39.96,70.54,130.81</td>
+                        <td rowspan="2">525</td>
+                        <td rowspan="2">Jsa02-Fpe13</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">15,308 vs 21,693</td>
+                        <td style="white-space:nowrap;">13,945 vs 19,689</td>
+                        <td style="white-space:nowrap;">13,156 vs 18,129</td>
+                        <td style="white-space:nowrap;">11,194 vs 15,034</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">J. sambac vs O. europaea</td>
+                        <td>36,377/2,095</td>
+                        <td>28,266/680</td>
+                        <td>23,489/322</td>
+                        <td>17,678/134</td>
+                        <td rowspan="2">17.36,41.57,72.95,131.93</td>
+                        <td rowspan="2">647</td>
+                        <td rowspan="2">Jsa02-Oeu12</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">16,336 vs 24,658</td>
+                        <td style="white-space:nowrap;">15,263 vs 22,506</td>
+                        <td style="white-space:nowrap;">14,572 vs 20,707</td>
+                        <td style="white-space:nowrap;">12,833 vs 17,311</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">J. sambac vs S. oblata</td>
+                        <td>32,014/1,979</td>
+                        <td>24,146/584</td>
+                        <td>20,434/299</td>
+                        <td>14,947/118</td>
+                        <td rowspan="2">16.18,41.35,68.34,126.67</td>
+                        <td rowspan="2">576</td>
+                        <td rowspan="2">Jsa02-Sob11</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">15,728 vs 21,548</td>
+                        <td style="white-space:nowrap;">14,467 vs 19,476</td>
+                        <td style="white-space:nowrap;">13,779 vs 18,121</td>
+                        <td style="white-space:nowrap;">11,629 vs 14,832</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">J. sambac vs V. vinifera</td>
+                        <td>19,432/1,818</td>
+                        <td>12,146/492</td>
+                        <td>8,352/205</td>
+                        <td>3,767/51</td>
+                        <td rowspan="2">10.69,24.69,40.74,73.86</td>
+                        <td rowspan="2">166</td>
+                        <td rowspan="2">Jsa06-Vvi5g</td>
+                    </tr>
+
+                    <tr style="border-bottom: 2px solid black;">
+                        <td style="white-space:nowrap;">12,791 vs 11,337</td>
+                        <td style="white-space:nowrap;">10,026 vs 8,982</td>
+                        <td style="white-space:nowrap;">7,589 vs 6,807</td>
+                        <td style="white-space:nowrap;">3,683 vs 3,393</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">O. europaea vs C. humblotiana</td>
+                        <td>29,974/2,136</td>
+                        <td>21,792/672</td>
+                        <td>16,852/299</td>
+                        <td>10,966/110</td>
+                        <td rowspan="2">14.03,32.43,56.36,99.69</td>
+                        <td rowspan="2">338</td>
+                        <td rowspan="2">Oeu06-Chu11</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">22,814 vs 13,273</td>
+                        <td style="white-space:nowrap;">19,126 vs 11,267</td>
+                        <td style="white-space:nowrap;">15,946 vs 9,660</td>
+                        <td style="white-space:nowrap;">10,948 vs 7,110</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">O. europaea vs F. pennsylvanica</td>
+                        <td>66,031/3,490</td>
+                        <td>51,859/993</td>
+                        <td>44,390/425</td>
+                        <td>35,694/137</td>
+                        <td rowspan="2">18.92,52.22,104.45,260.54</td>
+                        <td rowspan="2">1,270</td>
+                        <td rowspan="2">Oeu11-Fpe05</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">30,054 vs 27,278</td>
+                        <td style="white-space:nowrap;">28,185 vs 26,289</td>
+                        <td style="white-space:nowrap;">27,173 vs 25,755</td>
+                        <td style="white-space:nowrap;">25,624 vs 24,786</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">O. europaea vs J. sambac</td>
+                        <td>40,417/2,848</td>
+                        <td>28,560/690</td>
+                        <td>23,656/324</td>
+                        <td>17,741/134</td>
+                        <td rowspan="2">14.19,41.39,73.01,132.4</td>
+                        <td rowspan="2">642</td>
+                        <td rowspan="2">Oeu12-Jsa02</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">25,671 vs 16,170</td>
+                        <td style="white-space:nowrap;">22,617 vs 15,026</td>
+                        <td style="white-space:nowrap;">20,734 vs 14,314</td>
+                        <td style="white-space:nowrap;">17,341 vs 12,690</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">O. europaea vs S. oblata</td>
+                        <td>61,743/3,273</td>
+                        <td>48,410/917</td>
+                        <td>41,789/406</td>
+                        <td>34,091/140</td>
+                        <td rowspan="2">18.86,52.79,102.93,243.51</td>
+                        <td rowspan="2">1,213</td>
+                        <td rowspan="2">Oeu11-Sob04</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">30,689 vs 27,135</td>
+                        <td style="white-space:nowrap;">28,556 vs 25,620</td>
+                        <td style="white-space:nowrap;">27,460 vs 24,993</td>
+                        <td style="white-space:nowrap;">25,682 vs 23,985</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">O. europaea vs V. vinifera</td>
+                        <td>30,614/2,604</td>
+                        <td>20,640/848</td>
+                        <td>14,060/351</td>
+                        <td>5,835/80</td>
+                        <td rowspan="2">11.76,24.34,40.06,72.94</td>
+                        <td rowspan="2">136</td>
+                        <td rowspan="2">Oeu18-Vvi14</td>
+                    </tr>
+
+                    <tr style="border-bottom: 2px solid black;">
+                        <td style="white-space:nowrap;">21,701 vs 12,781</td>
+                        <td style="white-space:nowrap;">17,213 vs 10,479</td>
+                        <td style="white-space:nowrap;">12,855 vs 8,141</td>
+                        <td style="white-space:nowrap;">5,741 vs 4,041</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">S. oblata vs C. humblotiana</td>
+                        <td>26,529/2,048</td>
+                        <td>18,193/571</td>
+                        <td>14,198/270</td>
+                        <td>9,106/100</td>
+                        <td rowspan="2">12.95,31.86,52.59,91.06</td>
+                        <td rowspan="2">307</td>
+                        <td rowspan="2">Sob09-Chu07</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">20,175 vs 12,812</td>
+                        <td style="white-space:nowrap;">16,270 vs 10,535</td>
+                        <td style="white-space:nowrap;">13,538 vs 9,014</td>
+                        <td style="white-space:nowrap;">9,082 vs 6,211</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">S. oblata vs F. pennsylvanica</td>
+                        <td>57,204/3,146</td>
+                        <td>44,125/830</td>
+                        <td>38,177/369</td>
+                        <td>31,036/126</td>
+                        <td rowspan="2">18.18,53.16,103.46,246.32</td>
+                        <td rowspan="2">1,201</td>
+                        <td rowspan="2">Sob04-Fpe05</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">26,073 vs 26,092</td>
+                        <td style="white-space:nowrap;">24,264 vs 24,866</td>
+                        <td style="white-space:nowrap;">23,461 vs 24,191</td>
+                        <td style="white-space:nowrap;">22,214 vs 22,905</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">S. oblata vs J. sambac</td>
+                        <td>35,872/2,683</td>
+                        <td>24,574/617</td>
+                        <td>20,465/297</td>
+                        <td>15,114/121</td>
+                        <td rowspan="2">13.37,39.83,68.91,124.91</td>
+                        <td rowspan="2">567</td>
+                        <td rowspan="2">Sob11-Jsa02</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">22,775 vs 15,650</td>
+                        <td style="white-space:nowrap;">19,645 vs 14,282</td>
+                        <td style="white-space:nowrap;">18,125 vs 13,556</td>
+                        <td style="white-space:nowrap;">14,903 vs 11,537</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">S. oblata vs O. europaea</td>
+                        <td>61,538/3,258</td>
+                        <td>48,312/915</td>
+                        <td>41,772/410</td>
+                        <td>33,887/138</td>
+                        <td rowspan="2">18.89,52.8,101.88,245.56</td>
+                        <td rowspan="2">1,234</td>
+                        <td rowspan="2">Sob04-Oeu11</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">27,959 vs 29,938</td>
+                        <td style="white-space:nowrap;">26,073 vs 28,155</td>
+                        <td style="white-space:nowrap;">25,396 vs 27,164</td>
+                        <td style="white-space:nowrap;">24,226 vs 25,435</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">S. oblata vs V. vinifera</td>
+                        <td>26,910/2,478</td>
+                        <td>17,204/766</td>
+                        <td>11,013/291</td>
+                        <td>4,279/64</td>
+                        <td rowspan="2">10.86,22.46,37.85,66.86</td>
+                        <td rowspan="2">112</td>
+                        <td rowspan="2">Sob03-Vvi19</td>
+                    </tr>
+
+                    <tr style="border-bottom: 2px solid black;">
+                        <td style="white-space:nowrap;">19,148 vs 12,216</td>
+                        <td style="white-space:nowrap;">14,572 vs 9,707</td>
+                        <td style="white-space:nowrap;">10,309 vs 7,187</td>
+                        <td style="white-space:nowrap;">4,247 vs 3,263</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">V. vinifera vs C. humblotiana</td>
+                        <td>16,585/968</td>
+                        <td>12,898/266</td>
+                        <td>11,576/168</td>
+                        <td>8,501/73</td>
+                        <td rowspan="2">17.13,48.49,68.9,116.45</td>
+                        <td rowspan="2">369</td>
+                        <td rowspan="2">Vvi11-Chu06</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">12,100 vs 11,578</td>
+                        <td style="white-space:nowrap;">10,441 vs 10,194</td>
+                        <td style="white-space:nowrap;">9,664 vs 9,508</td>
+                        <td style="white-space:nowrap;">7,816 vs 7,790</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">V. vinifera vs F. pennsylvanica</td>
+                        <td>25,963/2,168</td>
+                        <td>17,984/784</td>
+                        <td>11,749/311</td>
+                        <td>4,236/60</td>
+                        <td rowspan="2">11.98,22.94,37.78,70.6</td>
+                        <td rowspan="2">134</td>
+                        <td rowspan="2">Vvi18-Fpe06</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">12,195 vs 18,417</td>
+                        <td style="white-space:nowrap;">9,790 vs 14,942</td>
+                        <td style="white-space:nowrap;">7,308 vs 10,878</td>
+                        <td style="white-space:nowrap;">3,072 vs 4,231</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">V. vinifera vs J. sambac</td>
+                        <td>18,971/1,765</td>
+                        <td>11,933/478</td>
+                        <td>8,336/206</td>
+                        <td>3,571/48</td>
+                        <td rowspan="2">10.75,24.96,40.47,74.4</td>
+                        <td rowspan="2">167</td>
+                        <td rowspan="2">Vvi18-Jsa12</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">11,651 vs 12,388</td>
+                        <td style="white-space:nowrap;">8,902 vs 9,796</td>
+                        <td style="white-space:nowrap;">6,832 vs 7,569</td>
+                        <td style="white-space:nowrap;">3,249 vs 3,518</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">V. vinifera vs O. europaea</td>
+                        <td>27,755/2,120</td>
+                        <td>20,067/821</td>
+                        <td>13,629/338</td>
+                        <td>5,610/76</td>
+                        <td rowspan="2">13.09,24.44,40.32,73.82</td>
+                        <td rowspan="2">137</td>
+                        <td rowspan="2">Vvi14-Oeu18</td>
+                    </tr>
+
+                    <tr >
+                        <td style="white-space:nowrap;">12,905 vs 20,613</td>
+                        <td style="white-space:nowrap;">10,598 vs 16,877</td>
+                        <td style="white-space:nowrap;">8,210 vs 12,539</td>
+                        <td style="white-space:nowrap;">3,971 vs 5,541</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" style="font-style: italic;white-space:nowrap;">V. vinifera vs S. oblata</td>
+                        <td>24,371/2,074</td>
+                        <td>16,576/741</td>
+                        <td>10,520/279</td>
+                        <td>3,490/50</td>
+                        <td rowspan="2">11.75,22.37,37.71,69.8</td>
+                        <td rowspan="2">114</td>
+                        <td rowspan="2">Vvi19-Sob03</td>
+                    </tr>
+
+                    <tr style="border-bottom: 2px solid black;">
+                        <td style="white-space:nowrap;">12,269 vs 18,033</td>
+                        <td style="white-space:nowrap;">9,739 vs 14,250</td>
+                        <td style="white-space:nowrap;">7,109 vs 9,952</td>
+                        <td style="white-space:nowrap;">2,820 vs 3,476</td>
+                    </tr>
+
+                </table>
+    <h6 class="col-md-12" style="font-family:'Arial',sans-serif;color:black;text-align:justify">
+        Note:<br>
+        Block_lens: duplicated gene pairs involved in blocks;<br>
+        ACP: average collinear gene pairs respectively per block;<br>
+        LDB: number of collinear gene pairs reside in the longest duplicated block;<br>
+        a: The slash is preceded by the number of blocks, followed by the number of collinear gene pairs;<br>
+        b: Duplicated genes involved in blocks.
+    </h6>
+
+    </div>
+
+<div style="margin-top: 50px"></div>
+
+    <script src="../../static/js/jquery-1.11.2.js"></script>
+    <script src="../../static/vendor/index.js"></script>
+    <script src="../../static/js/index.js"></script>
+
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'index.html' %}
+
+{% block head_link %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Oleaceae platform</title>
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css/modern-business.css" rel="stylesheet">
+    <link rel="icon" href="../static/image/ico.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/vendor/css/home.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/slick-theme.css"/>
+    <!-- font awesome style -->
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="../static/css/style.css" rel="stylesheet"/>
+    <!-- responsive style -->
+    <link href="../static/css/responsive.css" rel="stylesheet"/>
+    <link href="../static/vendor/css/style.css" rel="stylesheet">
+
+    <script src="../static/js/jquery-3.5.1.js"></script>
+    <script src="../static/js/jquery.dataTables.min.js"></script>
+    <link href="../static/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "scrollX": true,
+                "deferRender": true
+            })
+        });
+    </script>
+{% endblock %}
+
+
+{% block body_index %}
+    <h3 class="h3_1 h3_6"
+        style="background-image:url(../static/image/ico.png); font-family:'Arial',sans-serif;color:black;"><b>Submit</b><i></i>
+    </h3>
+
+    <div class="row">
+        <div class="col-3 bg-light">
+            <!-- <div class="sticky-top"> -->
+                <ol class="flex-column">
+                    <li><a style="color: black" href="#Welcome">Welcome to submit plant data to the OGRP</a></li>
+                    <li><a style="color: black" href="#submitted">Data already submitted</a></li>
+                    <li><a style="color: black" href="#Policy">OGRP Data Policy</a></li>
+                    <li><a style="color: black" href="#Publication">OGRP Publication Policy</a></li>
+                </ol>
+            <!-- </div> -->
+        </div>
+
+        <div class="col-lg-9">
+                <div class="col-lg-12">
+                    <p><b><i class="bi bi-dot" id="Welcome">Welcome to submit plant data to the OGRP</i></b></p>
+                    <p style="text-align: justify">If you have a new set of genomic data in a plant and would like to submit them to OGRP. Please email your genomic data to contact us  and include the following information. </p>
+                </div>
+
+                <div class="col-lg-12">
+                    <p><b><i class="bi bi-dot" id="submitted">Data already submitted</i></b></p>
+                    <table id="example" class="display" style="width:100%">
+                        <thead>
+                            <tr style="text-align: center">
+                                <th>Species_name</th>
+                                <th>Abbr</th>
+                                <th>chr_number</th>
+                                <th>Genes_number</th>
+                                <th>GFF3</th>
+                                <th>CDS</th>
+                                <th>PEP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="text-align: center">
+                                <td>Olea europaea</td>
+                                <td>Oeu</td>
+                                <td>23</td>
+                                <td>48772</td>
+                                <td style="width: 200px;text-align: center"><a href="../static/species_data/Oeu.new.gff">Oeu.gff</a></td>
+                                <td style="width: 200px;text-align: center"><a href="../static/species_data/Oeu.cds">Oeu.cds</a></td>
+                                <td style="width: 200px;text-align: center"><a href="../static/species_data/Oeu.pep">Oeu.pep</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 12px; color: darkred"><b>* There are restrictions on the use of this form. Please be sure to read and follow the usage policies outlined in the website on this page.</b></p>
+                    <p>For more Oleaceae related genomic data please see <a href="{% url "species_data_url" %}"><b>Genome</b></a>.</p>
+
+                </div>
+
+                <div class="col-lg-12">
+                    <p><b><i class="bi bi-dot" id="Policy">OGRP Data Policy</i></b></p>
+                    <p style="text-align: justify">The data produced and published by OGRP is governed by the following data policy. Our mission is to support open data and information sharing. We also recognize the need for limited and time-sensitive protection of certain types of data to support the use of such data by those who generate it.</p>
+
+                    <p style="text-align: justify">For sequencing projects: Data are subject to a one-year embargo. For each data or analytical product (raw or processed), the embargo begins upon completion of the standard deliverables as described in the catalog. At the end of the embargo period, the data will be publicly available on the relevant OGRP portal and will not be subject to use restrictions.</p>
+
+                </div>
+
+                <div class="col-lg-12">
+                    <p><b><i class="bi bi-dot" id="Publication">OGRP Publication Policy</i></b></p>
+                    <p style="text-align: justify">OGRP is keen to see the data generated by the facility lead to scientific publications. OGRP users and collaborators have the right to produce publication manuscripts and the responsibility to lead this effort, and OGRP would like to receive confirmation (see sponsorship statement below) of the sequence data generated as well as any other contributions such as assembly, analysis, annotation, validation, creation of genome browsers, etc.</p>
+
+                    <p style="text-align: justify">Users, collaborators, and OGRP are jointly committed to publishing the first analysis of data generated by this facility, provided it is done in a timely manner. Publications resulting from these efforts should specify the collaborative nature of the project, and it is expected that authorship should include all those who have contributed significantly to the work.</p>
+
+                    <p style="text-align: justify">OGRP has extensive experience and capabilities in the analysis, annotation, comparative analysis and interpretation of sequence and functional genomics data types, as well as advanced assembly and engineering strategies for DNA synthesis applications. If OGRP personnel have made significant contributions to data generation and analysis or DNA synthesis and engineering efforts in a manner that goes beyond the deliverables of OGRP standard products and/or have made substantial intellectual contributions to the production of the manuscript, it is best practice to include these individuals as authors of the publication. Attribution arrangements should reflect the respective contributions of collaborators and users. For example, if JGI staff played a lead role in the analysis, planning, writing, and editing of the manuscript under an agreement with the collaborator, it is desirable that these individuals appear as first and/or senior authors of the paper.</p>
+
+                    <ol>
+                        <li>Current scientific name <b>(required)</b> and Common name (optional)</li>
+                        <li>Genome size <b>(required)</b></li>
+                        <li>Contig N50 <b>(required)</b></li>
+                        <li>Genes <b>(required)</b></li>
+                        <li>Genomic sequence, (FASTA) <b>(required)</b></li>
+                        <li>Annotated features (GTF) (optional)</li>
+                        <li>Annotated features (GFF3) (optional)</li>
+                        <li>Sequence and annotation (GBFF) (optional)</li>
+                        <li>Sequence and annotation (GBFF) (optional)</li>
+                        <li>Transcripts (FASTA) (optional)</li>
+                        <li>Genomic CDS (FASTA) (optional)</li>
+                        <li>Proteins (FASTA) (optional)</li>
+                    </ol>
+                </div>
+
+
+                <div class="col-lg-12">
+                    <p><b><i class="bi bi-dot" id="Policy">OGRP Data Safety</i></b></p>
+                    <p style="text-align: justify">To ensure the security and reliability of user data submission and storage processes, the following measures can be taken:</p>
+
+                    <p style="text-align: justify">1. Data Encryption.</p>
+                    <p> - Use the HTTPS protocol during data transmission to ensure that data is not intercepted or tampered with during transit.</p>
+                    <p> - Encrypt data stored on the server to prevent unauthorized access.</p>
+
+                    <p style="text-align: justify">2. Data Backup and Recovery.</p>
+                    <p> - Perform regular data backups to ensure quick recovery in case of data loss or damage.</p>
+                    <p> - Test data recovery processes to ensure the integrity and availability of backup data.</p>
+
+                    <p style="text-align: justify">3. Logging and Monitoring.</p>
+                    <p> - Implement detailed logging to record all data access and operation activities.</p>
+                    <p> - Monitor for abnormal activities and promptly respond to potential security threats.</p>
+
+                    <p style="text-align: justify">4. Regular Security Audits and Testing.</p>
+                    <p> - Conduct regular security audits and vulnerability scans to identify and fix potential security weaknesses.</p>
+                    <p> - Perform penetration testing to simulate attacker behavior and detect system vulnerabilities.</p>
+                </div>
+
+
+                <div class="col-lg-12">
+                    <p>New genomic data will be named after the manuscript is accepted. For more information, please see the literature page or contact us . All submissions will be greatly appreciated! </p>
+                </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
+
+
+{% block list_js %}
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

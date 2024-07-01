@@ -1,0 +1,148 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+    <h3 class="h3_1" style="background-image:url(../static/image/ico.png)"><b>Terpene and phenylpropanoid/benzenoid biosynthesis statistics</b><i></i></h3>
+
+    <script type="text/javascript" src="../static/js/echarts.min.js"></script>
+
+
+    <div id="container" style="height: 500px">
+    </div>
+
+
+
+
+    <script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    var option;
+
+    var xAxisData = ["DXS","GPPS","HMGR","PAL","TPS"];
+    var data1 = [];
+    var data2 = [];
+    var data3 = [];
+    var data4 = [];
+    var data5 = [];
+    var data6 = [];
+
+
+
+
+    for (var i = 0; i < 12; i++) {
+            // xAxisData.push('Class' + i);
+<!--            "TPS","HMGR","DXS","GPPS","PAL"-->
+            data1.push(13,19,12,8,128);
+            data2.push(12,10,4,4,121);
+            data3.push(18,17,12,12,192);
+            data4.push(27,25,14,5,199);
+            data5.push(6,9,1,0,22);
+            data6.push(12,12,5,8,24);
+
+
+
+    }
+
+    var emphasisStyle = {
+            itemStyle: {
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0,0,0,0.3)'
+            }
+    };
+
+    option = {
+            legend: {
+                    data: ['Fpe', 'Jsa', 'Oeu',  'Sob',  'Chu', 'Vvi'],
+                    left: '10%'
+            },
+            brush: {
+                    toolbox: ['rect', 'polygon', 'lineX', 'lineY', 'keep', 'clear'],
+                    xAxisIndex: 0
+            },
+
+            toolbox: {
+                    feature: {
+                            magicType: {
+                                    type: ['stack', 'tiled']
+                            },
+                            dataView: {}
+                    }
+            },
+            tooltip: {},
+
+            color: ['#E673A0','#E64D77', '#35BAE6', '#2B7E99', '#992343', '#E6DD63', "#01BFBF", "#1C8FFF", "#FD8E63", "#CC9900", "#BCB66A"],
+            xAxis: {
+                    data: xAxisData,
+                    name: 'gene family',
+                    nameRotate: 30,
+                    splitLine: {show: false},
+                    splitArea: {show: false},
+                    axisLabel: {fontStyle: 'italic'}
+            },
+            yAxis: {},
+            grid: {
+                    bottom: 100
+            },
+            series: [
+                    {
+                            name: 'Fpe',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data1
+                    },
+                    {
+                            name: 'Jsa',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data2
+                    },
+                    {
+                            name: 'Oeu',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data3
+                    },
+                    {
+                            name: 'Sob',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data4
+                    },
+                    {
+                            name: 'Chu',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data5
+                    },
+                    {
+                            name: 'Vvi',
+                            type: 'bar',
+
+                            emphasis: emphasisStyle,
+                            data: data6
+                    }
+            ]
+    };
+
+    option && myChart.setOption(option);
+        myChart.on('click', function (params) {
+                var name = params.name;
+<!--                "TPS","HMGR","DXS","GPPS","PAL"-->
+                if (name === "DXS") {window.location.href="/browse/Functional_genes/DXS/";}
+				if (name === "GPPS") {window.location.href="/browse/Functional_genes/GPPS/";}
+                if (name === "HMGR") {window.location.href="/browse/Functional_genes/HMGR/";}
+                if (name === "PAL") {window.location.href="/browse/Functional_genes/PAL/";}
+				if (name === "TPS") {window.location.href="/browse/Functional_genes/TPS/";}
+
+            });
+
+
+    </script>
+
+{% endblock %}
