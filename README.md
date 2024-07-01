@@ -1,7 +1,3 @@
-Sure, here is an example of a README file for your Django project on GitHub:
-
----
-
 # OGRP Django Project
 
 This is a Django project.
@@ -78,10 +74,5 @@ You can now access the project at `http://127.0.0.1:8000/`.
 4.  Push to the branch: `git push origin my-feature-branch`
 5.  Submit a pull request.
 
-## License
-
-This project is licensed under the MIT License.
-
----
-
-Feel free to customize this template according to the specifics of your project.  If you have any special instructions or additional setup steps, make sure to include them in the README.
+## Copyright
+© [2024] College of Life Science, North China University of Science and Technology.  All rights reserved.
