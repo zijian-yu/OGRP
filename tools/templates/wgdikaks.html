@@ -1,0 +1,86 @@
+{% extends 'index.html' %}
+
+
+
+{% block body_index %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">WGDI<i></i>
+                </h3>
+
+                <ul class="list-group mb-3">
+                    <a href="{% url 'wgdi_dotplot_url' %}">
+                        <li class="list-group-item d-flex justify-content-between lh-sm bg-light">
+                            <div class="text-success">
+                                    <h6 class="my-0">WGDI dotplot</h6>
+                                <small>Homologous structure mapping</small>
+                            </div>
+                        </li>
+                    </a>
+
+                    <a href="{% url 'wgdimcs_url' %}">
+                        <li class="list-group-item d-flex justify-content-between lh-sm bg-light">
+                            <div class="text-success">
+                                    <h6 class="my-0">WGDI Syntenic</h6>
+                                <small>WGDI covariance matching function</small>
+                            </div>
+                        </li>
+                    </a>
+
+                    <a href="{% url 'wgdikaks_url' %}">
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="text-success">
+                                    <h6 class="my-0">WGDI kaks</h6>
+                                <small>WGDI kaks calculation</small>
+                            </div>
+                        </li>
+                    </a>
+
+                    <a href="{% url 'wgdikaks_dot_url' %}">
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="text-success">
+                                    <h6 class="my-0">WGDI kaks dot</h6>
+                                <small>WGDI ks dotplot mapping</small>
+                            </div>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+
+            <div class="col-lg-8">
+                <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">WGDI-kaks<i></i>
+                </h3>
+
+                <form action="wgdikaks_run" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="row g-3">
+                        <div class="form-group col-sm-4">
+                            <label for="exampleInputFile">Upload the pep file:</label>
+                            <input class="form-control" style="display: initial" type="file" name="pep">
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label>Upload the cds file:</label>
+                            <input class="form-control" style="display: initial" type="file" name="cds">
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label>Upload the colinearity file:</label>
+                            <input class="form-control" style="display: initial" type="file" name="colinearity">
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label for="exampleInputEmail2">Your email：</label>
+                            <input class="form-control" name="email" type="email" id="exampleInputEmail2" placeholder="1111111@example.com">
+                        </div>
+
+                        <input class="col-sm-12 w-100 btn btn-primary btn-lg" type="submit" value="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

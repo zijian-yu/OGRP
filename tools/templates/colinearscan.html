@@ -1,0 +1,161 @@
+{% extends 'index.html' %}
+
+
+{% block body_index %}
+    <div class="container" xmlns="">
+        <div class="row">
+            <!--example-->
+            <div class="col-lg-4">
+                <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Example<i></i></h3>
+                <h6 style="text-align: justify;">&nbsp&nbsp ColinearScan can effectively predict the collinearity of the tested genome through dynamic programming algorithms. Upload the target blast file, species gff files, and genome lens files to infer collinear genes. E value < 1e-5, and hitnum value is 30.</h6>
+                <div > <hr style="border: 1px dashed #000; width: 100%;height: 1px; margin: 8px"/></div>
+                <h6>Example : <a href="../../static/example/ColinearScan/ZM-OS.filter.blast">blast</a>&nbsp&nbsp<a href="../../static/example/ColinearScan/ZM.gff">gff1</a>&nbsp&nbsp<a href="../../static/example/ColinearScan/OS.gff">gff2</a></h6>
+
+                <!-- <h6>Input file 1 : <a href="../../static/example/blast.txt" target="_blank">blast</a> </h6> -->
+                <!-- <img style="width: 100%" src="../../static/image/example_blast.png" alt=""> -->
+                <!-- <h6>Input file 2 : <a href="../../static/example/Fpe.new.gff" target="_blank">gff</a> </h6> -->
+                <!-- <img style="width: 100%" src="../../static/image/example_newgff.png" alt=""> -->
+                <!-- <h6>Input file 3 : <a href="../../static/example/Fpe.lens" target="_blank">lens</a> </h6> -->
+                <!-- <img style="width: 100%" src="../../static/image/example_lens.png" alt=""> -->
+
+                <!-- <p style="text-align: left;"></p> -->
+                <!-- <div > <hr style="border: 1px dashed #000; width: 100%;height: 1px; margin: 8px"/></div> -->
+
+                <!-- <h6>Output result : <a href="../../static/example/Fpe_Fpe.block.rr.txt" target="_blank">block</a> </h6> -->
+                <!-- <img style="width: 100%" src="../../static/image/example_collinear.png" alt=""> -->
+                <!-- <div > <hr style="border: 1px dashed #000; width: 100%;height: 1px; margin: 8px"/></div> -->
+
+            </div>
+
+            <div class="col-lg-8">
+                <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png);">ColinearScan<i></i>
+                </h3>
+
+                <form action="colinearscan_run" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-sm-12">
+                            <label for="formFile" class="form-label">Upload the target blast file</label>
+                            <input class="form-control" type="file" id="formFile" name="blast" required>
+                            <div class="invalid-feedback">
+                                File not uploaded
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="formFile" class="form-label">Upload species gff file</label>
+                            <input class="form-control" type="file" id="formFile" name="gff1" required>
+                            <div class="invalid-feedback">
+                                File not uploaded
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="formFile" class="form-label">Upload species gff file</label>
+                            <input class="form-control" type="file" id="formFile" name="gff2" required>
+                            <div class="invalid-feedback">
+                                File not uploaded
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12">
+                            <label for="lastName" class="form-label">Or upload blast information</label>
+{#                             <button type="button" class="" id="query_sequence">Example</button>#}
+                            <div class="input-group">
+                                <textarea class="form-control" id="lastName_query_sequence" name="query_sequence" required style="height: 100px"></textarea>
+                            </div>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Or upload gff 1 information</label>
+{#                             <button type="button" class="" id="query_sequence_2">Example</button>#}
+                            <div class="input-group">
+                                <textarea class="form-control" id="lastName_query_sequence_2" name="query_sequence_2" required style="height: 100px"></textarea>
+                            </div>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Or upload gff 2 information</label>
+{#                             <button type="button" class="" id="query_sequence_3">Example</button>#}
+                            <div class="input-group">
+                                <textarea class="form-control" id="lastName_query_sequence_3" name="query_sequence_3" required style="height: 100px"></textarea>
+                            </div>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label for="firstName" class="form-label">Enter e_value</label>
+                            <input type="text" class="form-control" id="firstName" name="e_value" value="1e-5" required>
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label for="lastName" class="form-label">Enter score value</label>
+                            <input type="text" class="form-control" id="lastName" name="score" value="0" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label for="lastName" class="form-label">Enter hitnum value</label>
+                            <input type="text" class="form-control" id="lastName" name="hitnum" value="30" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="state" class="form-label">Pos or order</label>
+                            <select class="form-control" id="state" name="pos_order" required>
+                                <option value="order">order</option>
+                                <option value="pos">pos</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="state" class="form-label">Is or not cdsvchr </label>
+                            <select class="form-control" id="state" name="cdsvchr" required>
+                                <option value="i">is</option>
+                                <option value="n">no</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
+                        </div>
+
+{#                        <div class="col-md-12">#}
+{#                            <label for="email" class="form-label">Email <span class="text-muted"></span></label>#}
+{#                            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>#}
+{#                            <div class="invalid-feedback">#}
+{#                                Please enter a valid email address.#}
+{#                            </div>#}
+{#                        </div>#}
+                    </div>
+
+                    <hr class="my-4">
+                    <input class="w-100 btn btn-primary btn-lg" type="submit" value="submit">
+                </form>
+
+                <div style="height: 10px;" > <hr style="border: 1px dashed #000; width: 100%;height: 1px; margin: 8px"/></div>
+
+                <!-- <img style="width: 100%" src="../../static/image/example_synteny.png" alt=""> -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'index.html' %}
+
+
+
+{% block body_index %}
+    <div class="row">
+        <div class="col-lg-4">
+            <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Example<i></i></h3>
+			<h6 style="text-align: justify;">&nbsp&nbsp  Synvisio is an interactive multiscale visualization tool that allows you to explore the results of McScanX. We have created a complete genome library of species on the server, where users can select species for synteny analysis and display detailed synteny relationships between different chromosomes.</h6>
+
+                <div > <hr style="border: 1px dashed #000; width: 100%;height: 1px; margin: 8px"/></div>
+            
+        </div>
+
+    <div class="col-lg-8">
+                <h3 class="h3_1 h3_6" style="background-image:url(../../static/image/ico.png); font-family:'Arial',sans-serif;color:black;">Synvisio<i></i>
+                </h3>
+
+        <form action="synvisio_run" method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="state" class="form-label">species database</label>
+                    <select style="font-style: italic;" class="form-control" id="state" name="sp_data_1" required>
+                        <option value="Fpe">Fraxinus pennsylvanica</option>
+                        <option value="Jsa">Jasminum sambac</option>
+                        <option value="Oeu">Olea europaea</option>
+                        <option value="Sob">Syringa oblata</option>
+                        <option value="Chu">Coffea humblotiana</option>
+                        <option value="Vvi">Vitis vinifera</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please provide a valid state.
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="state" class="form-label">species database</label>
+                    <select style="font-style: italic;" class="form-control" id="state" name="sp_data_2" required>
+                        <option value="Jsa">Jasminum sambac</option>
+                        <option value="Fpe">Fraxinus pennsylvanica</option>
+                        <option value="Oeu">Olea europaea</option>
+                        <option value="Sob">Syringa oblata</option>
+                        <option value="Chu">Coffea humblotiana</option>
+                        <option value="Vvi">Vitis vinifera</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please provide a valid state.
+                    </div>
+                </div>
+
+                <div style="width: 100%; height: 40px; background-color: #FFFFFF">
+                </div>
+
+                    <input class="w-100 btn btn-primary btn-lg" type="submit" value="submit" onclick="go()">
+
+                    <center>
+                        <span id="wait1" class="spinner-border spinner-border-sm" style="display:none"></span>
+                        <span id="wait2" style="display:none;padding-top: 30px">&nbsp;&nbsp;It is running, please wait a moment!</span>
+                    </center>
+                    <script>
+                        function go() {
+                            var hh1 = document.getElementById("wait1");
+                            var hh2 = document.getElementById("wait2");
+                            if (hh1.style.display === "none" && hh2.style.display === "none") {
+                                hh1.style.display = "inline-block";
+                                hh2.style.display = "inline-block"
+                            }
+                            document.getElementById('go').submit()
+                        }
+                    </script>
+            </div>
+        </form>
+
+        <div style="height: 10px;" > <hr style="border: 1px dashed #000; width: 100%;height: 1px; margin: 8px"/></div>
+
+        <!-- <img style="width: 100%" src="../../static/image/example_synteny.png" alt=""> -->
+
+        </div>
+
+
+    </div>
+
+
+{#    <iframe src="http://47.92.161.27:8523/#/dashboard/bn" style="height: 1400px;width: 100%"></iframe>#}
+
+{% endblock %}
